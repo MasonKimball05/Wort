@@ -1,0 +1,115 @@
+# Wort's apps. Generate the Xcode project with: xcodegen generate
+# WortCore (Package.swift) is the tested logic; `swift test` runs it on its own.
+name: Wort
+options:
+  deploymentTarget:
+    iOS: "26.0"
+    macOS: "26.0"
+packages:
+  WortKit:
+    path: .
+settings:
+  base:
+    # My paid Apple Developer team; Xcode signs automatically and creates the
+    # iCloud container and App Group on first build.
+    DEVELOPMENT_TEAM: F4P3T9JYP2
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "6.0"
+    GENERATE_INFOPLIST_FILE: NO
+    MARKETING_VERSION: "0.1"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  Wort-iOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources/WortApp
+      - path: Resources/Assets.xcassets
+    dependencies:
+      - package: WortKit
+        product: WortCore
+      - target: WortShare
+    entitlements:
+      path: Resources/Wort-iOS.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.masonkimball.wort]
+        com.apple.developer.icloud-container-identifiers: [iCloud.com.masonkimball.wort]
+        com.apple.developer.icloud-services: [CloudKit]
+        aps-environment: development
+    info:
+      path: Resources/Info-iOS.plist
+      properties:
+        CFBundleDisplayName: Wort
+        UILaunchScreen: {}
+        # CloudKit wakes the app with a silent push when the other device changes something.
+        UIBackgroundModes: [remote-notification]
+        CFBundleURLTypes:
+          - CFBundleURLName: com.masonkimball.wort
+            CFBundleURLSchemes: [wort]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.masonkimball.wort
+        PRODUCT_NAME: Wort
+        TARGETED_DEVICE_FAMILY: "1"
+
+  # Share a word (or a sentence) from Safari, Books, Notes... It only writes a
+  # small file into the App Group's inbox; the app looks the word up next launch.
+  WortShare:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Sources/WortShare
+      - path: Sources/WortApp/AppGroupShared.swift
+    dependencies:
+      - package: WortKit
+        product: WortCore
+    entitlements:
+      path: Resources/WortShare.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.masonkimball.wort]
+    info:
+      path: Resources/Info-Share.plist
+      properties:
+        CFBundleDisplayName: Wort
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsText: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.masonkimball.wort.share
+        PRODUCT_NAME: WortShare
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+
+  Wort-macOS:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources/WortApp
+      - path: Resources/Assets.xcassets
+    dependencies:
+      - package: WortKit
+        product: WortCore
+    entitlements:
+      path: Resources/Wort-macOS.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.developer.icloud-container-identifiers: [iCloud.com.masonkimball.wort]
+        com.apple.developer.icloud-services: [CloudKit]
+        com.apple.developer.aps-environment: development
+    info:
+      path: Resources/Info-macOS.plist
+      properties:
+        CFBundleDisplayName: Wort
+        LSApplicationCategoryType: public.app-category.education
+        CFBundleURLTypes:
+          - CFBundleURLName: com.masonkimball.wort
+            CFBundleURLSchemes: [wort]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.masonkimball.wort
+        PRODUCT_NAME: Wort

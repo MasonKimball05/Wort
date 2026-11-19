@@ -1,0 +1,653 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B8E76475F713671CC6F1E52 /* WortApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181A15363F69F911C1A532 /* WortApp.swift */; };
+		130A6D12770F0B12C014ACC6 /* WordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D23C13C2A41EE4CB1C16D /* WordsView.swift */; };
+		1CFDFFFFD75FFD0D66A8DC3F /* AppGroupShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */; };
+		278B83546453972463B1BD7B /* WortShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 648452B00EAB6006BE7DB858 /* WortShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		397F7033E8708A05F4403EE5 /* WordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D23C13C2A41EE4CB1C16D /* WordsView.swift */; };
+		3E1202ADBD24B16C2067B12B /* AppGroupShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */; };
+		49A0CDC154275F4D91E95632 /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7F674CA77FF1F2BDDE7D99A3 /* WortCore */; };
+		4A7685E28D23C0B86A0EFB43 /* AppGroupShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */; };
+		67AFB69B1694EDCAD54218B7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D6A00237304E68332DB094 /* SettingsView.swift */; };
+		6B998EC2CF124F3A998F855D /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */; };
+		726249A675B1669EC2861109 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A3A1DDD4715E2395B0FB0 /* Models.swift */; };
+		72CC40E0FDDF0B6529B9FC3B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */; };
+		741A282488FD643B5064383E /* WortApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181A15363F69F911C1A532 /* WortApp.swift */; };
+		80FF26C5856654E64F3BE37D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D6A00237304E68332DB094 /* SettingsView.swift */; };
+		86C31EB38A83EDEE70FED04F /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83162EEB4809FC829924D7E /* AddWordView.swift */; };
+		98A7E4D860224B22C796DF69 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1214EB9D28FADFD61530C2 /* ShareViewController.swift */; };
+		9E16DFC9D55490B4AAD69E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5DDB1ECFEF2A4011728535 /* Assets.xcassets */; };
+		A19A157B35AA512EBF5BAF7A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A3A1DDD4715E2395B0FB0 /* Models.swift */; };
+		B6C4FDAD3C4654D69F255DF2 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAB0F0704315AC0DD0D1B /* Services.swift */; };
+		C7AFA135532EE211E9C48D0C /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7A65A799E521079555D7A069 /* WortCore */; };
+		CDAF476C8EE7FE3F763798B0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */; };
+		D0C46504B7E0870FB1D030D7 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAB0F0704315AC0DD0D1B /* Services.swift */; };
+		E7712B5199EF4458197831B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5DDB1ECFEF2A4011728535 /* Assets.xcassets */; };
+		EC465DF93CA719CEFB8EE9A1 /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = AA042B7EE96B8540293F118D /* WortCore */; };
+		F4B44DFB75581EEFBD497F4E /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83162EEB4809FC829924D7E /* AddWordView.swift */; };
+		F8FBC3C1C08D1B98E78EF041 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F76D5790B58A9774C1FEE39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37057742215D49DABE712E9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8398BAB4B5AC37A9E72A7335;
+			remoteInfo = WortShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58825C0E27BCC06FFF69822F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				278B83546453972463B1BD7B /* WortShare.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		047A3A1DDD4715E2395B0FB0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1A5DDB1ECFEF2A4011728535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39A450C9965FB2AA81F55B9D /* Wort-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Wort-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F181A15363F69F911C1A532 /* WortApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WortApp.swift; sourceTree = "<group>"; };
+		5AF3632EA827047B5C27C5A6 /* Wort-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wort-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupShared.swift; sourceTree = "<group>"; };
+		648452B00EAB6006BE7DB858 /* WortShare.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = WortShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		928AAB0F0704315AC0DD0D1B /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		942D23C13C2A41EE4CB1C16D /* WordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsView.swift; sourceTree = "<group>"; };
+		B551113950BA799D5C1B2A21 /* wort */ = {isa = PBXFileReference; lastKnownFileType = folder; name = wort; path = .; sourceTree = SOURCE_ROOT; };
+		E83162EEB4809FC829924D7E /* AddWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordView.swift; sourceTree = "<group>"; };
+		E8D6A00237304E68332DB094 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FB1214EB9D28FADFD61530C2 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B976F2CE729DEAFDF402A10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49A0CDC154275F4D91E95632 /* WortCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B52FC6E964219F6776B27783 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7AFA135532EE211E9C48D0C /* WortCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D657BE02E856A1B4DB0EC212 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC465DF93CA719CEFB8EE9A1 /* WortCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0278BF99BD1F74EF779D3760 = {
+			isa = PBXGroup;
+			children = (
+				250F5C52EDBC8FD07527ABC1 /* Packages */,
+				BC1AAA1369909FB57A19EE45 /* Resources */,
+				DE80CA66E5AA2760C535619B /* WortApp */,
+				7AB2E90C092D337239A3062F /* WortShare */,
+				B2592A22C10BC32939FD9190 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		250F5C52EDBC8FD07527ABC1 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				B551113950BA799D5C1B2A21 /* wort */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		7AB2E90C092D337239A3062F /* WortShare */ = {
+			isa = PBXGroup;
+			children = (
+				FB1214EB9D28FADFD61530C2 /* ShareViewController.swift */,
+			);
+			name = WortShare;
+			path = Sources/WortShare;
+			sourceTree = "<group>";
+		};
+		B2592A22C10BC32939FD9190 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39A450C9965FB2AA81F55B9D /* Wort-iOS.app */,
+				5AF3632EA827047B5C27C5A6 /* Wort-macOS.app */,
+				648452B00EAB6006BE7DB858 /* WortShare.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC1AAA1369909FB57A19EE45 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A5DDB1ECFEF2A4011728535 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DE80CA66E5AA2760C535619B /* WortApp */ = {
+			isa = PBXGroup;
+			children = (
+				E83162EEB4809FC829924D7E /* AddWordView.swift */,
+				5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */,
+				047A3A1DDD4715E2395B0FB0 /* Models.swift */,
+				88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */,
+				928AAB0F0704315AC0DD0D1B /* Services.swift */,
+				E8D6A00237304E68332DB094 /* SettingsView.swift */,
+				7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */,
+				942D23C13C2A41EE4CB1C16D /* WordsView.swift */,
+				3F181A15363F69F911C1A532 /* WortApp.swift */,
+			);
+			name = WortApp;
+			path = Sources/WortApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5408D7F1F9C432563F0A9D49 /* Wort-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DBC95E37C8A4F8AD201F9C9 /* Build configuration list for PBXNativeTarget "Wort-iOS" */;
+			buildPhases = (
+				50BA22F01DFC66474279F9A1 /* Sources */,
+				9C08561707C3D31038883281 /* Resources */,
+				B52FC6E964219F6776B27783 /* Frameworks */,
+				58825C0E27BCC06FFF69822F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A7351CF1505E96D05363014 /* PBXTargetDependency */,
+			);
+			name = "Wort-iOS";
+			packageProductDependencies = (
+				7A65A799E521079555D7A069 /* WortCore */,
+			);
+			productName = "Wort-iOS";
+			productReference = 39A450C9965FB2AA81F55B9D /* Wort-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8398BAB4B5AC37A9E72A7335 /* WortShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2CCE5111C6C901D53628AAB /* Build configuration list for PBXNativeTarget "WortShare" */;
+			buildPhases = (
+				BDF6F9A4FA3ED71A8A39F482 /* Sources */,
+				6B976F2CE729DEAFDF402A10 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WortShare;
+			packageProductDependencies = (
+				7F674CA77FF1F2BDDE7D99A3 /* WortCore */,
+			);
+			productName = WortShare;
+			productReference = 648452B00EAB6006BE7DB858 /* WortShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		C5F5B74B443D41D0C61BF006 /* Wort-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8761AFD1DFB269BE2631A0A7 /* Build configuration list for PBXNativeTarget "Wort-macOS" */;
+			buildPhases = (
+				3C4CB5F272CB97FE9579DE34 /* Sources */,
+				BDF15E91EF1A2CC5F319DE5F /* Resources */,
+				D657BE02E856A1B4DB0EC212 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wort-macOS";
+			packageProductDependencies = (
+				AA042B7EE96B8540293F118D /* WortCore */,
+			);
+			productName = "Wort-macOS";
+			productReference = 5AF3632EA827047B5C27C5A6 /* Wort-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37057742215D49DABE712E9A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5408D7F1F9C432563F0A9D49 = {
+						DevelopmentTeam = F4P3T9JYP2;
+						ProvisioningStyle = Automatic;
+					};
+					8398BAB4B5AC37A9E72A7335 = {
+						DevelopmentTeam = F4P3T9JYP2;
+						ProvisioningStyle = Automatic;
+					};
+					C5F5B74B443D41D0C61BF006 = {
+						DevelopmentTeam = F4P3T9JYP2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 71530A946E50499D9A0206AF /* Build configuration list for PBXProject "Wort" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0278BF99BD1F74EF779D3760;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3D3B3D258EA45121C58CA6D0 /* XCLocalSwiftPackageReference "." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B2592A22C10BC32939FD9190 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5408D7F1F9C432563F0A9D49 /* Wort-iOS */,
+				8398BAB4B5AC37A9E72A7335 /* WortShare */,
+				C5F5B74B443D41D0C61BF006 /* Wort-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C08561707C3D31038883281 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E16DFC9D55490B4AAD69E20 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF15E91EF1A2CC5F319DE5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7712B5199EF4458197831B9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C4CB5F272CB97FE9579DE34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86C31EB38A83EDEE70FED04F /* AddWordView.swift in Sources */,
+				1CFDFFFFD75FFD0D66A8DC3F /* AppGroupShared.swift in Sources */,
+				A19A157B35AA512EBF5BAF7A /* Models.swift in Sources */,
+				F8FBC3C1C08D1B98E78EF041 /* ReviewView.swift in Sources */,
+				D0C46504B7E0870FB1D030D7 /* Services.swift in Sources */,
+				80FF26C5856654E64F3BE37D /* SettingsView.swift in Sources */,
+				CDAF476C8EE7FE3F763798B0 /* Store.swift in Sources */,
+				397F7033E8708A05F4403EE5 /* WordsView.swift in Sources */,
+				0B8E76475F713671CC6F1E52 /* WortApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50BA22F01DFC66474279F9A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4B44DFB75581EEFBD497F4E /* AddWordView.swift in Sources */,
+				3E1202ADBD24B16C2067B12B /* AppGroupShared.swift in Sources */,
+				726249A675B1669EC2861109 /* Models.swift in Sources */,
+				6B998EC2CF124F3A998F855D /* ReviewView.swift in Sources */,
+				B6C4FDAD3C4654D69F255DF2 /* Services.swift in Sources */,
+				67AFB69B1694EDCAD54218B7 /* SettingsView.swift in Sources */,
+				72CC40E0FDDF0B6529B9FC3B /* Store.swift in Sources */,
+				130A6D12770F0B12C014ACC6 /* WordsView.swift in Sources */,
+				741A282488FD643B5064383E /* WortApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF6F9A4FA3ED71A8A39F482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A7685E28D23C0B86A0EFB43 /* AppGroupShared.swift in Sources */,
+				98A7E4D860224B22C796DF69 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A7351CF1505E96D05363014 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8398BAB4B5AC37A9E72A7335 /* WortShare */;
+			targetProxy = 5F76D5790B58A9774C1FEE39 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1BCE9F20A8CD2BD4D51C5EA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = F4P3T9JYP2;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		430BA4C404DF3861ADDD0684 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Resources/WortShare.entitlements;
+				INFOPLIST_FILE = "Resources/Info-Share.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort.share;
+				PRODUCT_NAME = WortShare;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4513C2199AE2734629790B0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Resources/WortShare.entitlements;
+				INFOPLIST_FILE = "Resources/Info-Share.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort.share;
+				PRODUCT_NAME = WortShare;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7FD90DE97F20A50B0857CB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Resources/Wort-macOS.entitlements";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Resources/Info-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort;
+				PRODUCT_NAME = Wort;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		846D2717F5C68FC51171B7C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Resources/Wort-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Resources/Info-iOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort;
+				PRODUCT_NAME = Wort;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		952B9C292383827C532166B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = F4P3T9JYP2;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		9CBB57A2290638C6D46A3637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Resources/Wort-macOS.entitlements";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Resources/Info-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort;
+				PRODUCT_NAME = Wort;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BC664BF39E7BD0D9F33BEE5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Resources/Wort-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Resources/Info-iOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort;
+				PRODUCT_NAME = Wort;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0DBC95E37C8A4F8AD201F9C9 /* Build configuration list for PBXNativeTarget "Wort-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846D2717F5C68FC51171B7C8 /* Debug */,
+				BC664BF39E7BD0D9F33BEE5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		71530A946E50499D9A0206AF /* Build configuration list for PBXProject "Wort" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952B9C292383827C532166B6 /* Debug */,
+				1BCE9F20A8CD2BD4D51C5EA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8761AFD1DFB269BE2631A0A7 /* Build configuration list for PBXNativeTarget "Wort-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FD90DE97F20A50B0857CB17 /* Debug */,
+				9CBB57A2290638C6D46A3637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E2CCE5111C6C901D53628AAB /* Build configuration list for PBXNativeTarget "WortShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4513C2199AE2734629790B0B /* Debug */,
+				430BA4C404DF3861ADDD0684 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3D3B3D258EA45121C58CA6D0 /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7A65A799E521079555D7A069 /* WortCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WortCore;
+		};
+		7F674CA77FF1F2BDDE7D99A3 /* WortCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WortCore;
+		};
+		AA042B7EE96B8540293F118D /* WortCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WortCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 37057742215D49DABE712E9A /* Project object */;
+}

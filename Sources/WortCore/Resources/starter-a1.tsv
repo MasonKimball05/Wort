@@ -1,0 +1,414 @@
+# Wort starter deck, A1. Original example sentences; word choice follows common A1 topics.
+# pos	article	word	plural	english	example
+n	der	Mann	Männer	man	Der Mann wartet an der Haltestelle.
+n	die	Frau	Frauen	woman; wife	Die Frau liest die Zeitung.
+n	das	Kind	Kinder	child	Das Kind spielt im Garten.
+n	der	Junge	Jungen	boy	Der Junge hat einen Hund.
+n	das	Mädchen	Mädchen	girl	Das Mädchen lernt Englisch.
+n	die	Familie	Familien	family	Meine Familie wohnt in Berlin.
+n	die	Mutter	Mütter	mother	Meine Mutter arbeitet im Krankenhaus.
+n	der	Vater	Väter	father	Mein Vater kocht gern.
+n	pl	Eltern		parents	Meine Eltern kommen am Sonntag.
+n	der	Bruder	Brüder	brother	Mein Bruder studiert in München.
+n	die	Schwester	Schwestern	sister	Meine Schwester ist zwölf Jahre alt.
+n	der	Sohn	Söhne	son	Ihr Sohn geht schon zur Schule.
+n	die	Tochter	Töchter	daughter	Seine Tochter singt im Chor.
+n	die	Oma	Omas	grandma	Am Wochenende besuchen wir die Oma.
+n	der	Opa	Opas	grandpa	Der Opa erzählt eine Geschichte.
+n	der	Freund	Freunde	friend; boyfriend	Mein Freund kommt aus Spanien.
+n	die	Freundin	Freundinnen	friend; girlfriend	Ich treffe meine Freundin im Café.
+n	der	Mensch	Menschen	person, human	Hier leben viele Menschen.
+n	pl	Leute		people	Die Leute im Haus sind sehr nett.
+n	der	Name	Namen	name	Wie ist Ihr Name?
+n	das	Alter		age	Alter und Beruf, bitte.
+n	der	Geburtstag	Geburtstage	birthday	Heute habe ich Geburtstag.
+n	die	Adresse	Adressen	address	Schreiben Sie bitte Ihre Adresse hier.
+n	die	Straße	Straßen	street	Die Straße ist sehr lang.
+n	die	Stadt	Städte	city, town	Die Stadt hat einen schönen Park.
+n	das	Land	Länder	country; countryside	Welches Land möchtest du besuchen?
+n	das	Dorf	Dörfer	village	Meine Großeltern wohnen in einem Dorf.
+n	das	Haus	Häuser	house	Das Haus hat einen großen Garten.
+n	die	Wohnung	Wohnungen	apartment	Die Wohnung hat drei Zimmer.
+n	das	Zimmer	Zimmer	room	Mein Zimmer ist klein, aber hell.
+n	die	Küche	Küchen	kitchen	Wir essen in der Küche.
+n	das	Bad	Bäder	bathroom; bath	Das Bad ist neben dem Schlafzimmer.
+n	das	Schlafzimmer	Schlafzimmer	bedroom	Im Schlafzimmer steht ein großes Bett.
+n	das	Wohnzimmer	Wohnzimmer	living room	Abends sitzen wir im Wohnzimmer.
+n	der	Garten	Gärten	garden	Im Garten blühen viele Blumen.
+n	die	Tür	Türen	door	Mach bitte die Tür zu.
+n	das	Fenster	Fenster	window	Das Fenster ist offen.
+n	der	Tisch	Tische	table	Das Buch liegt auf dem Tisch.
+n	der	Stuhl	Stühle	chair	Der Stuhl ist sehr bequem.
+n	das	Bett	Betten	bed	Ich gehe früh ins Bett.
+n	der	Schrank	Schränke	cupboard, wardrobe	Die Teller sind im Schrank.
+n	die	Lampe	Lampen	lamp	Die Lampe ist kaputt.
+n	der	Schlüssel	Schlüssel	key	Ich finde meinen Schlüssel nicht.
+n	die	Miete	Mieten	rent	Die Miete ist zu hoch.
+n	die	Schule	Schulen	school	Die Schule beginnt um acht Uhr.
+n	der	Lehrer	Lehrer	teacher (male)	Der Lehrer erklärt die Aufgabe.
+n	die	Lehrerin	Lehrerinnen	teacher (female)	Die Lehrerin ist heute krank.
+n	der	Schüler	Schüler	pupil, student (male)	Der Schüler macht seine Hausaufgaben.
+n	die	Klasse	Klassen	class; grade	Unsere Klasse fährt nach Hamburg.
+n	der	Kurs	Kurse	course	Der Deutschkurs ist am Montag.
+n	die	Frage	Fragen	question	Ich habe eine Frage.
+n	die	Antwort	Antworten	answer	Die Antwort ist richtig.
+n	das	Wort	Wörter	word	Dieses Wort kenne ich nicht.
+n	der	Satz	Sätze	sentence	Lies bitte den Satz noch einmal.
+n	die	Sprache	Sprachen	language	Sie spricht drei Sprachen.
+n	das	Buch	Bücher	book	Ich lese ein spannendes Buch.
+n	das	Heft	Hefte	notebook	Schreib das Wort ins Heft.
+n	der	Stift	Stifte	pen, pencil	Hast du einen Stift für mich?
+n	das	Papier	Papiere	paper	Ich brauche ein Blatt Papier.
+n	die	Seite	Seiten	page; side	Öffnet das Buch auf Seite zehn.
+n	die	Prüfung	Prüfungen	exam	Morgen habe ich eine Prüfung.
+n	die	Arbeit	Arbeiten	work	Die Arbeit macht mir Spaß.
+n	der	Beruf	Berufe	job, profession	Was sind Sie von Beruf?
+n	das	Büro	Büros	office	Sie arbeitet in einem Büro.
+n	die	Firma	Firmen	company, firm	Die Firma hat hundert Mitarbeiter.
+n	der	Chef	Chefs	boss	Der Chef ist heute nicht da.
+n	der	Arzt	Ärzte	doctor (male)	Ich muss zum Arzt.
+n	die	Ärztin	Ärztinnen	doctor (female)	Die Ärztin hat jetzt Zeit.
+n	das	Krankenhaus	Krankenhäuser	hospital	Das Krankenhaus ist in der Nähe.
+n	die	Apotheke	Apotheken	pharmacy	Die Apotheke ist bis sechs geöffnet.
+n	der	Kopf	Köpfe	head	Mir tut der Kopf weh.
+n	die	Hand	Hände	hand	Wasch dir die Hände.
+n	der	Arm	Arme	arm	Er hat sich den Arm gebrochen.
+n	das	Bein	Beine	leg	Nach dem Lauf tun mir die Beine weh.
+n	der	Fuß	Füße	foot	Wir gehen zu Fuß.
+n	das	Auge	Augen	eye	Sie hat blaue Augen.
+n	das	Ohr	Ohren	ear	Das Kind hält sich die Ohren zu.
+n	der	Mund	Münder	mouth	Mach den Mund auf.
+n	der	Bauch	Bäuche	belly, stomach	Ich habe Bauchschmerzen, mein Bauch tut weh.
+n	der	Zahn	Zähne	tooth	Putz dir die Zähne.
+n	die	Gesundheit		health	Gesundheit ist wichtig.
+n	das	Essen	Essen	food; meal	Das Essen ist fertig.
+n	das	Frühstück	Frühstücke	breakfast	Zum Frühstück trinke ich Kaffee.
+n	das	Mittagessen	Mittagessen	lunch	Das Mittagessen gibt es um zwölf.
+n	das	Abendessen	Abendessen	dinner, supper	Was gibt es zum Abendessen?
+n	das	Brot	Brote	bread	Ich kaufe ein Brot beim Bäcker.
+n	das	Brötchen	Brötchen	bread roll	Sonntags essen wir frische Brötchen.
+n	die	Butter		butter	Die Butter ist im Kühlschrank.
+n	der	Käse	Käse	cheese	Möchtest du Käse auf dem Brot?
+n	die	Wurst	Würste	sausage	Die Wurst ist sehr scharf.
+n	das	Fleisch		meat	Er isst kein Fleisch.
+n	der	Fisch	Fische	fish	Freitags gibt es Fisch.
+n	das	Ei	Eier	egg	Ich koche zwei Eier.
+n	das	Obst		fruit	Obst ist gesund.
+n	der	Apfel	Äpfel	apple	Der Apfel ist süß.
+n	die	Banane	Bananen	banana	Die Bananen sind noch grün.
+n	das	Gemüse	Gemüse	vegetables	Auf dem Markt kaufen wir Gemüse.
+n	die	Kartoffel	Kartoffeln	potato	Heute gibt es Kartoffeln mit Quark.
+n	die	Tomate	Tomaten	tomato	Die Tomaten kommen aus dem Garten.
+n	der	Salat	Salate	salad; lettuce	Ich nehme einen Salat.
+n	der	Reis		rice	Zum Fisch gibt es Reis.
+n	die	Nudel	Nudeln	noodle; pasta	Die Kinder essen gern Nudeln.
+n	der	Zucker		sugar	Trinkst du den Tee mit Zucker?
+n	das	Salz		salt	Die Suppe braucht noch Salz.
+n	die	Suppe	Suppen	soup	Die Suppe ist heiß.
+n	der	Kuchen	Kuchen	cake	Oma backt einen Kuchen.
+n	das	Wasser	Wasser	water	Ein Glas Wasser, bitte.
+n	der	Kaffee	Kaffees	coffee	Der Kaffee ist zu stark.
+n	der	Tee	Tees	tea	Ich trinke abends Tee.
+n	die	Milch		milk	Die Milch ist alle.
+n	der	Saft	Säfte	juice	Ein Orangensaft, bitte; der Saft ist frisch.
+n	das	Bier	Biere	beer	Er bestellt ein Bier.
+n	der	Wein	Weine	wine	Der Wein kommt aus Italien.
+n	das	Glas	Gläser	glass	Das Glas ist leer.
+n	die	Tasse	Tassen	cup	Möchtest du eine Tasse Kaffee?
+n	der	Teller	Teller	plate	Stell die Teller auf den Tisch.
+n	das	Messer	Messer	knife	Das Messer ist scharf.
+n	die	Gabel	Gabeln	fork	Ich brauche noch eine Gabel.
+n	der	Löffel	Löffel	spoon	Gib mir bitte einen Löffel.
+n	das	Restaurant	Restaurants	restaurant	Das Restaurant ist heute voll.
+n	die	Rechnung	Rechnungen	bill, invoice	Die Rechnung, bitte!
+n	der	Supermarkt	Supermärkte	supermarket	Der Supermarkt schließt um acht.
+n	der	Markt	Märkte	market	Samstags gehe ich auf den Markt.
+n	das	Geschäft	Geschäfte	shop; business	Das Geschäft ist am Sonntag zu.
+n	der	Bäcker	Bäcker	baker	Der Bäcker öffnet um sechs.
+n	das	Geld		money	Ich habe kein Geld dabei.
+n	der	Euro	Euros	euro	Das kostet zwei Euro.
+n	der	Preis	Preise	price	Der Preis ist in Ordnung.
+n	die	Kasse	Kassen	checkout, till	Bezahlen Sie bitte an der Kasse.
+n	die	Kleidung		clothes	Im Winter brauchst du warme Kleidung.
+n	die	Hose	Hosen	trousers, pants	Die Hose ist zu lang.
+n	das	Hemd	Hemden	shirt	Er trägt ein weißes Hemd.
+n	das	Kleid	Kleider	dress	Das Kleid steht dir gut.
+n	der	Rock	Röcke	skirt	Der Rock ist aus Wolle.
+n	die	Jacke	Jacken	jacket	Nimm eine Jacke mit, es ist kalt.
+n	der	Mantel	Mäntel	coat	Der Mantel hängt an der Tür.
+n	der	Schuh	Schuhe	shoe	Die Schuhe sind neu.
+n	die	Tasche	Taschen	bag; pocket	Meine Tasche ist zu schwer.
+n	die	Zeit	Zeiten	time	Hast du heute Zeit?
+n	die	Uhr	Uhren	clock, watch; o'clock	Es ist drei Uhr.
+n	die	Stunde	Stunden	hour	Der Film dauert zwei Stunden.
+n	die	Minute	Minuten	minute	Der Bus kommt in fünf Minuten.
+n	der	Tag	Tage	day	Einen schönen Tag noch!
+n	die	Woche	Wochen	week	Nächste Woche habe ich Urlaub.
+n	der	Monat	Monate	month	Der Kurs dauert einen Monat.
+n	das	Jahr	Jahre	year	Sie wohnt seit einem Jahr hier.
+n	der	Morgen	Morgen	morning	Am Morgen trinke ich Tee.
+n	der	Vormittag	Vormittage	late morning	Am Vormittag arbeite ich.
+n	der	Mittag	Mittage	noon, midday	Zu Mittag essen wir zusammen.
+n	der	Nachmittag	Nachmittage	afternoon	Am Nachmittag gehen wir schwimmen.
+n	der	Abend	Abende	evening	Guten Abend!
+n	die	Nacht	Nächte	night	Gute Nacht und schlaf gut.
+n	das	Wochenende	Wochenenden	weekend	Was machst du am Wochenende?
+n	der	Montag	Montage	Monday	Am Montag beginnt der Kurs.
+n	der	Dienstag	Dienstage	Tuesday	Dienstags habe ich frei.
+n	der	Mittwoch	Mittwoche	Wednesday	Am Mittwoch gehe ich zum Sport.
+n	der	Donnerstag	Donnerstage	Thursday	Der Termin ist am Donnerstag.
+n	der	Freitag	Freitage	Friday	Am Freitag gehen wir aus.
+n	der	Samstag	Samstage	Saturday	Am Samstag schlafe ich lange.
+n	der	Sonntag	Sonntage	Sunday	Am Sonntag besuchen wir die Eltern.
+n	der	Januar	Januare	January	Im Januar ist es kalt.
+n	der	Sommer	Sommer	summer	Im Sommer fahren wir ans Meer.
+n	der	Winter	Winter	winter	Der Winter war sehr lang.
+n	der	Frühling	Frühlinge	spring	Im Frühling wird es wärmer.
+n	der	Herbst	Herbste	autumn, fall	Im Herbst fallen die Blätter.
+n	das	Wetter		weather	Wie ist das Wetter heute?
+n	die	Sonne	Sonnen	sun	Die Sonne scheint.
+n	der	Regen		rain	Bei Regen bleiben wir zu Hause.
+n	der	Schnee		snow	Die Kinder spielen im Schnee.
+n	der	Wind	Winde	wind	Der Wind ist heute stark.
+n	der	Termin	Termine	appointment	Ich habe um zehn einen Termin.
+n	der	Urlaub	Urlaube	holiday, vacation	Wir machen Urlaub in Österreich.
+n	die	Reise	Reisen	trip, journey	Gute Reise!
+n	der	Bahnhof	Bahnhöfe	train station	Der Bahnhof ist im Zentrum.
+n	der	Zug	Züge	train	Der Zug hat Verspätung.
+n	der	Bus	Busse	bus	Ich fahre mit dem Bus.
+n	das	Auto	Autos	car	Das Auto ist in der Garage.
+n	das	Fahrrad	Fahrräder	bicycle	Ich fahre mit dem Fahrrad zur Arbeit.
+n	das	Flugzeug	Flugzeuge	airplane	Das Flugzeug landet um neun.
+n	der	Flughafen	Flughäfen	airport	Wir fahren zum Flughafen.
+n	die	Fahrkarte	Fahrkarten	ticket (train, bus)	Ich kaufe eine Fahrkarte am Automaten.
+n	das	Ticket	Tickets	ticket	Hast du die Tickets für das Konzert?
+n	die	Haltestelle	Haltestellen	stop (bus, tram)	Die Haltestelle ist gleich um die Ecke.
+n	der	Weg	Wege	way, path	Kennst du den Weg?
+n	die	Ecke	Ecken	corner	Das Café ist an der Ecke.
+n	der	Platz	Plätze	square; seat; space	Ist der Platz noch frei?
+n	das	Hotel	Hotels	hotel	Das Hotel liegt am See.
+n	der	Pass	Pässe	passport	Vergiss deinen Pass nicht!
+n	das	Gepäck		luggage	Wo kann ich mein Gepäck lassen?
+n	der	Koffer	Koffer	suitcase	Mein Koffer ist noch nicht gepackt.
+n	die	Karte	Karten	card; map; ticket	Kann ich mit Karte zahlen?
+n	der	Park	Parks	park	Wir gehen im Park spazieren.
+n	der	See	Seen	lake	Im Sommer schwimmen wir im See.
+n	das	Meer	Meere	sea	Das Meer ist heute ruhig.
+n	der	Berg	Berge	mountain	Wir wandern auf den Berg.
+n	der	Fluss	Flüsse	river	Der Fluss fließt durch die Stadt.
+n	der	Baum	Bäume	tree	Vor dem Haus steht ein alter Baum.
+n	die	Blume	Blumen	flower	Ich schenke dir Blumen.
+n	der	Hund	Hunde	dog	Der Hund bellt.
+n	die	Katze	Katzen	cat	Die Katze schläft auf dem Sofa.
+n	das	Tier	Tiere	animal	Welches Tier magst du am liebsten?
+n	das	Telefon	Telefone	telephone	Das Telefon klingelt.
+n	das	Handy	Handys	mobile phone	Mein Handy ist leer.
+n	die	Nummer	Nummern	number	Wie ist deine Nummer?
+n	die	Zahl	Zahlen	number, figure	Schreib die Zahlen in Worten.
+n	der	Computer	Computer	computer	Der Computer ist langsam.
+n	die	E-Mail	E-Mails	email	Ich schreibe dir eine E-Mail.
+n	der	Brief	Briefe	letter	Ich habe einen Brief bekommen.
+n	die	Nachricht	Nachrichten	message; news	Hast du meine Nachricht gelesen?
+n	das	Internet		internet	Das Internet ist heute langsam.
+n	das	Bild	Bilder	picture	Das Bild hängt über dem Sofa.
+n	das	Foto	Fotos	photo	Zeig mir die Fotos vom Urlaub.
+n	der	Film	Filme	film, movie	Der Film war langweilig.
+n	das	Kino	Kinos	cinema	Gehen wir heute ins Kino?
+n	die	Musik		music	Ich höre gern Musik.
+n	das	Lied	Lieder	song	Das Lied kenne ich.
+n	der	Sport		sport	Sport macht mir Spaß.
+n	der	Fußball	Fußbälle	football, soccer	Am Samstag spielen wir Fußball.
+n	das	Spiel	Spiele	game; match	Das Spiel beginnt um acht.
+n	das	Hobby	Hobbys	hobby	Lesen ist mein Hobby.
+n	die	Party	Partys	party	Kommst du zu meiner Party?
+n	das	Geschenk	Geschenke	present, gift	Danke für das Geschenk!
+n	die	Farbe	Farben	color	Welche Farbe magst du?
+n	der	Anfang	Anfänge	beginning	Am Anfang war alles neu.
+n	das	Ende	Enden	end	Am Ende des Films weinen alle.
+n	die	Hilfe	Hilfen	help	Danke für deine Hilfe.
+n	das	Problem	Probleme	problem	Kein Problem!
+n	die	Idee	Ideen	idea	Das ist eine gute Idee.
+n	die	Information	Informationen	information	Ich brauche mehr Informationen.
+n	die	Liebe		love	Liebe ist das Wichtigste.
+n	der	Spaß	Späße	fun	Viel Spaß im Urlaub!
+v		sein		to be	Ich bin müde.
+v		haben		to have	Wir haben einen Hund.
+v		werden		to become; will	Er wird bald zwanzig.
+v		können		can, to be able to	Kannst du mir helfen?
+v		müssen		must, to have to	Ich muss jetzt gehen.
+v		wollen		to want	Wir wollen ans Meer fahren.
+v		mögen		to like	Ich mag keinen Fisch.
+v		dürfen		may, to be allowed to	Darf ich hier rauchen?
+v		sollen		should, to be supposed to	Du sollst mehr Wasser trinken.
+v		gehen		to go; to walk	Wir gehen nach Hause.
+v		kommen		to come	Woher kommst du?
+v		fahren		to drive; to go (by vehicle)	Ich fahre morgen nach Köln.
+v		laufen		to run; to walk	Die Kinder laufen in den Park.
+v		fliegen		to fly	Wir fliegen nach New York.
+v		bleiben		to stay	Bleib doch noch ein bisschen!
+v		machen		to make; to do	Was machst du heute Abend?
+v		tun		to do	Was kann ich für Sie tun?
+v		sagen		to say	Was hast du gesagt?
+v		sprechen		to speak	Sprechen Sie Deutsch?
+v		fragen		to ask	Darf ich etwas fragen?
+v		antworten		to answer	Bitte antworte mir bald.
+v		erzählen		to tell	Erzähl mir von deinem Urlaub.
+v		heißen		to be called	Ich heiße Anna.
+v		wohnen		to live, to reside	Wir wohnen in einer kleinen Wohnung.
+v		leben		to live	Sie lebt seit zehn Jahren in Wien.
+v		arbeiten		to work	Er arbeitet bei einer Bank.
+v		lernen		to learn; to study	Ich lerne Deutsch.
+v		studieren		to study (at university)	Sie studiert Medizin.
+v		lesen		to read	Ich lese jeden Abend.
+v		schreiben		to write	Schreib mir eine Postkarte!
+v		hören		to hear; to listen	Hörst du die Musik?
+v		sehen		to see	Ich sehe dich morgen.
+v		schauen		to look, to watch	Schau mal, ein Regenbogen!
+v		essen		to eat	Was essen wir heute?
+v		trinken		to drink	Ich trinke keinen Alkohol.
+v		kochen		to cook	Heute koche ich Spaghetti.
+v		kaufen		to buy	Ich kaufe Brot und Milch.
+v		verkaufen		to sell	Er verkauft sein altes Fahrrad.
+v		bezahlen		to pay	Kann ich mit Karte bezahlen?
+v		kosten		to cost	Was kostet das?
+v		brauchen		to need	Ich brauche einen neuen Pass.
+v		suchen		to look for	Ich suche meine Brille.
+v		finden		to find	Ich finde den Film gut.
+v		geben		to give	Gib mir bitte das Salz.
+v		nehmen		to take	Ich nehme den Bus.
+v		bringen		to bring	Bring bitte Brot mit.
+v		helfen		to help	Kann ich Ihnen helfen?
+v		spielen		to play	Die Kinder spielen Fußball.
+v		schwimmen		to swim	Im Sommer schwimme ich viel.
+v		tanzen		to dance	Wir tanzen die ganze Nacht.
+v		singen		to sing	Sie singt sehr schön.
+v		schlafen		to sleep	Hast du gut geschlafen?
+v		aufstehen		to get up	Ich stehe um sieben Uhr auf.
+v		anfangen		to begin	Der Film fängt um acht an.
+v		beginnen		to begin	Der Unterricht beginnt pünktlich.
+v		öffnen		to open	Öffne bitte das Fenster.
+v		schließen		to close	Das Museum schließt um fünf.
+v		warten		to wait	Ich warte auf den Bus.
+v		kennen		to know (a person or place)	Kennst du meinen Bruder?
+v		wissen		to know (a fact)	Ich weiß es nicht.
+v		verstehen		to understand	Ich verstehe dich nicht.
+v		denken		to think	Ich denke oft an dich.
+v		glauben		to believe; to think	Ich glaube, es regnet bald.
+v		lieben		to love	Ich liebe dich.
+v		gefallen		to please, to like	Die Stadt gefällt mir.
+v		besuchen		to visit	Wir besuchen unsere Freunde.
+v		treffen		to meet	Wir treffen uns um sechs.
+v		reisen		to travel	Sie reist gern allein.
+v		mieten		to rent	Wir mieten ein Auto.
+v		wiederholen		to repeat	Können Sie das bitte wiederholen?
+v		zeigen		to show	Zeig mir den Weg.
+v		stehen		to stand	Die Vase steht auf dem Tisch.
+v		liegen		to lie (be lying)	Das Buch liegt auf dem Bett.
+v		sitzen		to sit	Wir sitzen im Garten.
+v		legen		to lay, to put (flat)	Leg das Handy weg.
+v		stellen		to put (upright)	Stell die Flasche in den Kühlschrank.
+v		holen		to fetch, to get	Ich hole dich vom Bahnhof ab.
+v		rufen		to call	Ruf bitte ein Taxi.
+v		anrufen		to phone	Ich rufe dich morgen an.
+v		einkaufen		to shop	Am Samstag kaufen wir ein.
+v		fernsehen		to watch TV	Abends sehen wir fern.
+v		mitkommen		to come along	Kommst du mit ins Kino?
+v		regnen		to rain	Es regnet schon den ganzen Tag.
+v		scheinen		to shine; to seem	Die Sonne scheint.
+a		gut		good; well	Das Essen ist sehr gut.
+a		schlecht		bad	Das Wetter ist schlecht.
+a		groß		big; tall	Mein Bruder ist sehr groß.
+a		klein		small; short	Die Wohnung ist zu klein.
+a		alt		old	Das Haus ist sehr alt.
+a		neu		new	Ich habe ein neues Handy.
+a		jung		young	Sie ist noch jung.
+a		schön		beautiful; nice	Was für ein schöner Tag!
+a		lang		long	Der Weg ist lang.
+a		kurz		short	Der Film ist kurz.
+a		schnell		fast	Der Zug fährt sehr schnell.
+a		langsam		slow	Sprechen Sie bitte langsam.
+a		teuer		expensive	Das Hotel ist zu teuer.
+a		billig		cheap	Die Schuhe waren billig.
+a		warm		warm	Heute ist es warm.
+a		kalt		cold	Das Wasser ist kalt.
+a		heiß		hot	Vorsicht, der Tee ist heiß!
+a		leicht		easy; light	Die Aufgabe ist leicht.
+a		schwer		difficult; heavy	Der Koffer ist schwer.
+a		einfach		simple, easy	Das ist ganz einfach.
+a		richtig		right, correct	Die Antwort ist richtig.
+a		falsch		wrong	Das ist leider falsch.
+a		müde		tired	Ich bin sehr müde.
+a		krank		ill, sick	Mein Sohn ist krank.
+a		gesund		healthy	Obst ist gesund.
+a		glücklich		happy	Sie ist sehr glücklich.
+a		traurig		sad	Warum bist du traurig?
+a		nett		nice, kind	Die Nachbarn sind nett.
+a		freundlich		friendly	Der Kellner ist sehr freundlich.
+a		lustig		funny	Der Film war lustig.
+a		interessant		interesting	Das Buch ist interessant.
+a		langweilig		boring	Die Party war langweilig.
+a		wichtig		important	Das ist sehr wichtig.
+a		fertig		ready; finished	Bist du fertig?
+a		frei		free; vacant	Ist dieser Platz frei?
+a		voll		full	Der Bus ist voll.
+a		leer		empty	Die Flasche ist leer.
+a		offen		open	Die Tür ist offen.
+a		geschlossen		closed	Das Geschäft ist geschlossen.
+a		hell		bright, light	Das Zimmer ist schön hell.
+a		dunkel		dark	Im Winter wird es früh dunkel.
+a		laut		loud	Die Musik ist zu laut.
+a		leise		quiet	Sprich bitte leise.
+a		rot		red	Das Auto ist rot.
+a		blau		blue	Der Himmel ist blau.
+a		grün		green	Die Ampel ist grün.
+a		gelb		yellow	Die Bananen sind gelb.
+a		schwarz		black	Ich trinke den Kaffee schwarz.
+a		weiß		white	Der Schnee ist weiß.
+a		lecker		tasty	Der Kuchen ist lecker.
+a		besetzt		occupied, taken	Der Platz ist leider besetzt.
+d		heute		today	Heute ist Montag.
+d		morgen		tomorrow	Morgen fahre ich nach Hause.
+d		gestern		yesterday	Gestern war ich im Kino.
+d		jetzt		now	Ich habe jetzt keine Zeit.
+d		bald		soon	Bis bald!
+d		immer		always	Er kommt immer zu spät.
+d		oft		often	Ich gehe oft schwimmen.
+d		manchmal		sometimes	Manchmal koche ich selbst.
+d		nie		never	Ich trinke nie Kaffee.
+d		hier		here	Hier ist mein Zimmer.
+d		dort		there	Dort drüben ist die Post.
+d		sehr		very	Das ist sehr nett.
+d		auch		also, too	Ich komme auch.
+d		nur		only	Ich habe nur zehn Euro.
+d		noch		still; yet	Bist du noch da?
+d		schon		already	Ich bin schon fertig.
+d		gern		gladly; like to	Ich schwimme gern.
+d		leider		unfortunately	Leider kann ich nicht kommen.
+d		vielleicht		maybe, perhaps	Vielleicht regnet es morgen.
+d		zusammen		together	Wir essen zusammen.
+d		links		left	Gehen Sie hier links.
+d		rechts		right	Die Bank ist rechts.
+d		geradeaus		straight ahead	Fahren Sie immer geradeaus.
+o		bitte		please; you're welcome	Ein Kaffee, bitte.
+o		danke		thank you	Danke für die Blumen!
+o		ja		yes	Ja, gern.
+o		nein		no	Nein, danke.
+o		nicht		not	Ich weiß es nicht.
+o		Entschuldigung		excuse me; sorry	Entschuldigung, wo ist der Bahnhof?
+o		Hallo		hello	Hallo, wie geht's?
+o		Tschüss		bye	Tschüss, bis morgen!
+o		wie		how	Wie geht es dir?
+o		wo		where	Wo wohnst du?
+o		woher		where from	Woher kommen Sie?
+o		wohin		where to	Wohin fährst du?
+o		wann		when	Wann beginnt der Kurs?
+o		warum		why	Warum lachst du?
+o		was		what	Was ist das?
+o		wer		who	Wer ist das?
+o		mit		with	Ich fahre mit dem Zug.
+o		ohne		without	Kaffee ohne Milch, bitte.
+o		für		for	Das Geschenk ist für dich.
+o		und		and	Brot und Butter.
+o		aber		but	Das Auto ist alt, aber gut.
+o		oder		or	Tee oder Kaffee?
+o		weil		because	Ich bleibe zu Hause, weil ich krank bin.

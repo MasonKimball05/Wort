@@ -1,0 +1,257 @@
+# Wort starter deck, C1. Original example sentences.
+# pos	article	word	plural	english	example	government	forms
+# --- Verbs with a fixed preposition and case ---
+v		sich berufen		to cite, to invoke	Der Anwalt berief sich auf ein älteres Urteil.	auf + Akk.	berief, hat berufen
+v		zurückgreifen		to fall back on, to draw on	In Notfällen greifen wir auf die Rücklagen zurück.	auf + Akk.	griff zurück, hat zurückgegriffen
+v		sich beschränken		to limit oneself to	Ich beschränke mich heute auf das Wesentliche.	auf + Akk.	
+v		verzichten		to do without, to forgo	Sie verzichtet seit Jahren auf Zucker.	auf + Akk.	
+v		sich verlassen		to rely on	Auf ihn kann man sich immer verlassen.	auf + Akk.	verließ, hat verlassen
+v		beruhen		to be based on	Die Geschichte beruht auf wahren Begebenheiten.	auf + Dat.	
+v		bestehen		to insist on	Er besteht auf einer schriftlichen Bestätigung.	auf + Dat.	bestand, hat bestanden
+v		hinweisen		to point out, to refer to	Ich möchte darauf hinweisen, dass die Frist morgen endet.	auf + Akk.	wies hin, hat hingewiesen
+v		abzielen		to aim at	Die Reform zielt auf mehr Transparenz ab.	auf + Akk.	
+v		sich einlassen		to get involved in, to agree to	Auf solche Bedingungen lasse ich mich nicht ein.	auf + Akk.	ließ ein, hat eingelassen
+v		haften		to be liable for	Eltern haften für ihre Kinder.	für + Akk.	
+v		sich einsetzen		to stand up for, to campaign for	Sie setzt sich für bessere Arbeitsbedingungen ein.	für + Akk.	
+v		plädieren		to argue for, to make the case for	Die Opposition plädiert für eine längere Übergangsfrist.	für + Akk.	
+v		bürgen		to vouch for, to guarantee	Der Name bürgt für Qualität.	für + Akk.	
+v		sich entscheiden		to decide on	Nach langem Überlegen entschied sie sich für das Angebot aus Wien.	für + Akk.	entschied, hat entschieden
+v		sich bewerben		to apply for	Er bewirbt sich um ein Stipendium.	um + Akk.	bewarb, hat beworben
+v		sich bemühen		to make an effort, to try to get	Wir bemühen uns um eine schnelle Lösung.	um + Akk.	
+v		sich handeln		to be a matter of, to concern	Es handelt sich um ein Missverständnis.	um + Akk.	
+v		beneiden		to envy (someone for something)	Ich beneide dich um deine Gelassenheit.	um + Akk.	
+v		sich kümmern		to take care of	Wer kümmert sich um die Katze, wenn wir weg sind?	um + Akk.	
+v		sich auseinandersetzen		to engage with, to grapple with	In der Arbeit setze ich mich kritisch mit der Quellenlage auseinander.	mit + Dat.	
+v		sich abfinden		to come to terms with, to accept	Mit der Niederlage musste er sich abfinden.	mit + Dat.	fand ab, hat abgefunden
+v		rechnen		to expect, to reckon with	Mit so viel Andrang hatte niemand gerechnet.	mit + Dat.	
+v		übereinstimmen		to agree with, to match	Ihre Aussage stimmt nicht mit den Fakten überein.	mit + Dat.	
+v		sich befassen		to deal with, to concern oneself with	Das Seminar befasst sich mit Migration im 19. Jahrhundert.	mit + Dat.	
+v		zögern		to hesitate	Er zögerte keinen Moment mit seiner Antwort.	mit + Dat.	
+v		abhängen		to depend on	Alles hängt vom Wetter ab.	von + Dat.	hing ab, hat abgehangen
+v		absehen		to refrain from; to disregard	Von einer Anzeige sehen wir vorerst ab.	von + Dat.	sah ab, hat abgesehen
+v		zeugen		to bear witness to, to show	Seine Antwort zeugt von großer Sachkenntnis.	von + Dat.	
+v		sich distanzieren		to distance oneself from	Die Partei distanzierte sich von den Äußerungen.	von + Dat.	
+v		profitieren		to benefit from	Kleine Betriebe profitieren von der neuen Regelung.	von + Dat.	
+v		sich erholen		to recover from	Von der Grippe habe ich mich gut erholt.	von + Dat.	
+v		ausgehen		to assume	Wir gehen davon aus, dass alle pünktlich sind.	von + Dat.	ging aus, ist ausgegangen
+v		leiden		to suffer from	Viele Menschen leiden unter Schlafmangel.	unter + Dat.	litt, hat gelitten
+v		sich wenden		to turn to, to address	Bei Fragen wenden Sie sich bitte an das Sekretariat.	an + Akk.	wandte, hat gewandt
+v		appellieren		to appeal to	Die Regierung appelliert an die Vernunft der Bürger.	an + Akk.	
+v		anknüpfen		to build on, to tie in with	Die neue Studie knüpft an frühere Forschungen an.	an + Akk.	
+v		grenzen		to border on	Das grenzt schon an Unverschämtheit.	an + Akk.	
+v		zweifeln		to doubt	Niemand zweifelt an ihrer Kompetenz.	an + Dat.	
+v		mangeln		to be lacking	Es mangelt an qualifizierten Fachkräften.	an + Dat.	
+v		festhalten		to hold on to, to stick to	Die Regierung hält an ihrem Kurs fest.	an + Dat.	hielt fest, hat festgehalten
+v		scheitern		to fail (because of)	Das Projekt scheiterte an der Finanzierung.	an + Dat.	
+v		sich beteiligen		to take part in	Viele Bürger beteiligten sich an der Umfrage.	an + Dat.	
+v		münden		to flow into; to lead to	Die Diskussion mündete in einen heftigen Streit.	in + Akk.	
+v		einwilligen		to consent to	Der Patient willigte in die Operation ein.	in + Akk.	
+v		sich vertiefen		to become absorbed in	Er vertiefte sich in die Akten.	in + Akk.	
+v		bestehen		to consist in	Die Schwierigkeit besteht darin, alle zu überzeugen.	in + Dat.	bestand, hat bestanden
+v		sich irren		to be mistaken about	Da irrst du dich in ihm.	in + Dat.	
+v		resultieren		to result from	Die Verzögerung resultiert aus einem Softwarefehler.	aus + Dat.	
+v		hervorgehen		to emerge from, to be evident from	Aus dem Bericht geht hervor, dass die Kosten steigen.	aus + Dat.	ging hervor, ist hervorgegangen
+v		sich zusammensetzen		to consist of	Das Gremium setzt sich aus zwölf Mitgliedern zusammen.	aus + Dat.	
+v		schließen		to conclude from	Woraus schließt du das?	aus + Dat.	schloss, hat geschlossen
+v		sich ärgern		to be annoyed about	Ich ärgere mich über die ständigen Verspätungen.	über + Akk.	
+v		verfügen		to have at one's disposal	Das Institut verfügt über modernste Geräte.	über + Akk.	
+v		sich hinwegsetzen		to disregard, to override	Er setzte sich über alle Bedenken hinweg.	über + Akk.	
+v		sich beklagen		to complain about	Die Mieter beklagten sich über den Lärm.	über + Akk.	
+v		urteilen		to judge	Man sollte nicht vorschnell über andere urteilen.	über + Akk.	
+v		warnen		to warn about	Experten warnen vor einer Überlastung des Systems.	vor + Dat.	
+v		zurückschrecken		to shrink from, to balk at	Er schreckt vor keiner Herausforderung zurück.	vor + Dat.	schreckte zurück, ist zurückgeschreckt
+v		sich hüten		to beware of, to take care not to	Hüte dich vor falschen Versprechungen!	vor + Dat.	
+v		sich fürchten		to be afraid of	Viele Kinder fürchten sich vor der Dunkelheit.	vor + Dat.	
+v		sich sehnen		to long for	Nach der langen Reise sehnte sie sich nach Ruhe.	nach + Dat.	
+v		sich erkundigen		to inquire about	Ich habe mich nach den Öffnungszeiten erkundigt.	nach + Dat.	
+v		streben		to strive for	Das Unternehmen strebt nach Marktführerschaft.	nach + Dat.	
+v		sich richten		to be guided by, to depend on	Der Preis richtet sich nach der Nachfrage.	nach + Dat.	
+v		beitragen		to contribute to	Jeder kann zum Klimaschutz beitragen.	zu + Dat.	trug bei, hat beigetragen
+v		neigen		to tend to, to be inclined to	Er neigt zu Übertreibungen.	zu + Dat.	
+v		verleiten		to lead astray, to tempt into	Die Werbung verleitet zu unnötigen Käufen.	zu + Dat.	
+v		auffordern		to call on, to urge	Die Polizei forderte die Menge zum Gehen auf.	zu + Dat.	
+v		sich entschließen		to decide (firmly) on	Er entschloss sich zu einem Neuanfang.	zu + Dat.	entschloss, hat entschlossen
+v		dienen		to serve as	Das alte Lager dient heute als Atelier.	als + Nom.	
+# --- Noun-verb phrases (Nomen-Verb-Verbindungen) ---
+p		in Erwägung ziehen		to consider, to take into account	Wir ziehen einen Umzug nach Leipzig in Erwägung.		
+p		zum Ausdruck bringen		to express	Sie brachte ihre Enttäuschung deutlich zum Ausdruck.		
+p		Anspruch erheben		to lay claim to	Beide Seiten erheben Anspruch auf das Grundstück.	auf + Akk.	
+p		außer Acht lassen		to disregard, to leave out of account	Diesen Aspekt dürfen wir nicht außer Acht lassen.		
+p		in Kauf nehmen		to accept (a downside)	Für die schöne Lage nehmen wir den langen Arbeitsweg in Kauf.		
+p		zur Verfügung stellen		to make available	Die Stadt stellt die Räume kostenlos zur Verfügung.		
+p		zur Verfügung stehen		to be available	Für Rückfragen stehe ich gern zur Verfügung.		
+p		in Frage kommen		to be an option, to be eligible	Ein früherer Termin kommt leider nicht in Frage.		
+p		in Frage stellen		to call into question	Die neuen Daten stellen die bisherige Theorie in Frage.		
+p		Rücksicht nehmen		to show consideration for	Bitte nehmen Sie Rücksicht auf die Nachbarn.	auf + Akk.	
+p		Bezug nehmen		to refer to	Ich nehme Bezug auf Ihr Schreiben vom 3. März.	auf + Akk.	
+p		Einfluss nehmen		to exert influence on	Lobbygruppen nehmen Einfluss auf die Gesetzgebung.	auf + Akk.	
+p		Stellung nehmen		to comment on, to take a position on	Der Minister wollte zu den Vorwürfen nicht Stellung nehmen.	zu + Dat.	
+p		Kritik üben		to criticize	Die Zeitung übte scharfe Kritik an der Entscheidung.	an + Dat.	
+p		zur Sprache bringen		to raise (an issue)	Ich werde das Problem in der nächsten Sitzung zur Sprache bringen.		
+p		zur Kenntnis nehmen		to take note of	Wir haben Ihre Beschwerde zur Kenntnis genommen.		
+p		in Betracht ziehen		to take into consideration	Auch eine Teilzeitlösung sollte man in Betracht ziehen.		
+p		in Anspruch nehmen		to make use of; to take up (time)	Die Renovierung nimmt mehr Zeit in Anspruch als geplant.		
+p		zur Folge haben		to result in	Der Streik hatte massive Verspätungen zur Folge.		
+p		zum Abschluss bringen		to bring to a conclusion	Wir wollen die Verhandlungen bis Juni zum Abschluss bringen.		
+p		Maßnahmen ergreifen		to take measures	Die Behörden ergriffen sofort Maßnahmen gegen die Ausbreitung.		
+p		eine Entscheidung treffen		to make a decision	Bis Freitag müssen wir eine Entscheidung treffen.		
+p		Verantwortung übernehmen		to take responsibility for	Niemand wollte die Verantwortung für den Fehler übernehmen.	für + Akk.	
+p		in Kraft treten		to come into force	Das Gesetz tritt am 1. Januar in Kraft.		
+p		Abstand nehmen		to refrain from	Wir nehmen von einer Klage Abstand.	von + Dat.	
+p		Gebrauch machen		to make use of	Machen Sie von Ihrem Widerrufsrecht Gebrauch.	von + Dat.	
+p		einen Beitrag leisten		to make a contribution to	Jede Spende leistet einen Beitrag zur Forschung.	zu + Dat.	
+p		Wert legen		to attach importance to	Unser Team legt großen Wert auf Pünktlichkeit.	auf + Akk.	
+p		in Verbindung setzen		to get in touch with	Bitte setzen Sie sich mit unserem Kundenservice in Verbindung.	mit + Dat.	
+p		den Ausschlag geben		to tip the balance	Am Ende gab der Preis den Ausschlag.		
+# --- Idioms ---
+p		auf dem Holzweg sein		to be on the wrong track	Mit dieser Vermutung bist du auf dem Holzweg.		
+p		etwas auf die lange Bank schieben		to put something off	Die Steuererklärung schiebe ich schon viel zu lange auf die lange Bank.		
+p		den Nagel auf den Kopf treffen		to hit the nail on the head	Mit deiner Analyse hast du den Nagel auf den Kopf getroffen.		
+p		jemandem einen Bären aufbinden		to pull someone's leg, to tell a tall tale	Lass dir von ihm keinen Bären aufbinden.		
+p		Tomaten auf den Augen haben		to be blind to what's obvious	Hast du Tomaten auf den Augen? Das Schild ist doch riesig!		
+p		ins Fettnäpfchen treten		to put one's foot in it	Mit der Frage nach seinem Alter bin ich ins Fettnäpfchen getreten.		
+p		etwas unter den Teppich kehren		to sweep something under the rug	Der Skandal wurde jahrelang unter den Teppich gekehrt.		
+p		um den heißen Brei herumreden		to beat around the bush	Red nicht um den heißen Brei herum, sag einfach, was los ist.		
+p		die Kirche im Dorf lassen		to not get carried away	Lass mal die Kirche im Dorf, so schlimm war es nicht.		
+p		sich kein Blatt vor den Mund nehmen		to not mince one's words	Die Kritikerin nimmt sich kein Blatt vor den Mund.		
+p		wie auf heißen Kohlen sitzen		to be on tenterhooks	Vor der Bekanntgabe der Ergebnisse saßen alle wie auf heißen Kohlen.		
+p		Haare spalten		to split hairs	Jetzt spaltest du aber Haare.		
+p		jemandem reinen Wein einschenken		to tell someone the plain truth	Es ist Zeit, ihm reinen Wein einzuschenken.		
+p		zwei Fliegen mit einer Klappe schlagen		to kill two birds with one stone	Mit der Dienstreise schlage ich zwei Fliegen mit einer Klappe.		
+p		etwas aus dem Ärmel schütteln		to produce something effortlessly	So eine Rede schüttelt sie einfach aus dem Ärmel.		
+p		auf der Hand liegen		to be obvious	Die Vorteile liegen auf der Hand.		
+p		ins Gewicht fallen		to carry weight, to matter	Die geringen Mehrkosten fallen kaum ins Gewicht.		
+p		Schwein haben		to be lucky	Da hast du aber Schwein gehabt!		
+p		den Faden verlieren		to lose one's train of thought	Mitten im Vortrag verlor er den Faden.		
+p		sich ins Zeug legen		to go all out, to put one's back into it	Für das Projekt hat sich das ganze Team ins Zeug gelegt.		
+# --- Same word, different article, different meaning ---
+n	der	Verdienst	Verdienste	earnings, income	Der Verdienst in der Branche ist bescheiden.		
+n	das	Verdienst	Verdienste	merit, credit (for an achievement)	Es ist ihr Verdienst, dass das Projekt gerettet wurde.		
+n	der	Gehalt	Gehalte	content (proportion of a substance)	Der Gehalt an Vitamin C ist hoch.		
+n	das	Gehalt	Gehälter	salary	Das Gehalt wird am Monatsende überwiesen.		
+n	der	Kiefer	Kiefer	jaw	Nach dem Zahnarztbesuch tat mir der Kiefer weh.		
+n	die	Kiefer	Kiefern	pine (tree)	Hinter dem Haus wachsen hohe Kiefern.		
+n	der	Leiter	Leiter	leader, head (of)	Der Leiter der Abteilung ist im Urlaub.		
+n	die	Leiter	Leitern	ladder	Für die Lampe brauche ich eine Leiter.		
+n	der	Band	Bände	volume (book)	Der dritte Band der Reihe erscheint im Herbst.		
+n	das	Band	Bänder	ribbon, tape; bond	Das Geschenk war mit einem roten Band verschnürt.		
+n	die	Band	Bands	band (music group)	Die Band spielt heute im Club um die Ecke.		
+n	der	Teil	Teile	part, portion (of a whole)	Ein großer Teil der Bevölkerung ist dafür.		
+n	das	Teil	Teile	part, component (a separate piece)	Für das Fahrrad fehlt noch ein Teil.		
+n	der	Erbe	Erben	heir	Er ist der einzige Erbe des Vermögens.		
+n	das	Erbe		inheritance, heritage	Die Stadt pflegt ihr kulturelles Erbe.		
+n	die	Steuer	Steuern	tax	Die Steuer auf Tabak wird erhöht.		
+n	das	Steuer	Steuer	steering wheel, helm	Wer sitzt heute am Steuer?		
+n	der	Pony	Ponys	fringe, bangs	Seit Neuestem trägt sie einen Pony.		
+n	das	Pony	Ponys	pony	Die Kinder durften auf dem Pony reiten.		
+n	der	Golf	Golfe	gulf	Der Golf von Mexiko ist sehr warm.		
+n	das	Golf		golf (the sport)	Er spielt jeden Sonntag Golf.		
+n	der	Schild	Schilde	shield	Der Ritter hob seinen Schild.		
+n	das	Schild	Schilder	sign	Das Schild war kaum zu lesen.		
+n	der	Tor	Toren	fool	Da steh ich nun, ich armer Tor, und bin so klug als wie zuvor.		
+n	das	Tor	Tore	gate; goal	In der letzten Minute fiel das entscheidende Tor.		
+# --- False friends and near-misses ---
+a		eventuell		possibly, perhaps (not: eventually)	Eventuell komme ich etwas später.		
+a		sensibel		sensitive (not: sensible)	Sie ist ein sehr sensibler Mensch.		
+a		konsequent		consistent, resolute (not: consequent)	Er hat seinen Plan konsequent umgesetzt.		
+a		aktuell		current, up to date (not: actual)	Das ist die aktuelle Version des Vertrags.		
+a		seriös		reputable, respectable (not: serious)	Das ist kein seriöses Angebot.		
+a		sympathisch		likeable (not: sympathetic)	Der neue Kollege ist mir sympathisch.		
+a		fatal		disastrous, unfortunate (rarely: deadly)	Diese Entscheidung hatte fatale Folgen für die Firma.		
+v		bekommen		to get, to receive (not: to become)	Ich habe gestern dein Paket bekommen.		bekam, hat bekommen
+v		überhören		to not hear, to ignore (not: to overhear)	Den Vorwurf habe ich bewusst überhört.		
+n	die	Konkurrenz	Konkurrenzen	competition, competitors	Die Konkurrenz schläft nicht.		
+n	das	Gymnasium	Gymnasien	academic secondary school (not: gym)	Sie macht nächstes Jahr am Gymnasium Abitur.		
+n	der	Chef	Chefs	boss (not: chef)	Mein Chef ist diese Woche auf Dienstreise.		
+n	die	Kritik	Kritiken	criticism; review	Der Film bekam glänzende Kritiken.		
+n	das	Rezept	Rezepte	recipe; prescription	Für das Medikament brauchen Sie ein Rezept.		
+n	die	Mappe	Mappen	folder, portfolio (not: map)	Die Unterlagen liegen in der blauen Mappe.		
+# --- Advanced nouns ---
+n	die	Gelassenheit		composure, calm	Sie reagierte mit bewundernswerter Gelassenheit.		
+n	die	Nachhaltigkeit		sustainability	Nachhaltigkeit spielt bei der Planung eine zentrale Rolle.		
+n	der	Zusammenhang	Zusammenhänge	connection, context	In diesem Zusammenhang möchte ich auf ein Problem hinweisen.		
+n	die	Voraussetzung	Voraussetzungen	prerequisite, condition	Gute Deutschkenntnisse sind Voraussetzung für die Stelle.		
+n	der	Vorwand	Vorwände	pretext	Er sagte unter einem Vorwand ab.		
+n	der	Einwand	Einwände	objection	Gibt es Einwände gegen den Vorschlag?		
+n	die	Auseinandersetzung	Auseinandersetzungen	dispute; engagement (with a topic)	Es kam zu einer heftigen Auseinandersetzung.		
+n	das	Anliegen	Anliegen	concern, request	Was ist Ihr Anliegen?		
+n	der	Aufwand		effort, expense	Der Aufwand hat sich gelohnt.		
+n	die	Beschaffenheit		nature, composition	Die Beschaffenheit des Bodens ist entscheidend.		
+n	die	Befugnis	Befugnisse	authority, power (to do something)	Dazu haben Sie keine Befugnis.		
+n	das	Bedürfnis	Bedürfnisse	need	Er hatte das Bedürfnis, allein zu sein.		
+n	das	Verhältnis	Verhältnisse	relationship; ratio	Wir haben ein gutes Verhältnis zueinander.		
+n	das	Verständnis		understanding	Danke für Ihr Verständnis.		
+n	der	Umstand	Umstände	circumstance	Unter diesen Umständen verschieben wir das Treffen.		
+n	die	Maßnahme	Maßnahmen	measure	Die Maßnahme zeigt erste Wirkung.		
+n	der	Vorbehalt	Vorbehalte	reservation	Ich habe da gewisse Vorbehalte.		
+n	die	Rücksicht		consideration	Aus Rücksicht auf die Kinder blieben sie zusammen.		
+n	der	Ansatz	Ansätze	approach; beginning	Der Ansatz ist vielversprechend.		
+n	die	Herausforderung	Herausforderungen	challenge	Der Umzug war eine echte Herausforderung.		
+n	die	Gewissheit	Gewissheiten	certainty	Erst jetzt haben wir Gewissheit.		
+n	der	Widerspruch	Widersprüche	contradiction; objection	Seine Aussagen stehen im Widerspruch zueinander.		
+n	die	Wahrnehmung	Wahrnehmungen	perception	Die Wahrnehmung der Situation ist sehr unterschiedlich.		
+n	das	Ausmaß	Ausmaße	extent, scale	Das Ausmaß der Schäden ist noch unklar.		
+n	der	Verdacht		suspicion	Der Verdacht fiel auf den Hausmeister.		
+n	das	Gerücht	Gerüchte	rumor	Das ist nur ein Gerücht.		
+n	die	Ursache	Ursachen	cause	Die Ursache des Brandes ist noch unbekannt.		
+n	der	Zweck	Zwecke	purpose	Zu welchem Zweck brauchen Sie die Daten?		
+n	das	Bewusstsein		awareness, consciousness	Das Bewusstsein für Umweltfragen ist gewachsen.		
+n	die	Vorschrift	Vorschriften	regulation, rule	Das verstößt gegen die Vorschriften.		
+n	der	Spielraum	Spielräume	leeway, room for maneuver	Beim Budget gibt es kaum Spielraum.		
+n	die	Abwägung	Abwägungen	weighing up, consideration	Nach sorgfältiger Abwägung haben wir uns dagegen entschieden.		
+n	das	Gremium	Gremien	committee, panel	Das Gremium tagt einmal im Monat.		
+n	der	Schwerpunkt	Schwerpunkte	focus, main emphasis	Der Schwerpunkt liegt auf der Praxis.		
+n	die	Tragweite		scope, implications	Die Tragweite der Entscheidung war allen bewusst.		
+n	der	Leitfaden	Leitfäden	guideline, guide	Der Leitfaden erklärt jeden Schritt.		
+# --- Adjectives with a preposition ---
+a		angewiesen		dependent on, reliant on	Viele Familien sind auf Unterstützung angewiesen.	auf + Akk.	
+a		gespannt		curious about, eager for	Ich bin gespannt auf deine Meinung.	auf + Akk.	
+a		zuständig		responsible for, in charge of	Wer ist für die Abrechnung zuständig?	für + Akk.	
+a		bewusst		aware of	Er war sich der Gefahr nicht bewusst.	Gen.	
+a		fähig		capable of	Sie ist zu allem fähig.	zu + Dat.	
+a		vertraut		familiar with	Mit dem Programm bin ich gut vertraut.	mit + Dat.	
+a		empfänglich		receptive to, susceptible to	Er ist für Lob sehr empfänglich.	für + Akk.	
+a		behaftet		afflicted with, marked by	Das Projekt war von Anfang an mit Problemen behaftet.	mit + Dat.	
+# --- Other C1 adjectives ---
+a		nachvollziehbar		understandable, comprehensible	Ihre Entscheidung ist durchaus nachvollziehbar.		
+a		ausschlaggebend		decisive	Ausschlaggebend war der günstige Preis.		
+a		umstritten		controversial, disputed	Die These ist unter Historikern umstritten.		
+a		unverzichtbar		indispensable	Ein gutes Wörterbuch ist unverzichtbar.		
+a		beträchtlich		considerable	Die Kosten sind beträchtlich gestiegen.		
+a		zwangsläufig		inevitable, necessarily	Das führt zwangsläufig zu Konflikten.		
+a		nachhaltig		sustainable; lasting	Die Krise hat das Vertrauen nachhaltig beschädigt.		
+a		voreilig		hasty, premature	Zieh keine voreiligen Schlüsse.		
+a		verbindlich		binding; obliging	Die Anmeldung ist verbindlich.		
+a		vorläufig		provisional, for the time being	Das ist nur eine vorläufige Lösung.		
+a		gründlich		thorough	Sie hat die Unterlagen gründlich geprüft.		
+a		selbstverständlich		self-evident; of course	Das ist doch selbstverständlich.		
+# --- Connectors and adverbs ---
+d		nichtsdestotrotz		nevertheless	Es regnete; nichtsdestotrotz gingen wir wandern.		
+d		infolgedessen		as a result	Der Zug fiel aus; infolgedessen kamen wir zu spät.		
+d		zumal		especially as, all the more since	Ich bleibe zu Hause, zumal ich noch arbeiten muss.		
+d		sofern		provided that, as long as	Sofern nichts dazwischenkommt, sind wir um acht da.		
+d		geschweige denn		let alone	Er kann kaum laufen, geschweige denn rennen.		
+d		allerdings		however; certainly	Das Hotel war schön, allerdings ziemlich teuer.		
+d		mithin		consequently, therefore	Die Frist ist abgelaufen, mithin ist der Antrag ungültig.		
+d		ohnehin		anyway, in any case	Ich wollte ohnehin in die Stadt.		
+d		keineswegs		by no means	Das ist keineswegs selbstverständlich.		
+d		hingegen		on the other hand, whereas	Er liebt die Berge, sie hingegen das Meer.		
+d		schlichtweg		simply, quite simply	Das ist schlichtweg falsch.		
+d		beziehungsweise		or rather; respectively	Die Teilnehmer kommen aus Berlin beziehungsweise Hamburg.		
+# --- Rarer strong verbs ---
+v		gedeihen		to thrive, to flourish	Tomaten gedeihen hier besonders gut.		gedieh, ist gediehen
+v		erlöschen		to go out, to expire	Das Feuer ist erloschen.		erlosch, ist erloschen
+v		schinden		to maltreat; to wangle	Er versuchte, Zeit zu schinden.		schindete, hat geschunden
+v		verzeihen		to forgive	Verzeih mir bitte.		verzieh, hat verziehen
+v		gleiten		to glide	Das Boot glitt über den See.		glitt, ist geglitten
+v		meiden		to avoid	Seitdem meidet er das Lokal.		mied, hat gemieden
+v		preisen		to praise	Die Kritiker priesen das Werk.		pries, hat gepriesen
+v		schweigen		to be silent	Zu diesem Thema schwieg sie.		schwieg, hat geschwiegen
+v		verlöschen		to die out (light, fire)	Langsam verlosch die Kerze.		verlosch, ist verloschen
+v		weichen		to give way, to yield	Er wich keinen Schritt zurück.		wich, ist gewichen
+v		ringen		to wrestle, to struggle	Sie rang lange mit sich.		rang, hat gerungen
+v		gebären		to give birth	Sie gebar im Mai einen Sohn.		gebar, hat geboren
+v		saugen		to suck	Das Kind saugte am Strohhalm.		sog, hat gesogen
+v		schelten		to scold	Die Mutter schalt die Kinder.		schalt, hat gescholten
+v		sinnen		to ponder; to plot	Er sann auf Rache.		sann, hat gesonnen
+v		befehlen		to order, to command	Der Offizier befahl den sofortigen Rückzug.		befahl, hat befohlen
