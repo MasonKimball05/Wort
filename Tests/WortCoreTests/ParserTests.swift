@@ -319,6 +319,13 @@ extension VerbPhraseInput {
         #expect(x.lookup.formDescription?.contains("dein") == true, "\(x.lookup.formDescription ?? "-")")
     }
 
+    @Test func nounLemmaIgnoresAnotherNounsPlural() async {
+        // der Zeuge (witness), not "plural of Zeug"
+        let x = await lookup.explain("Zeuge")
+        #expect(x.lookup.entries.first?.gender == .masculine)
+        #expect(x.lookup.formDescription == nil, "\(x.lookup.formDescription ?? "-")")
+    }
+
     @Test func pluralNounExplainsItsForm() async {
         let x = await lookup.explain("Bücher.")
         #expect(x.lookup.formDescription?.contains("plural of Buch") == true)

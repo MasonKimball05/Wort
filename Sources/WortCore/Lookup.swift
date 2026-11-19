@@ -121,7 +121,12 @@ public struct WordLookup: Sendable {
             // Mixed page ("deiner": a pronoun, and an inflection of dein): keep the
             // lemma entries, but remember what the form is, for the case it shows.
             if entries.contains(where: { $0.formOf == nil }) {
-                let forms = Self.formDescriptions(entries)
+                // A noun that is its own lemma isn't explained by another noun's
+                // inflection: der Zeuge (witness) is not "plural of Zeug".
+                let lemmaPOS = Set(entries.filter { $0.formOf == nil }.map(\.partOfSpeech))
+                let forms = Self.formDescriptions(entries.filter {
+                    !($0.partOfSpeech == .noun && lemmaPOS.contains(.noun))
+                })
                 if !forms.isEmpty {
                     enteredForm = input.word
                     formDescription = forms
@@ -179,6 +184,17 @@ public struct WordLookup: Sendable {
         return WiktionaryParser.entries(fromPageHTML: html)
     }
 
+    /// A session with its own disk cache for Wiktionary pages (50 MB is tens of
+    /// thousands of trimmed lookups), kept apart from the shared one.
+    public static let session: URLSession = {
+        let config = URLSessionConfiguration.default
+        let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?
+            .appendingPathComponent("WiktionaryCache", isDirectory: true)
+        config.urlCache = URLCache(memoryCapacity: 8 << 20, diskCapacity: 50 << 20, directory: dir)
+        config.httpMaximumConnectionsPerHost = 4
+        return URLSession(configuration: config)
+    }()
+
     /// Wiktionary's REST API. Only the word itself is sent. Wikimedia asks
     /// automated clients to identify themselves; this names the app, no person.
     public static let wiktionary: PageFetcher = { word in
@@ -186,13 +202,15 @@ public struct WordLookup: Sendable {
         allowed.remove(charactersIn: "/?#")
         guard let path = word.addingPercentEncoding(withAllowedCharacters: allowed),
               let url = URL(string: "https://en.wiktionary.org/api/rest_v1/page/html/\(path)") else { return nil }
-        var request = URLRequest(url: url, timeoutInterval: 10)
+        // Pages rarely change, so a page fetched once is served from the disk cache
+        // after that (instant, and offline too); only a miss goes to the network.
+        var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10)
         request.setValue("Wort/0.1 (personal vocabulary app)", forHTTPHeaderField: "User-Agent")
         // 404 means there is no page. Throttling (429) and server errors are not
         // "no page": retry once after a pause, then throw so the caller can say
         // Wiktionary couldn't be reached rather than that the word doesn't exist.
         for attempt in 0..<2 {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await WordLookup.session.data(for: request)
             let status = (response as? HTTPURLResponse)?.statusCode ?? 0
             if status == 200 { return String(decoding: data, as: UTF8.self) }
             if status == 404 { return nil }
@@ -239,7 +257,7 @@ extension WordLookup {
         var explanation = WordExplanation(token: word, lookup: result)
         if let verb = result.entries.first(where: { $0.partOfSpeech == .verb }),
            let (prefix, base) = SeparableVerb.split(verb.lemma.replacingOccurrences(of: "sich ", with: "")) {
-            let baseEntries = await lookUp(base).entries.filter { $0.partOfSpeech == .verb }
+            let baseEntries = await lookUp(base, exactCase: true).entries.filter { $0.partOfSpeech == .verb }
             if let b = baseEntries.first {
                 explanation.separablePrefix = prefix
                 explanation.base = b
