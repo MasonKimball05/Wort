@@ -13,10 +13,13 @@
 		278B83546453972463B1BD7B /* WortShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 648452B00EAB6006BE7DB858 /* WortShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		397F7033E8708A05F4403EE5 /* WordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D23C13C2A41EE4CB1C16D /* WordsView.swift */; };
 		3E1202ADBD24B16C2067B12B /* AppGroupShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */; };
+		45E33F16BA3B033EDE338FB2 /* GrammarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA9E5F3535EB1405D5747C /* GrammarView.swift */; };
 		49A0CDC154275F4D91E95632 /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7F674CA77FF1F2BDDE7D99A3 /* WortCore */; };
 		4A7685E28D23C0B86A0EFB43 /* AppGroupShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */; };
 		67AFB69B1694EDCAD54218B7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D6A00237304E68332DB094 /* SettingsView.swift */; };
 		6B998EC2CF124F3A998F855D /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */; };
+		6FE6A10C15C08F58AFFE379F /* GrammarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA9E5F3535EB1405D5747C /* GrammarView.swift */; };
+		723F86D062F2C9EF3E775432 /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF192D84C12FEB4BEF589A /* WordInfo.swift */; };
 		726249A675B1669EC2861109 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A3A1DDD4715E2395B0FB0 /* Models.swift */; };
 		72CC40E0FDDF0B6529B9FC3B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */; };
 		741A282488FD643B5064383E /* WortApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181A15363F69F911C1A532 /* WortApp.swift */; };
@@ -26,6 +29,7 @@
 		9E16DFC9D55490B4AAD69E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5DDB1ECFEF2A4011728535 /* Assets.xcassets */; };
 		A19A157B35AA512EBF5BAF7A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A3A1DDD4715E2395B0FB0 /* Models.swift */; };
 		B6C4FDAD3C4654D69F255DF2 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAB0F0704315AC0DD0D1B /* Services.swift */; };
+		C513EC35AFF6A92075ECB12C /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF192D84C12FEB4BEF589A /* WordInfo.swift */; };
 		C7AFA135532EE211E9C48D0C /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7A65A799E521079555D7A069 /* WortCore */; };
 		CDAF476C8EE7FE3F763798B0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */; };
 		D0C46504B7E0870FB1D030D7 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAB0F0704315AC0DD0D1B /* Services.swift */; };
@@ -71,7 +75,9 @@
 		88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		928AAB0F0704315AC0DD0D1B /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		942D23C13C2A41EE4CB1C16D /* WordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsView.swift; sourceTree = "<group>"; };
+		A1DA9E5F3535EB1405D5747C /* GrammarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarView.swift; sourceTree = "<group>"; };
 		B551113950BA799D5C1B2A21 /* wort */ = {isa = PBXFileReference; lastKnownFileType = folder; name = wort; path = .; sourceTree = SOURCE_ROOT; };
+		CFDF192D84C12FEB4BEF589A /* WordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
 		E83162EEB4809FC829924D7E /* AddWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordView.swift; sourceTree = "<group>"; };
 		E8D6A00237304E68332DB094 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FB1214EB9D28FADFD61530C2 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -156,11 +162,13 @@
 			children = (
 				E83162EEB4809FC829924D7E /* AddWordView.swift */,
 				5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */,
+				A1DA9E5F3535EB1405D5747C /* GrammarView.swift */,
 				047A3A1DDD4715E2395B0FB0 /* Models.swift */,
 				88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */,
 				928AAB0F0704315AC0DD0D1B /* Services.swift */,
 				E8D6A00237304E68332DB094 /* SettingsView.swift */,
 				7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */,
+				CFDF192D84C12FEB4BEF589A /* WordInfo.swift */,
 				942D23C13C2A41EE4CB1C16D /* WordsView.swift */,
 				3F181A15363F69F911C1A532 /* WortApp.swift */,
 			);
@@ -305,11 +313,13 @@
 			files = (
 				86C31EB38A83EDEE70FED04F /* AddWordView.swift in Sources */,
 				1CFDFFFFD75FFD0D66A8DC3F /* AppGroupShared.swift in Sources */,
+				45E33F16BA3B033EDE338FB2 /* GrammarView.swift in Sources */,
 				A19A157B35AA512EBF5BAF7A /* Models.swift in Sources */,
 				F8FBC3C1C08D1B98E78EF041 /* ReviewView.swift in Sources */,
 				D0C46504B7E0870FB1D030D7 /* Services.swift in Sources */,
 				80FF26C5856654E64F3BE37D /* SettingsView.swift in Sources */,
 				CDAF476C8EE7FE3F763798B0 /* Store.swift in Sources */,
+				723F86D062F2C9EF3E775432 /* WordInfo.swift in Sources */,
 				397F7033E8708A05F4403EE5 /* WordsView.swift in Sources */,
 				0B8E76475F713671CC6F1E52 /* WortApp.swift in Sources */,
 			);
@@ -321,11 +331,13 @@
 			files = (
 				F4B44DFB75581EEFBD497F4E /* AddWordView.swift in Sources */,
 				3E1202ADBD24B16C2067B12B /* AppGroupShared.swift in Sources */,
+				6FE6A10C15C08F58AFFE379F /* GrammarView.swift in Sources */,
 				726249A675B1669EC2861109 /* Models.swift in Sources */,
 				6B998EC2CF124F3A998F855D /* ReviewView.swift in Sources */,
 				B6C4FDAD3C4654D69F255DF2 /* Services.swift in Sources */,
 				67AFB69B1694EDCAD54218B7 /* SettingsView.swift in Sources */,
 				72CC40E0FDDF0B6529B9FC3B /* Store.swift in Sources */,
+				C513EC35AFF6A92075ECB12C /* WordInfo.swift in Sources */,
 				130A6D12770F0B12C014ACC6 /* WordsView.swift in Sources */,
 				741A282488FD643B5064383E /* WortApp.swift in Sources */,
 			);

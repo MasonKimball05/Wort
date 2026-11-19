@@ -35,6 +35,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             Tab("Review", systemImage: "rectangle.stack") { ReviewView() }
+            Tab("Grammar", systemImage: "text.badge.checkmark") { GrammarView() }
             Tab("Words", systemImage: "character.book.closed") { WordsView() }
             Tab("Add", systemImage: "plus.circle") { AddWordView() }
             Tab("Settings", systemImage: "gearshape") { SettingsView() }

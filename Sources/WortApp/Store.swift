@@ -3,7 +3,7 @@ import SwiftData
 import WortCore
 
 enum Store {
-    static let schema = Schema([Word.self, Card.self, Review.self])
+    static let schema = Schema([Word.self, Card.self, Review.self, GrammarAttempt.self])
 
     /// The database. Syncs through the iCloud container when the build is signed
     /// with the CloudKit entitlement (`.automatic`); a local-only store otherwise,

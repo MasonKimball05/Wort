@@ -17,6 +17,9 @@ public struct DictionaryEntry: Equatable, Sendable {
     /// Principal parts of a strong, mixed or irregular verb: "verzieh, hat verziehen".
     /// Nil for weak verbs, whose forms are predictable.
     public var principalParts: String?
+    /// A usage note from the first sense, often the case a verb takes:
+    /// "with accusative or dative or bei + dative" (anrufen).
+    public var usage: String?
 
     public init(lemma: String, partOfSpeech: PartOfSpeech) {
         self.lemma = lemma
@@ -109,7 +112,20 @@ public enum WiktionaryParser {
                    let target = firstMatch(#"form-of-definition-link"><i[^>]*><a[^>]*>(.*?)</a>"#, in: li).map(text) {
                     entry.formOf = target
                 }
-                let gloss = glossText(li)
+                var gloss = glossText(li)
+                // "inflection of sagen:" lists its forms in a nested list: add them
+                // ("…: first/third-person singular preterite; …").
+                if gloss.hasSuffix(":"), let nested = li.range(of: "<ol") {
+                    let forms = topLevelItems(String(li[nested.lowerBound...])).map(glossText).filter { !$0.isEmpty }
+                    if !forms.isEmpty { gloss += " " + forms.prefix(4).joined(separator: "; ") }
+                }
+                // "[with accusative or dative]" is a usage note, not part of the meaning.
+                if let r = gloss.range(of: #"\s*\[[^\]]*\]"#, options: .regularExpression) {
+                    let note = gloss[r].trimmingCharacters(in: CharacterSet(charactersIn: " []"))
+                    if entry.usage == nil, !note.isEmpty { entry.usage = note }
+                    gloss.removeSubrange(r)
+                    gloss = gloss.trimmingCharacters(in: .whitespaces)
+                }
                 if !gloss.isEmpty { entry.glosses.append(gloss) }
                 if entry.example == nil,
                    let de = firstMatch(#"<i class="[^"]*e-example[^"]*"[^>]*>(.*?)</i>"#, in: li).map(text) {
@@ -213,7 +229,13 @@ public enum WiktionaryParser {
 
     /// Strips tags and entities, collapses whitespace.
     static func text<S: StringProtocol>(_ html: S) -> String {
-        var s = String(html).replacingOccurrences(of: #"<[^>]+>"#, with: "", options: .regularExpression)
+        // Parsoid's data-mw attributes hold template JSON that can contain ">",
+        // which would end a tag early and leak the JSON into the text: drop them first.
+        var s = String(html)
+            .replacingOccurrences(of: #"<style[^>]*>.*?</style>"#, with: "", options: [.regularExpression])
+            .replacingOccurrences(of: #"\sdata-mw='[^']*'"#, with: "", options: .regularExpression)
+            .replacingOccurrences(of: #"\sdata-mw="[^"]*""#, with: "", options: .regularExpression)
+            .replacingOccurrences(of: #"<[^>]+>"#, with: "", options: .regularExpression)
         for (e, c) in [("&amp;", "&"), ("&lt;", "<"), ("&gt;", ">"), ("&quot;", "\""), ("&#39;", "'"), ("&apos;", "'"), ("&nbsp;", " ")] {
             s = s.replacingOccurrences(of: e, with: c)
         }

@@ -1,0 +1,37 @@
+# Cases and prepositions. Original sentences.
+# id	kind	prompt	answers	options	explanation
+c01	g	Ich hänge das Bild an ___ Wand.	die		Wechselpräposition + Richtung (wohin?) → Akkusativ: an die Wand.
+c02	g	Das Bild hängt an ___ Wand.	der		Wechselpräposition + Ort (wo?) → Dativ: an der Wand.
+c03	g	Sie legt das Handy auf ___ Tisch.	den		legen = Richtung → Akkusativ maskulin: auf den Tisch.
+c04	g	Das Handy liegt auf ___ Tisch.	dem		liegen = Ort → Dativ maskulin: auf dem Tisch.
+c05	g	Wir setzen uns neben ___ Fenster.	das		sich setzen = Richtung → Akkusativ neutral: neben das Fenster.
+c06	g	Er stellt die Flaschen in ___ Kühlschrank.	den		stellen = Richtung → Akkusativ: in den Kühlschrank.
+c07	g	Trotz ___ schlechten Wetters fand das Konzert statt.	des		trotz + Genitiv: trotz des schlechten Wetters.
+c08	g	Wegen ___ Streiks fallen viele Züge aus.	des		wegen + Genitiv (maskulin): wegen des Streiks.
+c09	g	Während ___ Sitzung bitte keine Handys benutzen.	der		während + Genitiv (feminin): während der Sitzung.
+c10	g	Aufgrund ___ hohen Nachfrage ist das Produkt ausverkauft.	der		aufgrund + Genitiv: aufgrund der hohen Nachfrage.
+c11	g	Innerhalb ___ nächsten Woche erhalten Sie eine Antwort.	der		innerhalb + Genitiv: innerhalb der nächsten Woche.
+c12	g	Anstatt ___ Briefes schickte sie eine E-Mail.	eines		anstatt + Genitiv: anstatt eines Briefes.
+c13	g	Ich habe mit ___ Kollegen gesprochen. (der Kollege, Sg.)	dem		mit + Dativ: dem Kollegen (n-Deklination: auch das Nomen bekommt -n).
+c14	g	Kennst du den neuen Kolleg___?	en		n-Deklination: maskuline Nomen auf -e bekommen im Akkusativ, Dativ und Genitiv -n: den Kollegen.
+c15	g	Wir haben dem Student___ geholfen.	en		n-Deklination: der Student → dem Studenten.
+c16	g	Der Name des Präsident___ war nicht bekannt.	en		n-Deklination Genitiv: des Präsidenten.
+c17	g	Ich habe ___ Herrn Müller einen Brief geschrieben.	dem		schreiben + Dativ (Person) + Akkusativ (Sache); Herr → Herrn (n-Deklination).
+c18	g	Der Name ___ Kunden steht auf der Rechnung.	des		Genitiv maskulin: des Kunden (n-Deklination).
+c19	g	Das gehört ___ Nachbarin.	der		gehören + Dativ: der Nachbarin.
+c20	g	Ich gratuliere ___ zum Geburtstag. (du)	dir		gratulieren + Dativ: dir.
+c21	g	Wir gedenken ___ Opfer.	der		gedenken + Genitiv (gehoben): der Opfer.
+c22	g	Er bedarf ___ Hilfe.	keiner		bedürfen + Genitiv: keiner Hilfe.
+c23	g	Ich erinnere mich an ___ Urlaub in Italien.	den		sich erinnern an + Akkusativ: an den Urlaub.
+c24	g	Sie freut sich über ___ Geschenk.	das		sich freuen über + Akkusativ (über Vergangenes/Erhaltenes).
+c25	g	Er nimmt an ___ Konferenz teil.	der		teilnehmen an + Dativ: an der Konferenz.
+c26	g	Die Firma leidet unter ___ hohen Energiekosten.	den		leiden unter + Dativ (Plural): unter den hohen Energiekosten.
+c27	g	Entgegen ___ Erwartungen stieg die Zahl der Besucher.	den		entgegen + Dativ (vorangestellt): entgegen den Erwartungen.
+c28	g	Dem Bericht ___ ist die Arbeitslosigkeit gesunken.	zufolge		zufolge + Dativ, nachgestellt: dem Bericht zufolge.
+c29	g	___ der Hauptstraße liegt ein kleiner Park.	Jenseits|Abseits|Unweit		Ortspräpositionen mit Genitiv: jenseits, abseits, unweit + Genitiv.
+c30	c	Welcher Satz ist richtig?	Ich warte auf den Bus.	Ich warte auf den Bus.|Ich warte auf dem Bus.|Ich warte für den Bus.|Ich warte den Bus.	warten auf + Akkusativ.
+c31	c	Welcher Satz ist richtig?	Sie ist stolz auf ihren Sohn.	Sie ist stolz auf ihren Sohn.|Sie ist stolz auf ihrem Sohn.|Sie ist stolz von ihrem Sohn.|Sie ist stolz über ihren Sohn.	stolz auf + Akkusativ.
+c32	c	Welcher Satz ist richtig?	Er fährt mit dem Fahrrad zur Arbeit.	Er fährt mit dem Fahrrad zur Arbeit.|Er fährt mit das Fahrrad zur Arbeit.|Er fährt mit den Fahrrad zur Arbeit.|Er fährt mit des Fahrrads zur Arbeit.	mit + Dativ, immer: mit dem Fahrrad.
+c33	c	Welcher Satz ist richtig?	Der Student gibt dem Professor die Arbeit.	Der Student gibt dem Professor die Arbeit.|Der Student gibt den Professor die Arbeit.|Den Studenten gibt dem Professor die Arbeit.|Der Student gibt der Arbeit dem Professor.	geben: Dativ (Person) + Akkusativ (Sache). Subjekt im Nominativ.
+c34	c	Welcher Satz ist richtig?	Wir fahren in die Berge.	Wir fahren in die Berge.|Wir fahren in den Bergen.|Wir fahren zu die Berge.|Wir fahren in der Berge.	Richtung (wohin?) mit in → Akkusativ Plural: in die Berge.
+c35	c	Welcher Satz ist richtig?	Wir machen Urlaub in den Bergen.	Wir machen Urlaub in den Bergen.|Wir machen Urlaub in die Berge.|Wir machen Urlaub in der Berge.|Wir machen Urlaub nach den Bergen.	Ort (wo?) mit in → Dativ Plural: in den Bergen.

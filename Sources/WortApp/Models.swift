@@ -122,3 +122,20 @@ final class Review {
         self.at = at
     }
 }
+
+/// One answer to a grammar exercise. Appended only; a topic's progress is replayed
+/// from these (Leitner boxes), so grammar syncs between devices like vocab does.
+@Model
+final class GrammarAttempt {
+    var itemID: String = ""
+    var topicRaw: String = ""
+    var correct: Bool = false
+    var at: Date = Date.now
+
+    init(itemID: String, topic: GrammarTopic, correct: Bool, at: Date = .now) {
+        self.itemID = itemID
+        self.topicRaw = topic.rawValue
+        self.correct = correct
+        self.at = at
+    }
+}

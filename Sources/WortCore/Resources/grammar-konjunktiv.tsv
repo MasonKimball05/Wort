@@ -1,0 +1,32 @@
+# Konjunktiv I & II. Original sentences.
+# id	kind	prompt	answers	options	explanation
+k01	g	Der Minister sagte, er ___ (sein) mit dem Ergebnis zufrieden.	sei		Indirekte Rede: Konjunktiv I von sein → sei.
+k02	g	Sie behauptet, sie ___ (haben) davon nichts gewusst.	habe		Konjunktiv I, 3. Person Singular: habe (unterscheidet sich vom Indikativ hat).
+k03	g	Der Sprecher erklärte, man ___ (prüfen) alle Vorwürfe sorgfältig.	prüfe		Konjunktiv I: Stamm + -e → prüfe.
+k04	g	Die Studenten sagten, sie ___ (haben) keine Zeit gehabt.	hätten		Konjunktiv I (haben) wäre identisch mit dem Indikativ → Ersatzform Konjunktiv II: hätten.
+k05	g	Er meinte, die Kollegen ___ (kommen) später.	würden kommen|kämen		Konjunktiv I (kommen) = Indikativ → Konjunktiv II kämen oder würde-Form.
+k06	g	Laut Bericht ___ (werden) die Preise im Herbst steigen.	werden|würden		Indirekte Rede, Futur: Konjunktiv I werden ist im Plural = Indikativ; oft würden. Beides wird akzeptiert.
+k07	g	Der Zeuge gab an, er ___ den Mann nie zuvor gesehen.	habe		Indirekte Rede, Vergangenheit: Konjunktiv I von haben + Partizip II → habe … gesehen.
+k08	g	Sie sagte, sie ___ am Vortag in Hamburg gewesen.	sei		Vergangenheit mit sein: sei … gewesen.
+k09	g	Wenn ich mehr Zeit ___ (haben), würde ich öfter lesen.	hätte		Irrealer Bedingungssatz: Konjunktiv II von haben → hätte.
+k10	g	Wenn er pünktlich ___ (sein), hätten wir den Zug erreicht.	gewesen wäre		Irreal in der Vergangenheit: Plusquamperfekt Konjunktiv II → gewesen wäre.
+k11	g	___ ich das nur früher gewusst!	Hätte		Irrealer Wunsch (Vergangenheit) mit Verb am Anfang: Hätte ich das nur früher gewusst!
+k12	g	An deiner Stelle ___ (gehen) ich sofort zum Arzt.	ginge|würde		Ratschlag: Konjunktiv II (ginge) oder würde-Form (würde … gehen).
+k13	g	Er tut so, als ___ (sein) er der Chef.	wäre|sei		Irrealer Vergleich nach als: Konjunktiv II wäre (auch Konjunktiv I sei).
+k14	g	Sie sieht aus, als ob sie seit Tagen nicht geschlafen ___.	hätte		als ob + Vergangenheit: hätte … geschlafen.
+k15	g	___ Sie mir bitte das Salz reichen?	Könnten|Würden		Höfliche Bitte: Konjunktiv II von können (Könnten Sie …?) oder würden.
+k16	g	Ohne deine Hilfe ___ ich die Prüfung nicht bestanden.	hätte		Irreal (Vergangenheit) ohne wenn-Satz: hätte … bestanden.
+k17	g	Das Projekt ___ fast gescheitert.	wäre		Beinahe-Aussage: Konjunktiv II Plusquamperfekt → wäre … gescheitert.
+k18	g	Wenn sie doch nur ___ (anrufen)!	anriefe|anrufen würde		Irrealer Wunsch (Gegenwart): Konjunktiv II anriefe, meist anrufen würde.
+k19	g	Ich wünschte, ich ___ (können) besser Klavier spielen.	könnte		Nach ich wünschte: Konjunktiv II → könnte.
+k20	g	Er sagte, er ___ (müssen) noch arbeiten.	müsse		Konjunktiv I von müssen → müsse.
+k21	c	Direkt: „Ich komme morgen.“ – Indirekt:	Er sagte, er komme am nächsten Tag.	Er sagte, er komme am nächsten Tag.|Er sagte, er kommt morgen.|Er sagte, er käme am nächsten Tag.|Er sagte, ich komme morgen.	Indirekte Rede: Konjunktiv I (komme), Personalpronomen und Zeitangabe anpassen (morgen → am nächsten Tag). käme ist nur Ersatzform, wenn Konj. I = Indikativ.
+k22	c	Direkt: „Wir haben das Formular schon abgeschickt.“ – Indirekt:	Sie sagten, sie hätten das Formular schon abgeschickt.	Sie sagten, sie hätten das Formular schon abgeschickt.|Sie sagten, sie haben das Formular schon abgeschickt.|Sie sagten, sie hatten das Formular schon abgeschickt.|Sie sagten, wir hätten das Formular schon abgeschickt.	sie haben = Indikativ, also Ersatzform Konjunktiv II: hätten … abgeschickt.
+k23	c	Direkt: „Ist der Termin noch frei?“ – Indirekt:	Sie fragte, ob der Termin noch frei sei.	Sie fragte, ob der Termin noch frei sei.|Sie fragte, der Termin sei noch frei.|Sie fragte, ob der Termin noch frei wäre gewesen.|Sie fragte, dass der Termin noch frei sei.	Ja/Nein-Frage in indirekter Rede: ob + Konjunktiv I (sei).
+k24	c	Direkt: „Ruf mich bitte an!“ – Indirekt:	Sie bat ihn, er möge sie anrufen.	Sie bat ihn, er möge sie anrufen.|Sie bat ihn, er ruft sie an.|Sie bat ihn, ruf mich an.|Sie bat ihn, er hätte sie angerufen.	Bitte/Aufforderung in indirekter Rede: mögen (Bitte) oder sollen (Befehl) im Konjunktiv I.
+k25	c	Welcher Satz drückt einen irrealen Wunsch aus?	Wäre ich doch nur am Meer!	Wäre ich doch nur am Meer!|Ich bin doch nur am Meer.|Ich sei doch nur am Meer!|Ich war doch nur am Meer!	Irrealer Wunsch: Konjunktiv II + doch/nur, oft mit Verb am Anfang.
+k26	c	Welche Form ist im Konjunktiv II Vergangenheit?	Sie hätte das Angebot angenommen.	Sie hätte das Angebot angenommen.|Sie habe das Angebot angenommen.|Sie würde das Angebot annehmen.|Sie hat das Angebot angenommen.	Konjunktiv II Vergangenheit: hätte/wäre + Partizip II.
+k27	g	Der Arzt riet ihm, er ___ (sollen) weniger Kaffee trinken.	solle		Indirekte Aufforderung: Konjunktiv I von sollen → solle.
+k28	g	Es ___ (sein) besser gewesen, früher Bescheid zu sagen.	wäre		Irreale Bewertung der Vergangenheit: es wäre besser gewesen.
+k29	g	Selbst wenn es regnete, ___ wir losfahren.	würden		Konzessiver Bedingungssatz (selbst wenn) mit Konjunktiv II: würden … losfahren.
+k30	g	Man ___ (nehmen) zwei Eier und 200 Gramm Mehl.	nehme		Konjunktiv I in Anleitungen (Rezeptstil): man nehme.

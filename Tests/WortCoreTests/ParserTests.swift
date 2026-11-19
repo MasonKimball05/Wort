@@ -5,7 +5,8 @@ import Testing
 func fixture(_ word: String) -> String? {
     // The Mac's filesystem ignores case, so lowercase pages that clash with a
     // capitalised one are saved as "lower-<word>.html".
-    let name = word.first?.isLowercase == true && ["buch"].contains(word) ? "lower-\(word)" : word
+    let name = word.first?.isLowercase == true && ["buch", "würde"].contains(word) ? "lower-\(word)"
+        : ["Anrufen", "Würde"].contains(word) ? "upper-\(word)" : word
     // File names may be stored decomposed (ü = u + ¨), and Bundle's name lookup
     // misses them, so list the folder and compare normalised names.
     guard let dir = Bundle.module.url(forResource: "Fixtures", withExtension: nil),
@@ -259,5 +260,82 @@ extension VerbPhraseInput {
         self.reflexive = reflexive
         self.core = core
         self.preposition = preposition
+    }
+}
+
+@Suite struct ExplainTests {
+    let lookup = WordLookup(fetch: fixtureFetcher)
+
+    @Test func glossesDontLeakTemplateJSON() throws {
+        let e = try #require(WiktionaryParser.entries(fromPageHTML: fixture("anrufen")!).first)
+        let g = try #require(e.glosses.first)
+        #expect(g.contains("to call"), "\(g)")
+        #expect(!g.contains("(dat)") && !g.contains("qq:") && !g.contains("}") && !g.contains("mw-parser"), "\(g)")
+        #expect(!g.contains("["), "the usage note is split off: \(g)")
+        #expect(e.usage?.contains("accusative") == true, "\(e.usage ?? "-")")
+    }
+
+    @Test func aVerbStaysAVerbWhenItsGerundExists() async {
+        let x = await lookup.explain("anrufen")
+        #expect(x.lookup.entries.first?.partOfSpeech == .verb, "\(x.lookup.entries.map(\.lemma))")
+        // Typed in (not from a sentence), the gerund is offered too, after the verb.
+        #expect(await lookup.lookUp("anrufen").entries.contains { $0.lemma == "Anrufen" })
+        #expect(await lookup.lookUp("buch").entries.first?.lemma == "Buch", "but buch still finds the noun")
+    }
+
+    @Test func inflectedVerbExplainsItsFormAndBase() async throws {
+        let x = await lookup.explain("anriefe")
+        #expect(x.lookup.entries.first?.lemma == "anrufen")
+        #expect(x.lookup.formDescription?.contains("subjunctive II of anrufen") == true, "\(x.lookup.formDescription ?? "-")")
+        #expect(x.separablePrefix == "an")
+        #expect(x.base?.lemma == "rufen")
+        #expect(x.base?.glosses.first?.contains("call") == true)
+    }
+
+    @Test func articlesExplainTheirCase() async {
+        let x = await lookup.explain("dem")
+        #expect(x.lookup.formDescription?.hasPrefix("dative") == true, "\(x.lookup.formDescription ?? "-")")
+        #expect(x.lookup.enteredForm == "dem")
+    }
+
+    @Test func lowercaseWordInASentenceIsNotTheNoun() async {
+        let x = await lookup.explain("würde")
+        #expect(x.lookup.entries.first?.lemma != "Würde", "\(x.lookup.entries.map(\.lemma))")
+        #expect(x.lookup.formDescription?.contains("subjunctive II of werden") == true)
+        // ...while typing "buch" in Add still finds the noun.
+        #expect(await lookup.lookUp("buch").entries.first?.lemma == "Buch")
+    }
+
+    @Test func inflectionListsItsForms() async {
+        let x = await lookup.explain("sagte")
+        let d = x.lookup.formDescription ?? "-"
+        #expect(d.hasPrefix("inflection of sagen: "), "\(d)")
+        #expect(d.contains("preterite"), "\(d)")
+    }
+
+    @Test func mixedPageKeepsTheFormDescription() async {
+        let x = await lookup.explain("deiner")
+        #expect(!x.lookup.entries.isEmpty)
+        #expect(x.lookup.formDescription?.contains("dein") == true, "\(x.lookup.formDescription ?? "-")")
+    }
+
+    @Test func pluralNounExplainsItsForm() async {
+        let x = await lookup.explain("Bücher.")
+        #expect(x.lookup.formDescription?.contains("plural of Buch") == true)
+        #expect(x.lookup.entries.first?.gender == .neuter)
+        #expect(x.separablePrefix == nil)
+    }
+
+    @Test(arguments: [("anrufen", "an", "rufen"), ("zurückgreifen", "zurück", "greifen"), ("teilnehmen", "teil", "nehmen")])
+    func separableSplits(verb: String, prefix: String, base: String) {
+        let s = SeparableVerb.split(verb)
+        #expect(s?.prefix == prefix && s?.base == base)
+    }
+
+    @Test func notEverythingSplits() {
+        #expect(SeparableVerb.split("arbeiten") == nil)
+        // "antworten" isn't an + tworten; the lookup only shows a base verb when one
+        // exists on Wiktionary, so a false split shows nothing extra.
+        #expect(SeparableVerb.split("antworten")?.base == "tworten")
     }
 }

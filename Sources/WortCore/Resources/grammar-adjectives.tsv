@@ -1,0 +1,72 @@
+# Noun + adjectives that naturally go together, for generated adjective-ending drills.
+# Adjectives keep their stem when declined (no teuer→teuren, dunkel→dunklen, hoch→hohen).
+# article	noun	plural (empty = mass noun, used without article)	adjectives
+der	Freund	Freunde	alt,gut,neu
+die	Freundin	Freundinnen	alt,gut,neu
+die	Kollegin	Kolleginnen	neu,freundlich,erfahren
+die	Nachbarin	Nachbarinnen	nett,neu,freundlich
+das	Kind	Kinder	klein,müde,neugierig
+der	Lehrer	Lehrer	streng,jung,geduldig
+die	Lehrerin	Lehrerinnen	streng,jung,geduldig
+der	Arzt	Ärzte	erfahren,jung,freundlich
+der	Hund	Hunde	klein,groß,brav
+die	Katze	Katzen	klein,schwarz,weiß
+der	Tisch	Tische	rund,groß,klein
+der	Stuhl	Stühle	bequem,alt,neu
+das	Sofa	Sofas	bequem,alt,neu
+das	Bett	Betten	bequem,breit,schmal
+die	Lampe	Lampen	hell,modern,klein
+das	Fenster	Fenster	groß,offen,schmutzig
+die	Wohnung	Wohnungen	hell,klein,günstig
+das	Haus	Häuser	alt,groß,modern
+das	Zimmer	Zimmer	hell,ruhig,klein
+der	Garten	Gärten	klein,groß,schön
+die	Stadt	Städte	groß,klein,lebendig
+das	Dorf	Dörfer	klein,ruhig,abgelegen
+die	Straße	Straßen	breit,schmal,ruhig
+das	Auto	Autos	neu,alt,schnell
+das	Fahrrad	Fahrräder	neu,alt,leicht
+der	Zug	Züge	schnell,voll,pünktlich
+die	Reise	Reisen	lang,kurz,anstrengend
+das	Hotel	Hotels	billig,ruhig,modern
+der	Koffer	Koffer	schwer,leicht,groß
+die	Tasche	Taschen	schwer,neu,klein
+das	Buch	Bücher	spannend,dick,alt
+der	Roman	Romane	spannend,neu,lang
+der	Brief	Briefe	lang,kurz,freundlich
+die	Frage	Fragen	wichtig,schwierig,einfach
+die	Antwort	Antworten	richtig,kurz,ehrlich
+die	Idee	Ideen	gut,neu,verrückt
+das	Problem	Probleme	groß,ernst,technisch
+die	Lösung	Lösungen	einfach,elegant,schnell
+die	Aufgabe	Aufgaben	schwierig,leicht,spannend
+die	Prüfung	Prüfungen	schwer,mündlich,schriftlich
+der	Termin	Termine	wichtig,dringend,neu
+die	Besprechung	Besprechungen	lang,kurz,wichtig
+der	Vertrag	Verträge	neu,befristet,unbefristet
+das	Angebot	Angebote	gut,günstig,neu
+der	Film	Filme	spannend,lustig,lang
+das	Lied	Lieder	schön,bekannt,traurig
+das	Konzert	Konzerte	laut,ausverkauft,schön
+das	Spiel	Spiele	spannend,wichtig,fair
+das	Geschenk	Geschenke	schön,klein,persönlich
+der	Kuchen	Kuchen	frisch,lecker,süß
+die	Suppe	Suppen	warm,lecker,scharf
+der	Apfel	Äpfel	rot,grün,süß
+die	Tomate	Tomaten	reif,frisch,rot
+das	Brötchen	Brötchen	frisch,warm,knusprig
+das	Glas	Gläser	leer,voll,sauber
+die	Tasse	Tassen	leer,voll,warm
+der	Kaffee		stark,heiß,frisch
+der	Tee		heiß,grün,schwarz
+die	Milch		frisch,warm,kalt
+das	Wasser		kalt,warm,frisch
+das	Brot		frisch,warm,selbstgebacken
+das	Obst		frisch,reif,regional
+das	Gemüse		frisch,regional,gesund
+der	Käse		alt,jung,würzig
+die	Butter		frisch,weich,kalt
+der	Wein		rot,weiß,trocken
+das	Wetter		schön,schlecht,warm
+die	Musik		laut,leise,klassisch
+das	Geld		eigen,gespart,geliehen

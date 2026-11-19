@@ -1,0 +1,30 @@
+# Passive and participles. Original sentences.
+# id	kind	prompt	answers	options	explanation
+p01	g	Das Rathaus ___ im 16. Jahrhundert gebaut.	wurde		Vorgangspassiv Präteritum: wurde + Partizip II.
+p02	g	Die Straße ___ seit Montag gesperrt.	ist		Zustandspassiv: sein + Partizip II beschreibt das Ergebnis.
+p03	g	Die Straße ___ am Montag gesperrt.	wurde		Vorgangspassiv: der Vorgang zu einem Zeitpunkt (wurde gesperrt).
+p04	g	Der Vertrag ist gestern unterschrieben ___.	worden		Passiv Perfekt: ist + Partizip II + worden (nicht geworden).
+p05	g	Der Antrag muss bis Freitag ___ werden.	eingereicht		Passiv mit Modalverb: Modalverb + Partizip II + werden.
+p06	g	Die Ergebnisse konnten nicht bestätigt ___.	werden		Passiv mit Modalverb im Präteritum: konnten … bestätigt werden.
+p07	g	Das hätte vermieden werden ___.	können		Passiv mit Modalverb, Konjunktiv II Vergangenheit: hätte … vermieden werden können (doppelter Infinitiv).
+p08	g	Hier ___ nicht geraucht.	wird		Unpersönliches Passiv ohne Subjekt: Hier wird nicht geraucht.
+p09	g	Den Kindern wurde ein Buch ___ (schenken).	geschenkt		Passiv mit Dativobjekt: das Dativobjekt bleibt im Dativ (den Kindern).
+p10	g	Die Rechnung ___ noch bezahlt werden.	muss		Passiv mit Modalverb, Präsens: muss … bezahlt werden.
+p11	g	Das Problem lässt sich leicht ___.	lösen		Passiversatz: sich lassen + Infinitiv (= kann gelöst werden).
+p12	g	Die Aufgabe ist bis morgen zu ___.	erledigen		Passiversatz: sein + zu + Infinitiv (= muss erledigt werden).
+p13	g	Die Ware ___ gestern geliefert worden.	ist		Passiv Perfekt: ist … geliefert worden.
+p14	g	Die Daten waren bereits gelöscht ___.	worden		Passiv Plusquamperfekt: war … gelöscht worden.
+p15	g	Die von ihr ___ (schreiben) Arbeit wurde ausgezeichnet.	geschriebene		Erweitertes Partizipialattribut: Partizip II mit Adjektivendung (die geschriebene Arbeit).
+p16	g	Der ständig ___ (steigen) Mietpreis belastet viele Familien.	steigende		Partizip I als Attribut (aktiv, gleichzeitig): der steigende Mietpreis.
+p17	g	Die noch zu ___ (klären) Fragen besprechen wir morgen.	klärenden		Gerundivum: zu + Partizip I (= die Fragen, die noch geklärt werden müssen).
+p18	g	In der gestern ___ (veröffentlichen) Studie geht es um Schlaf.	veröffentlichten		Partizip II als Attribut im Dativ feminin nach bestimmtem Artikel: -en.
+p19	c	Aktiv: „Man renoviert das Gebäude.“ – Passiv:	Das Gebäude wird renoviert.	Das Gebäude wird renoviert.|Das Gebäude ist renoviert worden.|Das Gebäude wurde renoviert.|Man wird das Gebäude renoviert.	Präsens Aktiv → Präsens Vorgangspassiv: wird + Partizip II; man fällt weg.
+p20	c	Aktiv: „Die Polizei hat den Verdächtigen festgenommen.“ – Passiv:	Der Verdächtige ist von der Polizei festgenommen worden.	Der Verdächtige ist von der Polizei festgenommen worden.|Der Verdächtige wurde von der Polizei festgenommen geworden.|Den Verdächtigen ist von der Polizei festgenommen worden.|Der Verdächtige hat von der Polizei festgenommen worden.	Perfekt Passiv: ist + Partizip II + worden; das Akkusativobjekt wird Subjekt (Nominativ); Agens mit von.
+p21	c	Aktiv: „Man muss die Frist einhalten.“ – Passiv:	Die Frist muss eingehalten werden.	Die Frist muss eingehalten werden.|Die Frist muss einhalten werden.|Die Frist wird eingehalten müssen.|Die Frist muss eingehalten sein.	Modalverb + Partizip II + werden.
+p22	c	Welcher Satz ist Zustandspassiv?	Das Fenster ist geöffnet.	Das Fenster ist geöffnet.|Das Fenster wird geöffnet.|Das Fenster wurde geöffnet.|Das Fenster ist geöffnet worden.	Zustandspassiv: sein + Partizip II, ohne worden, beschreibt einen Zustand.
+p23	c	Was bedeutet: „Der Fehler ist nicht zu übersehen.“?	Man kann den Fehler nicht übersehen.	Man kann den Fehler nicht übersehen.|Man darf den Fehler nicht übersehen.|Der Fehler wurde nicht übersehen.|Man soll den Fehler übersehen.	sein + zu + Infinitiv kann können oder müssen ausdrücken; hier: man kann nicht.
+p24	c	Umformung in einen Relativsatz: „die vom Verlag abgelehnten Manuskripte“	die Manuskripte, die vom Verlag abgelehnt wurden	die Manuskripte, die vom Verlag abgelehnt wurden|die Manuskripte, die den Verlag abgelehnt haben|die Manuskripte, die vom Verlag ablehnen|die Manuskripte, die vom Verlag abgelehnt werden müssen	Partizip II als Attribut = Passiv (abgeschlossen) → Relativsatz im Passiv.
+p25	c	Umformung in einen Relativsatz: „die noch zu prüfenden Unterlagen“	die Unterlagen, die noch geprüft werden müssen	die Unterlagen, die noch geprüft werden müssen|die Unterlagen, die noch prüfen|die Unterlagen, die geprüft wurden|die Unterlagen, die prüfend sind	zu + Partizip I (Gerundivum) = Passiv mit müssen/können.
+p26	g	Es ___ beschlossen, die Sitzung zu vertagen.	wurde		Unpersönliches Passiv mit es als Platzhalter: Es wurde beschlossen, …
+p27	g	Dem Antrag konnte leider nicht ___ werden.	stattgegeben		Passiv eines Verbs mit Dativ (einem Antrag stattgeben): subjektlos, Dativ bleibt.
+p28	g	Das Museum wird gerade ___ (renovieren).	renoviert		Vorgangspassiv Präsens: wird + Partizip II.

@@ -17,6 +17,9 @@ public struct LookupResult: Equatable, Sendable {
     public var source: Source
     /// When the input was an inflected form ("Bücher"), the form that was entered.
     public var enteredForm: String?
+    /// What that form is, in Wiktionary's words: "nominative/accusative/genitive
+    /// plural of Buch", "dative masculine/neuter singular of der".
+    public var formDescription: String?
     /// "sich berufen": the entries are for "berufen"; the word to save is reflexive.
     public var reflexive = false
     /// "verzichten auf": the preposition that was typed after the verb.
@@ -58,11 +61,15 @@ public struct WordLookup: Sendable {
         self.knownNouns = knownNouns
     }
 
-    public func lookUp(_ raw: String) async -> LookupResult {
+    /// `exactCase`: the word comes from a sentence, where German capitalisation is
+    /// meaningful. A lowercase word there is never a noun ("würde" is werden, not die
+    /// Würde), and a capitalised one at the start of a sentence ("Wenn") falls back
+    /// to its lowercase page.
+    public func lookUp(_ raw: String, exactCase: Bool = false) async -> LookupResult {
         // "sich berufen auf": look up "berufen", then put "sich" and "auf" back.
         let phrase = VerbPhraseInput(raw)
         if phrase.reflexive || phrase.preposition != nil {
-            var r = await lookUpWord(phrase.core)
+            var r = await lookUpWord(phrase.core, exactCase: exactCase)
             r.reflexive = phrase.reflexive
             r.preposition = phrase.preposition
             if phrase.reflexive {
@@ -72,10 +79,10 @@ public struct WordLookup: Sendable {
             }
             return r
         }
-        return await lookUpWord(raw)
+        return await lookUpWord(raw, exactCase: exactCase)
     }
 
-    func lookUpWord(_ raw: String) async -> LookupResult {
+    func lookUpWord(_ raw: String, exactCase: Bool = false) async -> LookupResult {
         let input = ParsedInput(raw)
         guard !input.word.isEmpty else { return LookupResult(entries: [], source: .notFound) }
 
@@ -86,22 +93,41 @@ public struct WordLookup: Sendable {
         do { entries = try await germanEntriesOrThrow(input.word) }
         catch { return LookupResult(entries: [], source: .unreachable) }
         let capital = input.word.prefix(1).uppercased() + input.word.dropFirst()
-        if capital != input.word {
+        if exactCase {
+            let lower = input.word.lowercased()
+            if entries.isEmpty, lower != input.word {
+                entries = (try? await germanEntriesOrThrow(lower)) ?? []
+            }
+        } else if capital != input.word {
             let nouns = await germanEntries(capital).filter { $0.partOfSpeech == .noun }
-            entries = nouns + entries
+            // The noun leads only when the lowercase page has no real entry of its own:
+            // "buch" (just an imperative of buchen) → das Buch, but "anrufen" stays the
+            // verb, with das Anrufen after it.
+            let lowerHasLemma = entries.contains { $0.formOf == nil }
+            entries = lowerHasLemma ? entries + nouns : nouns + entries
         }
 
         // Inflected forms point at their lemma: follow once.
         var enteredForm: String?
+        var formDescription: String?
         if !entries.isEmpty, entries.allSatisfy({ $0.formOf != nil }), let lemma = entries.first?.formOf {
+            // What the form is ("dative … singular of der") is worth keeping even if
+            // the lemma's page can't be fetched.
+            enteredForm = input.word
+            formDescription = Self.formDescriptions(entries)
             let lemmaEntries = await germanEntries(lemma)
-            if !lemmaEntries.isEmpty {
-                enteredForm = input.word
-                entries = lemmaEntries
-            }
+            if !lemmaEntries.isEmpty { entries = lemmaEntries }
         } else {
-            // Mixed page: drop the inflected-form entries if there are lemma entries too.
-            if entries.contains(where: { $0.formOf == nil }) { entries.removeAll { $0.formOf != nil } }
+            // Mixed page ("deiner": a pronoun, and an inflection of dein): keep the
+            // lemma entries, but remember what the form is, for the case it shows.
+            if entries.contains(where: { $0.formOf == nil }) {
+                let forms = Self.formDescriptions(entries)
+                if !forms.isEmpty {
+                    enteredForm = input.word
+                    formDescription = forms
+                }
+                entries.removeAll { $0.formOf != nil }
+            }
         }
 
         // The article the person typed picks between entries ("die See" → sea).
@@ -110,7 +136,8 @@ public struct WordLookup: Sendable {
         }
 
         if !entries.isEmpty {
-            return LookupResult(entries: entries, source: .wiktionary, enteredForm: enteredForm)
+            return LookupResult(entries: entries, source: .wiktionary, enteredForm: enteredForm,
+                                formDescription: formDescription)
         }
 
         // No page. For a noun, fall back to its compound head, then a suffix rule.
@@ -131,6 +158,16 @@ public struct WordLookup: Sendable {
             return LookupResult(entries: [guess], source: .suffixGuess)
         }
         return LookupResult(entries: [guess], source: .notFound)
+    }
+
+    /// Every reading of an inflected form, joined: "deiner" is both "genitive of du"
+    /// and "inflection of dein: genitive/dative feminine singular".
+    static func formDescriptions(_ entries: [DictionaryEntry]) -> String {
+        var seen: [String] = []
+        for e in entries where e.formOf != nil {
+            if let g = e.glosses.first, !seen.contains(g) { seen.append(g) }
+        }
+        return seen.joined(separator: "; ")
     }
 
     func germanEntries(_ word: String) async -> [DictionaryEntry] {
@@ -162,5 +199,52 @@ public struct WordLookup: Sendable {
             if attempt == 0 { try await Task.sleep(for: .seconds(2)) }
         }
         throw LookupError.unreachable
+    }
+}
+
+/// Separable-prefix verbs: "anrufen" is an + rufen. Only splits when the rest is
+/// still a plausible verb (at least "-en" plus a stem).
+public enum SeparableVerb {
+    public static let prefixes = ["zurück", "zusammen", "weiter", "wieder", "statt", "teil", "fest", "frei",
+                                  "fort", "heim", "her", "hin", "los", "weg", "vor", "nach", "mit", "bei",
+                                  "auf", "aus", "ein", "an", "ab", "zu", "dar", "um"]
+
+    public static func split(_ verb: String) -> (prefix: String, base: String)? {
+        let v = verb.lowercased()
+        guard v.hasSuffix("en") || v.hasSuffix("ern") || v.hasSuffix("eln") else { return nil }
+        // Longest prefix first, so "zurück" beats "zu".
+        for p in prefixes.sorted(by: { $0.count > $1.count }) where v.hasPrefix(p) {
+            let base = String(v.dropFirst(p.count))
+            if base.count >= 4 { return (p, base) }
+        }
+        return nil
+    }
+}
+
+/// Everything shown when a word in an exercise is tapped or hovered.
+public struct WordExplanation: Equatable, Sendable {
+    public var token: String
+    public var lookup: LookupResult
+    /// For a separable verb, its prefix and the base verb's entry: an + rufen.
+    public var separablePrefix: String?
+    public var base: DictionaryEntry?
+}
+
+extension WordLookup {
+    /// Looks up a word as it appears in a sentence ("anriefe", "dem", "Tischen"):
+    /// its lemma, what form it is, and for a separable verb, the base verb too.
+    public func explain(_ token: String) async -> WordExplanation {
+        let word = ParsedInput(token).word
+        let result = await lookUp(word, exactCase: true)
+        var explanation = WordExplanation(token: word, lookup: result)
+        if let verb = result.entries.first(where: { $0.partOfSpeech == .verb }),
+           let (prefix, base) = SeparableVerb.split(verb.lemma.replacingOccurrences(of: "sich ", with: "")) {
+            let baseEntries = await lookUp(base).entries.filter { $0.partOfSpeech == .verb }
+            if let b = baseEntries.first {
+                explanation.separablePrefix = prefix
+                explanation.base = b
+            }
+        }
+        return explanation
     }
 }
