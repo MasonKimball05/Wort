@@ -13,13 +13,16 @@ final class ShareViewController: UIViewController {
     }
 
     func save() async {
-        let text = await sharedText()
-        let item = text.flatMap { InboxItem.fromShared($0, source: "share") }
+        let item = await sharedItem()
         var message = "Nothing to save"
         if let item {
             do {
                 try AppGroup.inbox.add(item)
-                message = item.text.isEmpty ? "Sentence saved to Wort" : "„\(item.text)“ saved to Wort"
+                if item.reading != nil {
+                    message = "Saved to your reading list"
+                } else {
+                    message = item.text.isEmpty ? "Sentence saved to Wort" : "„\(item.text)“ saved to Wort"
+                }
             } catch {
                 message = "Couldn't save"
             }
@@ -35,10 +38,24 @@ final class ShareViewController: UIViewController {
         extensionContext?.completeRequest(returningItems: nil)
     }
 
-    func sharedText() async -> String? {
+    /// A Safari page comes as the result of ExtractArticle.js: a selection is
+    /// handled like shared text (a word, a sentence, or a passage to read);
+    /// without one, the article's paragraphs go to the reading list. Text shared
+    /// from anywhere else (Notes, Books) is plain text.
+    func sharedItem() async -> InboxItem? {
         let providers = (extensionContext?.inputItems as? [NSExtensionItem] ?? []).flatMap { $0.attachments ?? [] }
+        for p in providers where p.hasItemConformingToTypeIdentifier(UTType.propertyList.identifier) {
+            guard let dict = try? await p.loadItem(forTypeIdentifier: UTType.propertyList.identifier) as? [String: Any],
+                  let page = dict[NSExtensionJavaScriptPreprocessingResultsKey] as? [String: Any] else { continue }
+            let selection = (page["selection"] as? String ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+            if !selection.isEmpty { return InboxItem.fromShared(selection, source: "share") }
+            return InboxItem.article(title: page["title"] as? String, text: page["text"] as? String ?? "",
+                                     url: page["url"] as? String, source: "share")
+        }
         for p in providers where p.hasItemConformingToTypeIdentifier(UTType.plainText.identifier) {
-            if let s = try? await p.loadItem(forTypeIdentifier: UTType.plainText.identifier) as? String { return s }
+            if let s = try? await p.loadItem(forTypeIdentifier: UTType.plainText.identifier) as? String {
+                return InboxItem.fromShared(s, source: "share")
+            }
         }
         return nil
     }

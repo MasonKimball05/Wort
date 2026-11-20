@@ -55,6 +55,8 @@ struct SettingsView: View {
                     LabeledContent("Waiting for lookup", value: "\(words.filter(\.needsLookup).count)")
                 }
 
+                ExportSection()
+
                 Section {
                     Text("Meanings, articles, plurals and verb forms of words you add come from Wiktionary (CC BY-SA). Only the word itself is sent.")
                         .font(.caption).foregroundStyle(.secondary)

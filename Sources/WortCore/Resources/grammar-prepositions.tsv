@@ -1,0 +1,44 @@
+# Feste Präpositionen nach Verben, Adjektiven und Nomen, dazu da- und wo-Wörter.
+# id	kind	prompt	answers	options	explanation
+p01	g	Viele Bürger zweifeln ___ der Wirksamkeit der neuen Maßnahmen.	an		zweifeln an + Dativ.
+p02	g	Das Ergebnis hängt letztlich ___ der Wetterlage ab.	von		abhängen von + Dativ.
+p03	g	Die Firma verfügt ___ ein beachtliches Eigenkapital.	über		verfügen über + Akkusativ.
+p04	g	Nach langen Verhandlungen haben sich beide Seiten ___ einen Kompromiss geeinigt.	auf		sich einigen auf + Akkusativ (das Ergebnis); sich einigen über = über ein Thema.
+p05	g	Die Ausstellung besteht ___ rund 200 Gemälden.	aus		bestehen aus + Dativ = sich zusammensetzen aus.
+p06	g	Der Mieter bestand ___ einer schriftlichen Bestätigung.	auf		bestehen auf + Dativ = etwas nachdrücklich verlangen.
+p07	g	Sie leidet seit Jahren ___ Migräne.	an|unter		leiden an + Dativ für Krankheiten; unter + Dativ für Belastungen. Bei Migräne geht beides.
+p08	g	Viele Angestellte leiden ___ dem hohen Termindruck.	unter		leiden unter + Dativ: eine Belastung, keine Krankheit.
+p09	g	Ich freue mich schon jetzt ___ den Urlaub im Sommer.	auf		sich freuen auf + Akkusativ: etwas Kommendes (über = etwas, das schon da ist).
+p10	g	Er hat sich beim Vermieter ___ den Lärm der Nachbarn beschwert.	über		sich beschweren über + Akkusativ (bei jemandem).
+p11	g	Der Minister warnte ___ voreiligen Schlüssen.	vor		warnen vor + Dativ.
+p12	g	Es mangelt der Schule ___ qualifizierten Lehrkräften.	an		es mangelt (jemandem) an + Dativ.
+p13	g	Die Polizei fahndet ___ dem flüchtigen Täter.	nach		fahnden nach + Dativ.
+p14	g	Die Studie beruht ___ einer Umfrage unter 2000 Personen.	auf		beruhen auf + Dativ.
+p15	g	In der Zusammenfassung sollten wir uns ___ das Wesentliche beschränken.	auf		sich beschränken auf + Akkusativ.
+p16	g	Trotz der Kritik hält die Regierung ___ ihren Plänen fest.	an		festhalten an + Dativ.
+p17	g	Er ist ___ den Erfolg seiner Kollegin neidisch.	auf		neidisch auf + Akkusativ.
+p18	g	Ich bin gespannt ___ deine Meinung.	auf		gespannt auf + Akkusativ.
+p19	g	Seine Tochter ist allergisch ___ Nüsse.	gegen		allergisch gegen + Akkusativ.
+p20	g	Das Land ist reich ___ Bodenschätzen.	an		reich an + Dativ.
+p21	g	Die Entscheidung stieß ___ heftige Kritik.	auf		stoßen auf + Akkusativ = auf Widerstand, Kritik, Probleme treffen.
+p22	g	Er entschuldigte sich ___ sein Verhalten.	für		sich entschuldigen für + Akkusativ (bei jemandem).
+p23	g	Die Kosten belaufen sich ___ etwa 5000 Euro.	auf		sich belaufen auf + Akkusativ.
+p24	g	Ich gratuliere dir ___ bestandenen Prüfung!	zur|zu der		gratulieren zu + Dativ: zu der → zur.
+p25	g	Sie verzichtete ___ ihr Erbe.	auf		verzichten auf + Akkusativ.
+p26	g	Die Rede zielte ___ ab, die Wähler zu beruhigen.	darauf		abzielen auf + Akk.; vor einem Nebensatz oder Infinitiv steht das da-Wort: darauf.
+p27	g	Ich habe gar nicht ___ gedacht, dass heute Feiertag ist.	daran		denken an + Akk.; vor einem dass-Satz: daran.
+p28	g	Wir freuen uns ___, Sie bald bei uns begrüßen zu dürfen.	darauf		sich freuen auf (Kommendes: bald) → darauf vor dem Infinitiv.
+p29	g	Es kommt ganz ___ an, wie man die Frage stellt.	darauf		es kommt auf etwas an → darauf vor dem Nebensatz.
+p30	g	___ wartest du? – Auf den Bus.	Worauf		Frage nach einer Sache bei warten auf: wo(r) + Präposition → worauf.
+p31	g	___ denkst du gerade? – An meine Prüfung.	Woran		denken an → woran (Sache). Bei Personen: an wen?
+p32	g	___ hast du dich so geärgert? – Über den Stau.	Worüber		sich ärgern über → worüber.
+p33	g	Er hat sich ___ die Stelle in Hamburg beworben.	um		sich bewerben um + Akkusativ (bei einer Firma).
+p34	g	Es handelt sich wohl ___ ein Missverständnis.	um		es handelt sich um + Akkusativ.
+p35	g	Die Firma hat sich ___ Elektroautos spezialisiert.	auf		sich spezialisieren auf + Akkusativ.
+p36	g	Die Verhandlungen scheiterten ___ den hohen Forderungen der Gewerkschaft.	an		scheitern an + Dativ.
+p37	g	Die Kommission sprach sich ___ das Verbot aus, weil sie es für unnötig hielt.	gegen		sich aussprechen für/gegen + Akk.; „unnötig“ verlangt gegen.
+p38	c	Welcher Satz ist richtig?	Ich ärgere mich über den Fehler.	Ich ärgere mich über den Fehler.|Ich ärgere mich über dem Fehler.|Ich ärgere mich auf den Fehler.|Ich ärgere mich von dem Fehler.	sich ärgern über + Akkusativ.
+p39	c	Welcher Satz ist richtig?	Sie hat Angst vor der Prüfung.	Sie hat Angst vor der Prüfung.|Sie hat Angst vor die Prüfung.|Sie hat Angst von der Prüfung.|Sie hat Angst für die Prüfung.	Angst haben vor + Dativ.
+p40	c	Welcher Satz ist richtig?	Er interessiert sich für moderne Kunst.	Er interessiert sich für moderne Kunst.|Er interessiert sich an moderner Kunst.|Er interessiert sich über moderne Kunst.|Er interessiert sich in moderne Kunst.	sich interessieren für + Akk. (aber: Interesse an + Dativ).
+p41	c	Welcher Satz ist richtig?	Wir sind mit dem Ergebnis zufrieden.	Wir sind mit dem Ergebnis zufrieden.|Wir sind über das Ergebnis zufrieden.|Wir sind von dem Ergebnis zufrieden.|Wir sind auf das Ergebnis zufrieden.	zufrieden mit + Dativ.
+p42	c	Welcher Satz ist richtig?	Das erinnert mich an meine Kindheit.	Das erinnert mich an meine Kindheit.|Das erinnert mich an meiner Kindheit.|Das erinnert mich von meiner Kindheit.|Das erinnert mich über meine Kindheit.	erinnern an + Akkusativ.

@@ -41,7 +41,11 @@ struct ContentView: View {
             Tab("Settings", systemImage: "gearshape") { SettingsView() }
         }
         .task { await refresh() }
-        .onChange(of: phase) { _, p in if p == .active { Task { await refresh() } } }
+        .onChange(of: phase) { _, p in
+            if p == .active { Task { await refresh() } }
+            // Leaving the app: bring the widget up to date with what was just done.
+            if p == .background || p == .inactive { WidgetBridge.update(context: context) }
+        }
     }
 
     /// On launch and whenever the app comes back: pick up shared words, merge
@@ -50,5 +54,6 @@ struct ContentView: View {
         _ = Store.importInbox(context: context)
         Store.deduplicate(context: context)
         await Enricher.run(context: context)
+        WidgetBridge.update(context: context)
     }
 }

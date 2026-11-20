@@ -79,7 +79,7 @@ import Testing
 }
 
 @Suite struct GrammarBankTests {
-    @Test(arguments: [GrammarTopic.konjunktiv, .passive, .cases])
+    @Test(arguments: [GrammarTopic.konjunktiv, .passive, .cases, .prepositions])
     func banksLoad(topic: GrammarTopic) {
         let items = GrammarBank.items(topic: topic)
         #expect(items.count >= 25, "\(topic)")

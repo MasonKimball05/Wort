@@ -139,3 +139,18 @@ final class GrammarAttempt {
         self.at = at
     }
 }
+
+/// A German text pasted in to read. Synced, so a text pasted on the Mac can be
+/// read on the iPhone.
+@Model
+final class Reading {
+    var title: String = ""
+    var text: String = ""
+    var addedAt: Date = Date.now
+    var openedAt: Date?
+
+    init(title: String, text: String) {
+        self.title = title
+        self.text = text
+    }
+}

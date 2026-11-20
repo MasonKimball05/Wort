@@ -8,6 +8,8 @@ struct ReviewView: View {
     @State private var revealed = false
     @State private var picked: Gender?
     @State private var doneToday = 0
+    @State private var streak: Streak.Summary?
+    @State private var showStreak = false
 
     var body: some View {
         NavigationStack {
@@ -28,12 +30,34 @@ struct ReviewView: View {
             }
             .navigationTitle("Review")
             .toolbar {
+                ToolbarItem(placement: .navigation) {
+                    Button { showStreak = true } label: {
+                        // Icon and number both: a toolbar Label would show the icon only.
+                        HStack(spacing: 4) {
+                            Image(systemName: "flame.fill")
+                            Text("\(streak?.current ?? 0)").monospacedDigit()
+                        }
+                        .foregroundStyle(streak?.practicedToday == true ? Color.orange : Color.secondary)
+                    }
+                    .accessibilityLabel("Streak: \(streak?.current ?? 0) days")
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink { ListeningView() } label: { Label("Listening", systemImage: "headphones") }
+                }
                 if !queue.isEmpty {
                     ToolbarItem { Text("\(queue.count) left").monospacedDigit().foregroundStyle(.secondary) }
                 }
             }
+            .sheet(isPresented: $showStreak) { if let streak { StreakView(summary: streak) } }
         }
-        .onAppear(perform: reload)
+        .onAppear { reload(); refreshStreak() }
+    }
+
+    /// From every review and grammar answer.
+    func refreshStreak() {
+        let reviews = (try? context.fetch(FetchDescriptor<Review>())) ?? []
+        let attempts = (try? context.fetch(FetchDescriptor<GrammarAttempt>())) ?? []
+        streak = Streak.summary(reviews.map(\.at) + attempts.map(\.at))
     }
 
     func reload() {
@@ -45,6 +69,7 @@ struct ReviewView: View {
     func answer(_ card: Card, _ rating: Rating) {
         Queue.answer(card, rating, context: context)
         doneToday += 1
+        if streak?.practicedToday != true { refreshStreak() }
         queue.removeFirst()
         // A card that's due again within this session goes to the back.
         if card.due.timeIntervalSinceNow < 20 * 60 { queue.append(card) }

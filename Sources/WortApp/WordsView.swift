@@ -28,6 +28,13 @@ struct WordsView: View {
             .searchable(text: $search, prompt: "German or English")
             .navigationTitle("Words (\(words.count))")
             .navigationDestination(for: Word.self) { WordDetailView(word: $0) }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink { TroubleSpotsView() } label: {
+                        Label("Trouble spots", systemImage: "exclamationmark.triangle")
+                    }
+                }
+            }
             .overlay {
                 if words.isEmpty {
                     ContentUnavailableView("No words yet", systemImage: "character.book.closed",

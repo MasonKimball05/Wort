@@ -47,57 +47,60 @@ final class ExplanationCache {
 struct TappableSentence: View {
     let text: String
     var font: Font = .title3.weight(.medium)
+    /// Look every word up as soon as the sentence appears. Right for a short
+    /// exercise; off for a long text, which would mean hundreds of requests.
+    var prefetch = true
+    /// Dotted underline under every word (exercises). Off in running text.
+    var underlineAll = true
+    /// Mac: open the popover on hover. Off in running text, where the mouse
+    /// crosses words all the time.
+    var hover = true
+    /// Words you already have (lowercased), shown in the accent color.
+    var known: Set<String> = []
+    /// Keep the sentence a word came from, as its example when it's added
+    /// (reading). Off in exercises, whose sentences have a gap in them.
+    var keepsSentence = false
+    /// iPhone: someone above shows the sheet (a text of many paragraphs needs one
+    /// sheet for all of them). Nil: this sentence shows its own.
+    var onPick: ((String, String?) -> Void)? = nil
     #if os(iOS)
     // One sheet for the whole sentence, so tapping another word while it's open
     // swaps the word shown instead of trying to stack a second sheet.
-    @State private var picked: Picked?
+    @State private var picked: PickedWord?
     #endif
 
     var body: some View {
         content
-            // Look the words up as soon as the sentence appears.
-            .task(id: text) { await ExplanationCache.shared.prefetch(text) }
+            .task(id: text) { if prefetch { await ExplanationCache.shared.prefetch(text) } }
             #if os(iOS)
-            // A half-height sheet, like the system's Look Up. An iPhone popover
-            // dismisses itself whenever the layout under it shifts (the keyboard,
-            // a redraw), so it closed on its own; a sheet stays until swiped away.
-            .sheet(item: $picked) { p in
-                WordInfoView(token: p.token, inSheet: true)
-                    .id(p.token)
-                    .presentationDetents([.medium, .large])
-                    .presentationDragIndicator(.visible)
-                    .presentationBackgroundInteraction(.enabled(upThrough: .medium))
-            }
+            .wordSheet($picked)
             .onChange(of: text) { picked = nil }
             #endif
     }
 
     #if os(iOS)
-    func show(_ token: String) {
-        // The keyboard would cover the sheet's lower half.
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
-                                        to: nil, from: nil, for: nil)
-        picked = Picked(token: token)
-    }
-
-    /// One fixed id: a new word updates the open sheet rather than replacing it.
-    struct Picked: Identifiable {
-        let id = "word"
-        let token: String
+    func show(_ token: String, _ sentence: String?) {
+        if let onPick { onPick(token, sentence); return }
+        PickedWord.dismissKeyboard()
+        picked = PickedWord(token: token)
     }
     #endif
 
     var content: some View {
         WrapLayout(spacing: 5) {
-            ForEach(Array(text.split(separator: " ").enumerated()), id: \.offset) { _, piece in
+            ForEach(Array(text.split(separator: " ").enumerated()), id: \.offset) { i, piece in
                 let token = String(piece)
+                let sentence = keepsSentence ? ReadingText.sentence(around: i, in: text) : nil
                 if token.contains("___") {
                     Text(token.replacingOccurrences(of: "___", with: "＿＿＿")).font(font)
                 } else {
                     #if os(iOS)
-                    WordToken(token: token, font: font, onTap: { show(token) })
+                    WordToken(token: token, font: font, underline: underlineAll, hover: hover,
+                              known: ReadingText.isKnown(token, in: known), onTap: { show(token, sentence) })
                     #else
-                    WordToken(token: token, font: font)
+                    WordToken(token: token, font: font, underline: underlineAll, hover: hover,
+                              known: ReadingText.isKnown(token, in: known), sentence: sentence,
+                              source: keepsSentence ? "reading" : "grammar")
                     #endif
                 }
             }
@@ -105,11 +108,47 @@ struct TappableSentence: View {
     }
 }
 
+#if os(iOS)
+/// The word shown in the iPhone sheet. One fixed id: a new word updates the
+/// open sheet rather than replacing it.
+struct PickedWord: Identifiable {
+    let id = "word"
+    let token: String
+    var source = "grammar"
+    var sentence: String? = nil
+
+    /// The keyboard would cover the sheet's lower half.
+    @MainActor static func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+extension View {
+    /// A half-height sheet, like the system's Look Up. An iPhone popover
+    /// dismisses itself whenever the layout under it shifts (the keyboard, a
+    /// redraw), so it closed on its own; a sheet stays until swiped away.
+    func wordSheet(_ picked: Binding<PickedWord?>) -> some View {
+        sheet(item: picked) { p in
+            WordInfoView(token: p.token, inSheet: true, source: p.source, sentence: p.sentence)
+                .id(p.token)
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
+                .presentationBackgroundInteraction(.enabled(upThrough: .medium))
+        }
+    }
+}
+#endif
+
 struct WordToken: View {
     let token: String
     let font: Font
+    var underline = true
+    var hover = true
+    var known = false
     /// iPhone: the sentence shows its sheet. Mac: the word shows its own popover.
     var onTap: (() -> Void)? = nil
+    var sentence: String? = nil
+    var source = "grammar"
     @State private var showing = false
     @State private var hoverTask: Task<Void, Never>?
 
@@ -118,7 +157,8 @@ struct WordToken: View {
     var body: some View {
         Text(token)
             .font(font)
-            .underline(lookable, pattern: .dot, color: .secondary.opacity(0.5))
+            .foregroundStyle(known ? AnyShapeStyle(.tint) : AnyShapeStyle(.primary))
+            .underline(lookable && underline, pattern: .dot, color: .secondary.opacity(0.5))
             .contentShape(Rectangle())
             .onTapGesture {
                 guard lookable else { return }
@@ -127,7 +167,7 @@ struct WordToken: View {
             #if os(macOS)
             .onHover { inside in
                 hoverTask?.cancel()
-                guard lookable else { return }
+                guard lookable, hover else { return }
                 if inside {
                     hoverTask = Task {
                         try? await Task.sleep(for: .milliseconds(450))
@@ -135,11 +175,9 @@ struct WordToken: View {
                     }
                 }
             }
-            #endif
-            #if os(macOS)
             // Below the word, clear of the toolbar and tabs.
             .popover(isPresented: $showing, arrowEdge: .bottom) {
-                WordInfoView(token: token)
+                WordInfoView(token: token, source: source, sentence: sentence)
             }
             #endif
             .accessibilityAddTraits(lookable ? .isButton : [])
@@ -154,8 +192,13 @@ struct WordInfoView: View {
     let token: String
     /// In the iPhone sheet: full width and scrolling; in the Mac popover: 320 wide.
     var inSheet = false
+    /// Where an added word came from: "grammar", "reading".
+    var source = "grammar"
+    /// The sentence the word was tapped in, kept as its example.
+    var sentence: String? = nil
     @State private var x: WordExplanation?
     @State private var added = false
+    @State private var alreadyHave = false
 
     var entry: DictionaryEntry? { x?.lookup.entries.first }
 
@@ -170,7 +213,10 @@ struct WordInfoView: View {
                 content.fixedSize(horizontal: false, vertical: true).frame(width: 320)
             }
         }
-        .task { x = await ExplanationCache.shared.explain(token) }
+        .task {
+            x = await ExplanationCache.shared.explain(token)
+            if let e = entry { alreadyHave = Store.has(lemma: e.lemma, partOfSpeech: e.partOfSpeech, context: context) }
+        }
     }
 
     @ViewBuilder var content: some View {
@@ -205,9 +251,13 @@ struct WordInfoView: View {
                         }
                     }
                     Divider()
-                    Button(added ? "Added to your words" : "Add to Wort", systemImage: added ? "checkmark" : "plus") { add(e) }
-                        .disabled(added)
-                        .font(.callout)
+                    if alreadyHave && !added {
+                        Label("Already in your words", systemImage: "checkmark.circle").font(.callout).foregroundStyle(.secondary)
+                    } else {
+                        Button(added ? "Added to your words" : "Add to Wort", systemImage: added ? "checkmark" : "plus") { add(e) }
+                            .disabled(added)
+                            .font(.callout)
+                    }
                 } else if let form = x.lookup.formDescription {
                     Text("**\(token)**: \(form)").font(.callout)
                 } else {
@@ -240,8 +290,10 @@ struct WordInfoView: View {
 
     func add(_ e: DictionaryEntry) {
         Store.add(lemma: e.lemma, partOfSpeech: e.partOfSpeech, gender: e.gender, plural: e.plural,
-                  pluralOnly: e.pluralOnly, english: Enricher.shortGloss(e.glosses), example: e.example,
-                  source: "grammar", genderSource: "Wiktionary", forms: e.principalParts, context: context)
+                  pluralOnly: e.pluralOnly, english: Enricher.shortGloss(e.glosses),
+                  // Your own sentence beats the dictionary's.
+                  example: sentence.map { Example(german: $0, english: nil) } ?? e.example,
+                  source: source, genderSource: "Wiktionary", forms: e.principalParts, context: context)
         try? context.save()
         added = true
     }

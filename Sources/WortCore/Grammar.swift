@@ -3,7 +3,7 @@ import Foundation
 // MARK: Items
 
 public enum GrammarTopic: String, Codable, CaseIterable, Sendable, Identifiable {
-    case adjectiveEndings, konjunktiv, passive, cases
+    case adjectiveEndings, konjunktiv, passive, cases, prepositions
 
     public var id: String { rawValue }
 
@@ -13,6 +13,7 @@ public enum GrammarTopic: String, Codable, CaseIterable, Sendable, Identifiable 
         case .konjunktiv: "Konjunktiv I & II"
         case .passive: "Passive & participles"
         case .cases: "Cases & prepositions"
+        case .prepositions: "Verbs with prepositions"
         }
     }
 
@@ -22,6 +23,7 @@ public enum GrammarTopic: String, Codable, CaseIterable, Sendable, Identifiable 
         case .konjunktiv: "Indirect speech, wishes, hypotheticals and the past subjunctive."
         case .passive: "Vorgangs- and Zustandspassiv, passive with modals, participial phrases."
         case .cases: "Two-way and genitive prepositions, n-declension, case after verbs."
+        case .prepositions: "Fixed prepositions after verbs, adjectives and nouns, plus da- and wo-words."
         }
     }
 
@@ -32,6 +34,7 @@ public enum GrammarTopic: String, Codable, CaseIterable, Sendable, Identifiable 
         case .konjunktiv: "grammar-konjunktiv"
         case .passive: "grammar-passive"
         case .cases: "grammar-cases"
+        case .prepositions: "grammar-prepositions"
         }
     }
 }

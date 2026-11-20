@@ -37,6 +37,22 @@ struct AddWordView: View {
                         .disabled(input.trimmingCharacters(in: .whitespaces).isEmpty || looking)
                 }
 
+                if result == nil {
+                    Section {
+                        NavigationLink { ReadingListView() } label: {
+                            Label {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Read a German text")
+                                    Text("Paste an article, tap any word to look it up and add it.")
+                                        .font(.caption).foregroundStyle(.secondary)
+                                }
+                            } icon: {
+                                Image(systemName: "book.pages")
+                            }
+                        }
+                    }
+                }
+
                 if !sentences.isEmpty, result == nil {
                     Section("From the share sheet: tap the word to learn") {
                         ForEach(sentences, id: \.self) { sentence in

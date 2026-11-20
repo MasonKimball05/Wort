@@ -7,15 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09EE4C7EF8AC74E13931E0DA /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = 54455545CE623CEE99CCF9E8 /* WortCore */; };
+		0A4C61D0A3A51B43157B2DB1 /* ListeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E9F2D3DBADEE4BACCAE8FD /* ListeningView.swift */; };
 		0B8E76475F713671CC6F1E52 /* WortApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181A15363F69F911C1A532 /* WortApp.swift */; };
 		130A6D12770F0B12C014ACC6 /* WordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D23C13C2A41EE4CB1C16D /* WordsView.swift */; };
+		18D0B96992E2CE826FE4E975 /* WortWidget-iOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 10C8FA554E17D0389AC324C5 /* WortWidget-iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1B0A445F36DB40341F0AB80E /* WidgetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EABFA59B8CC51046452FE2C /* WidgetBridge.swift */; };
+		1BCE5AC1DC51E5DC5081E3C0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9564781C4DF7A15E6AA602C /* SwiftUI.framework */; };
 		1CFDFFFFD75FFD0D66A8DC3F /* AppGroupShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */; };
+		1E36AB122EE1D6D2FB0AA6FD /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D05C7D760A60ED21E4C496 /* StreakView.swift */; };
+		211D3567818452AB38A35E13 /* WortWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88779D483BC97D0F810DD04 /* WortWidget.swift */; };
+		23B7093DF9C0B70A3D79C4F8 /* WortWidget-macOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 238EEE1DACADCE056ED00BD9 /* WortWidget-macOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		278B83546453972463B1BD7B /* WortShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 648452B00EAB6006BE7DB858 /* WortShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2F31A4920338DAA3BFE408F7 /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4DEE212CEA52ED3199B4E7A3 /* WortCore */; };
+		3574B9F18DE6CFD6AF56C1CE /* WidgetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EABFA59B8CC51046452FE2C /* WidgetBridge.swift */; };
 		397F7033E8708A05F4403EE5 /* WordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D23C13C2A41EE4CB1C16D /* WordsView.swift */; };
 		3E1202ADBD24B16C2067B12B /* AppGroupShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */; };
 		45E33F16BA3B033EDE338FB2 /* GrammarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA9E5F3535EB1405D5747C /* GrammarView.swift */; };
 		49A0CDC154275F4D91E95632 /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7F674CA77FF1F2BDDE7D99A3 /* WortCore */; };
 		4A7685E28D23C0B86A0EFB43 /* AppGroupShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */; };
+		4AE532B0A36C9DD720ED5ADC /* ExtractArticle.js in Resources */ = {isa = PBXBuildFile; fileRef = CB1A3E1FAF05EFA2C0A8967E /* ExtractArticle.js */; };
+		63D1E835ACA575C0C4A0EF84 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3303685AAABFFED1E4A55D /* ExportView.swift */; };
 		67AFB69B1694EDCAD54218B7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D6A00237304E68332DB094 /* SettingsView.swift */; };
 		6B998EC2CF124F3A998F855D /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */; };
 		6FE6A10C15C08F58AFFE379F /* GrammarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA9E5F3535EB1405D5747C /* GrammarView.swift */; };
@@ -23,19 +35,30 @@
 		726249A675B1669EC2861109 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A3A1DDD4715E2395B0FB0 /* Models.swift */; };
 		72CC40E0FDDF0B6529B9FC3B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */; };
 		741A282488FD643B5064383E /* WortApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181A15363F69F911C1A532 /* WortApp.swift */; };
+		7AA014F542908F7DD79C24A7 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3303685AAABFFED1E4A55D /* ExportView.swift */; };
+		7BB027DE47246209E7A830F2 /* ListeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E9F2D3DBADEE4BACCAE8FD /* ListeningView.swift */; };
 		80FF26C5856654E64F3BE37D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D6A00237304E68332DB094 /* SettingsView.swift */; };
 		86C31EB38A83EDEE70FED04F /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83162EEB4809FC829924D7E /* AddWordView.swift */; };
+		8E0195F28F5736FF6B97558A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE58ED253A078503444BF11D /* WidgetKit.framework */; };
+		97C11F4569F41F0B5581FFA3 /* TroubleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE87B53CFF3C67FC84D074 /* TroubleView.swift */; };
 		98A7E4D860224B22C796DF69 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1214EB9D28FADFD61530C2 /* ShareViewController.swift */; };
 		9E16DFC9D55490B4AAD69E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5DDB1ECFEF2A4011728535 /* Assets.xcassets */; };
 		A19A157B35AA512EBF5BAF7A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A3A1DDD4715E2395B0FB0 /* Models.swift */; };
 		B6C4FDAD3C4654D69F255DF2 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAB0F0704315AC0DD0D1B /* Services.swift */; };
 		C513EC35AFF6A92075ECB12C /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF192D84C12FEB4BEF589A /* WordInfo.swift */; };
 		C7AFA135532EE211E9C48D0C /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7A65A799E521079555D7A069 /* WortCore */; };
+		CCBBFBB3DB591C22C4453C69 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9564781C4DF7A15E6AA602C /* SwiftUI.framework */; };
 		CDAF476C8EE7FE3F763798B0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */; };
+		CF08DD6053A391559DF9B566 /* TroubleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE87B53CFF3C67FC84D074 /* TroubleView.swift */; };
 		D0C46504B7E0870FB1D030D7 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAB0F0704315AC0DD0D1B /* Services.swift */; };
+		DAD63EA0FA0717AC46AD6730 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE58ED253A078503444BF11D /* WidgetKit.framework */; };
 		E7712B5199EF4458197831B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5DDB1ECFEF2A4011728535 /* Assets.xcassets */; };
+		E8DC1DE85ACD1C7B13C74E61 /* WortWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88779D483BC97D0F810DD04 /* WortWidget.swift */; };
 		EC465DF93CA719CEFB8EE9A1 /* WortCore in Frameworks */ = {isa = PBXBuildFile; productRef = AA042B7EE96B8540293F118D /* WortCore */; };
+		EF1CF22841E1B34E9683B6EB /* ReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A79CDB5AE752C69792FA9E8 /* ReadingView.swift */; };
+		F2648EE0719FA02ED273FBDA /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D05C7D760A60ED21E4C496 /* StreakView.swift */; };
 		F4B44DFB75581EEFBD497F4E /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83162EEB4809FC829924D7E /* AddWordView.swift */; };
+		F78D3DF957E69F576E310C1E /* ReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A79CDB5AE752C69792FA9E8 /* ReadingView.swift */; };
 		F8FBC3C1C08D1B98E78EF041 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,9 +70,34 @@
 			remoteGlobalIDString = 8398BAB4B5AC37A9E72A7335;
 			remoteInfo = WortShare;
 		};
+		AD31F2DA250869E827E30F95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37057742215D49DABE712E9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1528ABF077D531C095FB49F4;
+			remoteInfo = "WortWidget-macOS";
+		};
+		BF68C0C1F0B54C52305B7774 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37057742215D49DABE712E9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 026AF6001F629F2D2BFD2215;
+			remoteInfo = "WortWidget-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		55446C5C65EC94B5DE3FBA59 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				23B7093DF9C0B70A3D79C4F8 /* WortWidget-macOS.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58825C0E27BCC06FFF69822F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,6 +105,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				278B83546453972463B1BD7B /* WortShare.appex in Embed Foundation Extensions */,
+				18D0B96992E2CE826FE4E975 /* WortWidget-iOS.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,30 +114,62 @@
 
 /* Begin PBXFileReference section */
 		047A3A1DDD4715E2395B0FB0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		10C8FA554E17D0389AC324C5 /* WortWidget-iOS.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = "WortWidget-iOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A5DDB1ECFEF2A4011728535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		238EEE1DACADCE056ED00BD9 /* WortWidget-macOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WortWidget-macOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A450C9965FB2AA81F55B9D /* Wort-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Wort-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F181A15363F69F911C1A532 /* WortApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WortApp.swift; sourceTree = "<group>"; };
+		4EABFA59B8CC51046452FE2C /* WidgetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBridge.swift; sourceTree = "<group>"; };
 		5AF3632EA827047B5C27C5A6 /* Wort-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wort-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupShared.swift; sourceTree = "<group>"; };
 		648452B00EAB6006BE7DB858 /* WortShare.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = WortShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A79CDB5AE752C69792FA9E8 /* ReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingView.swift; sourceTree = "<group>"; };
 		7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		87D05C7D760A60ED21E4C496 /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
 		88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		928AAB0F0704315AC0DD0D1B /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		942D23C13C2A41EE4CB1C16D /* WordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsView.swift; sourceTree = "<group>"; };
 		A1DA9E5F3535EB1405D5747C /* GrammarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarView.swift; sourceTree = "<group>"; };
 		B551113950BA799D5C1B2A21 /* wort */ = {isa = PBXFileReference; lastKnownFileType = folder; name = wort; path = .; sourceTree = SOURCE_ROOT; };
+		B5E9F2D3DBADEE4BACCAE8FD /* ListeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningView.swift; sourceTree = "<group>"; };
+		B88779D483BC97D0F810DD04 /* WortWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WortWidget.swift; sourceTree = "<group>"; };
+		B9564781C4DF7A15E6AA602C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CB1A3E1FAF05EFA2C0A8967E /* ExtractArticle.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ExtractArticle.js; sourceTree = "<group>"; };
 		CFDF192D84C12FEB4BEF589A /* WordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
 		E83162EEB4809FC829924D7E /* AddWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordView.swift; sourceTree = "<group>"; };
 		E8D6A00237304E68332DB094 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EE3303685AAABFFED1E4A55D /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
+		EE58ED253A078503444BF11D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		FB1214EB9D28FADFD61530C2 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		FCBE87B53CFF3C67FC84D074 /* TroubleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		60EE3FB1713B3F87A341E07B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09EE4C7EF8AC74E13931E0DA /* WortCore in Frameworks */,
+				DAD63EA0FA0717AC46AD6730 /* WidgetKit.framework in Frameworks */,
+				1BCE5AC1DC51E5DC5081E3C0 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6B976F2CE729DEAFDF402A10 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				49A0CDC154275F4D91E95632 /* WortCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B40A9DAFE9B690341CF81A59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F31A4920338DAA3BFE408F7 /* WortCore in Frameworks */,
+				8E0195F28F5736FF6B97558A /* WidgetKit.framework in Frameworks */,
+				CCBBFBB3DB591C22C4453C69 /* SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +199,8 @@
 				BC1AAA1369909FB57A19EE45 /* Resources */,
 				DE80CA66E5AA2760C535619B /* WortApp */,
 				7AB2E90C092D337239A3062F /* WortShare */,
+				DCE829E5335C1EBB88DECA59 /* WortWidget */,
+				45CE53DF85CDE1A47B0E20C0 /* Frameworks */,
 				B2592A22C10BC32939FD9190 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +213,19 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		45CE53DF85CDE1A47B0E20C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9564781C4DF7A15E6AA602C /* SwiftUI.framework */,
+				EE58ED253A078503444BF11D /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7AB2E90C092D337239A3062F /* WortShare */ = {
 			isa = PBXGroup;
 			children = (
+				CB1A3E1FAF05EFA2C0A8967E /* ExtractArticle.js */,
 				FB1214EB9D28FADFD61530C2 /* ShareViewController.swift */,
 			);
 			name = WortShare;
@@ -145,6 +238,8 @@
 				39A450C9965FB2AA81F55B9D /* Wort-iOS.app */,
 				5AF3632EA827047B5C27C5A6 /* Wort-macOS.app */,
 				648452B00EAB6006BE7DB858 /* WortShare.appex */,
+				10C8FA554E17D0389AC324C5 /* WortWidget-iOS.appex */,
+				238EEE1DACADCE056ED00BD9 /* WortWidget-macOS.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,17 +252,32 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		DCE829E5335C1EBB88DECA59 /* WortWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B88779D483BC97D0F810DD04 /* WortWidget.swift */,
+			);
+			name = WortWidget;
+			path = Sources/WortWidget;
+			sourceTree = "<group>";
+		};
 		DE80CA66E5AA2760C535619B /* WortApp */ = {
 			isa = PBXGroup;
 			children = (
 				E83162EEB4809FC829924D7E /* AddWordView.swift */,
 				5DBF6B6FE6133B2916AC9EDB /* AppGroupShared.swift */,
+				EE3303685AAABFFED1E4A55D /* ExportView.swift */,
 				A1DA9E5F3535EB1405D5747C /* GrammarView.swift */,
+				B5E9F2D3DBADEE4BACCAE8FD /* ListeningView.swift */,
 				047A3A1DDD4715E2395B0FB0 /* Models.swift */,
+				6A79CDB5AE752C69792FA9E8 /* ReadingView.swift */,
 				88E381C0247AE85EAE2CEBF4 /* ReviewView.swift */,
 				928AAB0F0704315AC0DD0D1B /* Services.swift */,
 				E8D6A00237304E68332DB094 /* SettingsView.swift */,
 				7197AE2DDCFF1A3CD2BB8F23 /* Store.swift */,
+				87D05C7D760A60ED21E4C496 /* StreakView.swift */,
+				FCBE87B53CFF3C67FC84D074 /* TroubleView.swift */,
+				4EABFA59B8CC51046452FE2C /* WidgetBridge.swift */,
 				CFDF192D84C12FEB4BEF589A /* WordInfo.swift */,
 				942D23C13C2A41EE4CB1C16D /* WordsView.swift */,
 				3F181A15363F69F911C1A532 /* WortApp.swift */,
@@ -179,6 +289,44 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		026AF6001F629F2D2BFD2215 /* WortWidget-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE3FC7819CB128DD7DD91F12 /* Build configuration list for PBXNativeTarget "WortWidget-iOS" */;
+			buildPhases = (
+				1FE2073FDEA2E34BC9561A66 /* Sources */,
+				60EE3FB1713B3F87A341E07B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WortWidget-iOS";
+			packageProductDependencies = (
+				54455545CE623CEE99CCF9E8 /* WortCore */,
+			);
+			productName = "WortWidget-iOS";
+			productReference = 10C8FA554E17D0389AC324C5 /* WortWidget-iOS.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		1528ABF077D531C095FB49F4 /* WortWidget-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7932D2B067D2E14CDF55173B /* Build configuration list for PBXNativeTarget "WortWidget-macOS" */;
+			buildPhases = (
+				19B30C8881287595C3C67E1F /* Sources */,
+				B40A9DAFE9B690341CF81A59 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WortWidget-macOS";
+			packageProductDependencies = (
+				4DEE212CEA52ED3199B4E7A3 /* WortCore */,
+			);
+			productName = "WortWidget-macOS";
+			productReference = 238EEE1DACADCE056ED00BD9 /* WortWidget-macOS.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5408D7F1F9C432563F0A9D49 /* Wort-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DBC95E37C8A4F8AD201F9C9 /* Build configuration list for PBXNativeTarget "Wort-iOS" */;
@@ -192,6 +340,7 @@
 			);
 			dependencies = (
 				2A7351CF1505E96D05363014 /* PBXTargetDependency */,
+				22A0863998A8AE203B568542 /* PBXTargetDependency */,
 			);
 			name = "Wort-iOS";
 			packageProductDependencies = (
@@ -206,6 +355,7 @@
 			buildConfigurationList = E2CCE5111C6C901D53628AAB /* Build configuration list for PBXNativeTarget "WortShare" */;
 			buildPhases = (
 				BDF6F9A4FA3ED71A8A39F482 /* Sources */,
+				84F4BDDE7B581B1EBFFF62FD /* Resources */,
 				6B976F2CE729DEAFDF402A10 /* Frameworks */,
 			);
 			buildRules = (
@@ -227,10 +377,12 @@
 				3C4CB5F272CB97FE9579DE34 /* Sources */,
 				BDF15E91EF1A2CC5F319DE5F /* Resources */,
 				D657BE02E856A1B4DB0EC212 /* Frameworks */,
+				55446C5C65EC94B5DE3FBA59 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FFC7BB4C51CE327EDA6001E4 /* PBXTargetDependency */,
 			);
 			name = "Wort-macOS";
 			packageProductDependencies = (
@@ -249,6 +401,14 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					026AF6001F629F2D2BFD2215 = {
+						DevelopmentTeam = F4P3T9JYP2;
+						ProvisioningStyle = Automatic;
+					};
+					1528ABF077D531C095FB49F4 = {
+						DevelopmentTeam = F4P3T9JYP2;
+						ProvisioningStyle = Automatic;
+					};
 					5408D7F1F9C432563F0A9D49 = {
 						DevelopmentTeam = F4P3T9JYP2;
 						ProvisioningStyle = Automatic;
@@ -283,11 +443,21 @@
 				5408D7F1F9C432563F0A9D49 /* Wort-iOS */,
 				8398BAB4B5AC37A9E72A7335 /* WortShare */,
 				C5F5B74B443D41D0C61BF006 /* Wort-macOS */,
+				026AF6001F629F2D2BFD2215 /* WortWidget-iOS */,
+				1528ABF077D531C095FB49F4 /* WortWidget-macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		84F4BDDE7B581B1EBFFF62FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AE532B0A36C9DD720ED5ADC /* ExtractArticle.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C08561707C3D31038883281 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,18 +477,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		19B30C8881287595C3C67E1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8DC1DE85ACD1C7B13C74E61 /* WortWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FE2073FDEA2E34BC9561A66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				211D3567818452AB38A35E13 /* WortWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3C4CB5F272CB97FE9579DE34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				86C31EB38A83EDEE70FED04F /* AddWordView.swift in Sources */,
 				1CFDFFFFD75FFD0D66A8DC3F /* AppGroupShared.swift in Sources */,
+				63D1E835ACA575C0C4A0EF84 /* ExportView.swift in Sources */,
 				45E33F16BA3B033EDE338FB2 /* GrammarView.swift in Sources */,
+				7BB027DE47246209E7A830F2 /* ListeningView.swift in Sources */,
 				A19A157B35AA512EBF5BAF7A /* Models.swift in Sources */,
+				F78D3DF957E69F576E310C1E /* ReadingView.swift in Sources */,
 				F8FBC3C1C08D1B98E78EF041 /* ReviewView.swift in Sources */,
 				D0C46504B7E0870FB1D030D7 /* Services.swift in Sources */,
 				80FF26C5856654E64F3BE37D /* SettingsView.swift in Sources */,
 				CDAF476C8EE7FE3F763798B0 /* Store.swift in Sources */,
+				F2648EE0719FA02ED273FBDA /* StreakView.swift in Sources */,
+				97C11F4569F41F0B5581FFA3 /* TroubleView.swift in Sources */,
+				1B0A445F36DB40341F0AB80E /* WidgetBridge.swift in Sources */,
 				723F86D062F2C9EF3E775432 /* WordInfo.swift in Sources */,
 				397F7033E8708A05F4403EE5 /* WordsView.swift in Sources */,
 				0B8E76475F713671CC6F1E52 /* WortApp.swift in Sources */,
@@ -331,12 +523,18 @@
 			files = (
 				F4B44DFB75581EEFBD497F4E /* AddWordView.swift in Sources */,
 				3E1202ADBD24B16C2067B12B /* AppGroupShared.swift in Sources */,
+				7AA014F542908F7DD79C24A7 /* ExportView.swift in Sources */,
 				6FE6A10C15C08F58AFFE379F /* GrammarView.swift in Sources */,
+				0A4C61D0A3A51B43157B2DB1 /* ListeningView.swift in Sources */,
 				726249A675B1669EC2861109 /* Models.swift in Sources */,
+				EF1CF22841E1B34E9683B6EB /* ReadingView.swift in Sources */,
 				6B998EC2CF124F3A998F855D /* ReviewView.swift in Sources */,
 				B6C4FDAD3C4654D69F255DF2 /* Services.swift in Sources */,
 				67AFB69B1694EDCAD54218B7 /* SettingsView.swift in Sources */,
 				72CC40E0FDDF0B6529B9FC3B /* Store.swift in Sources */,
+				1E36AB122EE1D6D2FB0AA6FD /* StreakView.swift in Sources */,
+				CF08DD6053A391559DF9B566 /* TroubleView.swift in Sources */,
+				3574B9F18DE6CFD6AF56C1CE /* WidgetBridge.swift in Sources */,
 				C513EC35AFF6A92075ECB12C /* WordInfo.swift in Sources */,
 				130A6D12770F0B12C014ACC6 /* WordsView.swift in Sources */,
 				741A282488FD643B5064383E /* WortApp.swift in Sources */,
@@ -355,14 +553,42 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		22A0863998A8AE203B568542 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 026AF6001F629F2D2BFD2215 /* WortWidget-iOS */;
+			targetProxy = BF68C0C1F0B54C52305B7774 /* PBXContainerItemProxy */;
+		};
 		2A7351CF1505E96D05363014 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8398BAB4B5AC37A9E72A7335 /* WortShare */;
 			targetProxy = 5F76D5790B58A9774C1FEE39 /* PBXContainerItemProxy */;
 		};
+		FFC7BB4C51CE327EDA6001E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1528ABF077D531C095FB49F4 /* WortWidget-macOS */;
+			targetProxy = AD31F2DA250869E827E30F95 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0AAEEB9CF7B583504962D0FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Resources/WortWidget-macOS.entitlements";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Resources/Info-Widget-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort.widget;
+				PRODUCT_NAME = WortWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		1BCE9F20A8CD2BD4D51C5EA7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -457,6 +683,24 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		782617993FF9B64AC8445B5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Resources/WortWidget-macOS.entitlements";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Resources/Info-Widget-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort.widget;
+				PRODUCT_NAME = WortWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -580,6 +824,24 @@
 			};
 			name = Release;
 		};
+		A338278D1AC2AA34C1E8BC12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Resources/WortWidget-iOS.entitlements";
+				INFOPLIST_FILE = "Resources/Info-Widget-iOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort.widget;
+				PRODUCT_NAME = WortWidget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		BC664BF39E7BD0D9F33BEE5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -597,6 +859,24 @@
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
+		};
+		C6E492783A263F57550CADC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Resources/WortWidget-iOS.entitlements";
+				INFOPLIST_FILE = "Resources/Info-Widget-iOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonkimball.wort.widget;
+				PRODUCT_NAME = WortWidget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -619,11 +899,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
+		7932D2B067D2E14CDF55173B /* Build configuration list for PBXNativeTarget "WortWidget-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				782617993FF9B64AC8445B5C /* Debug */,
+				0AAEEB9CF7B583504962D0FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		8761AFD1DFB269BE2631A0A7 /* Build configuration list for PBXNativeTarget "Wort-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7FD90DE97F20A50B0857CB17 /* Debug */,
 				9CBB57A2290638C6D46A3637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AE3FC7819CB128DD7DD91F12 /* Build configuration list for PBXNativeTarget "WortWidget-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6E492783A263F57550CADC6 /* Debug */,
+				A338278D1AC2AA34C1E8BC12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -647,6 +945,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4DEE212CEA52ED3199B4E7A3 /* WortCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WortCore;
+		};
+		54455545CE623CEE99CCF9E8 /* WortCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WortCore;
+		};
 		7A65A799E521079555D7A069 /* WortCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WortCore;

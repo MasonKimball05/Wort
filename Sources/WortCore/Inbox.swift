@@ -13,13 +13,30 @@ public struct InboxItem: Codable, Equatable, Sendable {
     public var english: String?
     public var source: String
     public var savedAt: Date
+    /// A whole text (an article shared from Safari, a long selection), for the
+    /// reading list. Optional, so files written by older builds still decode.
+    public var reading: SharedText?
 
-    public init(text: String, sentence: String? = nil, english: String? = nil, source: String, savedAt: Date = .now) {
+    public init(text: String, sentence: String? = nil, english: String? = nil, source: String,
+                savedAt: Date = .now, reading: SharedText? = nil) {
         self.text = text
         self.sentence = sentence
         self.english = english
         self.source = source
         self.savedAt = savedAt
+        self.reading = reading
+    }
+
+    /// Longer than this many words (or with a paragraph break) and it's a text to read.
+    public static let readingWords = 40
+
+    /// An article shared from a web page: its title and the paragraphs pulled out of it.
+    public static func article(title: String?, text: String, url: String?, source: String) -> InboxItem? {
+        let body = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !body.isEmpty, body.count <= 200_000 else { return nil }
+        let name = title?.trimmingCharacters(in: .whitespacesAndNewlines)
+        return InboxItem(text: "", source: source,
+                         reading: SharedText(title: name?.isEmpty == false ? name : nil, text: body, url: url))
     }
 
     /// Splits shared text into the word to learn and its sentence. A single word
@@ -27,12 +44,26 @@ public struct InboxItem: Codable, Equatable, Sendable {
     /// the word is left for the person to pick in the app.
     public static func fromShared(_ raw: String, source: String) -> InboxItem? {
         let text = raw.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !text.isEmpty, text.count <= 500 else { return nil }
+        guard !text.isEmpty, text.count <= 200_000 else { return nil }
         let words = text.split(whereSeparator: \.isWhitespace)
+        if words.count > readingWords || text.contains("\n\n") {
+            return article(title: nil, text: text, url: nil, source: source)
+        }
         if words.count == 1 || (words.count == 2 && Gender(article: String(words[0])) != nil) {
             return InboxItem(text: text, source: source)
         }
         return InboxItem(text: "", sentence: text, source: source)
+    }
+}
+
+public struct SharedText: Codable, Equatable, Sendable {
+    public var title: String?
+    public var text: String
+    public var url: String?
+    public init(title: String?, text: String, url: String?) {
+        self.title = title
+        self.text = text
+        self.url = url
     }
 }
 

@@ -60,13 +60,23 @@ final class Speaker {
     static let shared = Speaker()
     private let synth = AVSpeechSynthesizer()
 
-    func say(_ text: String) {
+    func say(_ text: String, slow: Bool = false) {
         synth.stopSpeaking(at: .immediate)
         let u = AVSpeechUtterance(string: text)
-        u.voice = AVSpeechSynthesisVoice(language: "de-DE")
-        u.rate = AVSpeechUtteranceDefaultSpeechRate * 0.9
+        u.voice = Self.voice
+        u.rate = AVSpeechUtteranceDefaultSpeechRate * (slow ? 0.6 : 0.9)
         synth.speak(u)
     }
+
+    /// The best German voice installed: an enhanced or premium one if you've
+    /// downloaded it (Settings › Accessibility › Spoken Content › Voices), else
+    /// the default.
+    static var voice: AVSpeechSynthesisVoice? {
+        let german = AVSpeechSynthesisVoice.speechVoices().filter { $0.language.hasPrefix("de") }
+        return german.max { $0.quality.rawValue < $1.quality.rawValue } ?? AVSpeechSynthesisVoice(language: "de-DE")
+    }
+
+    static var hasGermanVoice: Bool { voice != nil }
 }
 
 /// What to review now: everything due, plus a few new cards a day.

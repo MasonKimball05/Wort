@@ -3,7 +3,7 @@ import SwiftData
 import WortCore
 
 enum Store {
-    static let schema = Schema([Word.self, Card.self, Review.self, GrammarAttempt.self])
+    static let schema = Schema([Word.self, Card.self, Review.self, GrammarAttempt.self, Reading.self])
 
     /// The database. Syncs through the iCloud container when the build is signed
     /// with the CloudKit entitlement (`.automatic`); a local-only store otherwise,
@@ -28,6 +28,14 @@ enum Store {
     }
 
     // MARK: Adding words
+
+    /// Whether a word with this lemma and part of speech is already saved.
+    @MainActor static func has(lemma: String, partOfSpeech: PartOfSpeech, context: ModelContext) -> Bool {
+        let pos = partOfSpeech.rawValue
+        var d = FetchDescriptor<Word>(predicate: #Predicate { $0.lemma == lemma && $0.partOfSpeechRaw == pos })
+        d.fetchLimit = 1
+        return ((try? context.fetchCount(d)) ?? 0) > 0
+    }
 
     /// Adds a word unless one with the same key exists; returns the word either way.
     @MainActor @discardableResult
@@ -85,6 +93,11 @@ enum Store {
     static func importInbox(context: ModelContext) -> Int {
         let items = AppGroup.inbox.drain()
         for item in items {
+            // A shared article or long selection goes to the reading list.
+            if let r = item.reading {
+                context.insert(Reading(title: r.title ?? ReadingText.title(for: r.text), text: r.text))
+                continue
+            }
             // A shared sentence waits on the Add tab for the person to pick the word.
             if item.text.isEmpty {
                 if let s = item.sentence { SavedSentences.add(s) }

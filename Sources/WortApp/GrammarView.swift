@@ -22,12 +22,24 @@ struct GrammarView: View {
         return attempts.filter { $0.at >= start }
     }
 
+    /// Exercises you keep missing (counting doesn't need the items themselves).
+    var troubleCount: Int {
+        Trouble.ranked(Dictionary(grouping: attempts, by: \.itemID)
+            .mapValues { $0.map { Trouble.Result(correct: $0.correct, at: $0.at) } }).count
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     TodayHeader(answered: today.count, right: today.filter(\.correct).count,
                                 due: GrammarTopic.allCases.reduce(0) { $0 + TopicStats(topic: $1, attempts: attempts).due })
+                    if troubleCount > 0 {
+                        NavigationLink { TroubleSpotsView() } label: {
+                            TroubleCard(count: troubleCount)
+                        }
+                        .buttonStyle(.plain)
+                    }
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 300), spacing: 16)], spacing: 16) {
                         ForEach(GrammarTopic.allCases) { topic in
                             NavigationLink(value: topic) {
@@ -89,6 +101,7 @@ extension GrammarTopic {
         case .konjunktiv: "quote.bubble"
         case .passive: "arrow.triangle.2.circlepath"
         case .cases: "point.topleft.down.to.point.bottomright.curvepath"
+        case .prepositions: "link"
         }
     }
 
@@ -98,6 +111,7 @@ extension GrammarTopic {
         case .konjunktiv: .purple
         case .passive: .teal
         case .cases: .blue
+        case .prepositions: .indigo
         }
     }
 
@@ -107,6 +121,7 @@ extension GrammarTopic {
         case .konjunktiv: "Er sagte, er sei krank."
         case .passive: "Das wurde gestern beschlossen."
         case .cases: "trotz des Regens"
+        case .prepositions: "Es kommt darauf an."
         }
     }
 }
@@ -122,6 +137,26 @@ struct TodayHeader: View {
             StatTile(value: answered == 0 ? "–" : "\(right * 100 / answered)%", label: "right today", symbol: "target", tint: .blue)
             StatTile(value: "\(due)", label: "to repeat", symbol: "arrow.counterclockwise", tint: .orange)
         }
+    }
+}
+
+struct TroubleCard: View {
+    let count: Int
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.title3).foregroundStyle(.orange)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Trouble spots").font(.headline)
+                Text("\(count) \(count == 1 ? "exercise" : "exercises") you keep missing")
+                    .font(.subheadline).foregroundStyle(.secondary)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)
+        }
+        .padding(16)
+        .background(Color.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .contentShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 }
 
@@ -221,6 +256,9 @@ extension Color {
 struct GrammarSessionView: View {
     @Environment(\.modelContext) private var context
     let topic: GrammarTopic
+    /// A fixed set to practice (trouble spots, from any topic) instead of the
+    /// topic's own session; called again for "Another round".
+    var practice: ((ModelContext) -> [GrammarItem])? = nil
 
     @State private var items: [GrammarItem] = []
     @State private var index = 0
@@ -255,8 +293,8 @@ struct GrammarSessionView: View {
                         }
 
                         VStack(alignment: .leading, spacing: 18) {
-                            Label(kindLabel(item), systemImage: topic.symbol)
-                                .font(.caption.weight(.semibold)).foregroundStyle(topic.tint)
+                            Label(kindLabel(item), systemImage: item.topic.symbol)
+                                .font(.caption.weight(.semibold)).foregroundStyle(item.topic.tint)
                             // Tap (or hover, on the Mac) any word for its meaning and grammar.
                             TappableSentence(text: item.prompt)
                             answerArea(item)
@@ -285,7 +323,7 @@ struct GrammarSessionView: View {
                 ProgressView()
             }
         }
-        .navigationTitle(topic.title)
+        .navigationTitle(practice == nil ? topic.title : "Trouble spots")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
@@ -365,7 +403,8 @@ struct GrammarSessionView: View {
     }
 
     func start() {
-        items = GrammarSession.build(topic: topic, progress: GrammarProgress.states(topic: topic, context: context))
+        items = practice?(context)
+            ?? GrammarSession.build(topic: topic, progress: GrammarProgress.states(topic: topic, context: context))
         index = 0; right = 0; total = 0; retried = []
         reset()
     }
@@ -376,7 +415,7 @@ struct GrammarSessionView: View {
         checkedAt = .now
         total += 1
         if ok { right += 1 }
-        context.insert(GrammarAttempt(itemID: item.id, topic: topic, correct: ok))
+        context.insert(GrammarAttempt(itemID: item.id, topic: item.topic, correct: ok))
         try? context.save()
         // A miss comes back once at the end of this session.
         if !ok, !retried.contains(item.id) { retried.insert(item.id); items.append(item) }

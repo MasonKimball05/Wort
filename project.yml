@@ -29,6 +29,7 @@ targets:
       - package: WortKit
         product: WortCore
       - target: WortShare
+      - target: WortWidget-iOS
     entitlements:
       path: Resources/Wort-iOS.entitlements
       properties:
@@ -59,6 +60,9 @@ targets:
     platform: iOS
     sources:
       - path: Sources/WortShare
+        excludes: ["*.js"]
+      - path: Sources/WortShare/ExtractArticle.js
+        buildPhase: resources
       - path: Sources/WortApp/AppGroupShared.swift
     dependencies:
       - package: WortKit
@@ -77,6 +81,9 @@ targets:
           NSExtensionAttributes:
             NSExtensionActivationRule:
               NSExtensionActivationSupportsText: true
+              # A Safari page: ExtractArticle.js pulls out the article's text.
+              NSExtensionActivationSupportsWebPageWithMaxCount: 1
+            NSExtensionJavaScriptPreprocessingFile: ExtractArticle
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.masonkimball.wort.share
@@ -93,11 +100,16 @@ targets:
     dependencies:
       - package: WortKit
         product: WortCore
+      - target: WortWidget-macOS
     entitlements:
       path: Resources/Wort-macOS.entitlements
       properties:
         com.apple.security.app-sandbox: true
+        # Only for the widget's snapshot; the database stays in Application Support.
+        com.apple.security.application-groups: [group.com.masonkimball.wort]
         com.apple.security.network.client: true
+        # The save panel for exports.
+        com.apple.security.files.user-selected.read-write: true
         com.apple.developer.icloud-container-identifiers: [iCloud.com.masonkimball.wort]
         com.apple.developer.icloud-services: [CloudKit]
         com.apple.developer.aps-environment: development
@@ -113,3 +125,59 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.masonkimball.wort
         PRODUCT_NAME: Wort
+
+  # Cards due and the streak. Reads the snapshot the app writes into the App
+  # Group (WidgetBridge); never opens the database.
+  WortWidget-iOS:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Sources/WortWidget
+    dependencies:
+      - package: WortKit
+        product: WortCore
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    entitlements:
+      path: Resources/WortWidget-iOS.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.masonkimball.wort]
+    info:
+      path: Resources/Info-Widget-iOS.plist
+      properties:
+        CFBundleDisplayName: Wort
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.masonkimball.wort.widget
+        PRODUCT_NAME: WortWidget
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+
+  WortWidget-macOS:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: Sources/WortWidget
+    dependencies:
+      - package: WortKit
+        product: WortCore
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    entitlements:
+      path: Resources/WortWidget-macOS.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups: [group.com.masonkimball.wort]
+    info:
+      path: Resources/Info-Widget-macOS.plist
+      properties:
+        CFBundleDisplayName: Wort
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.masonkimball.wort.widget
+        PRODUCT_NAME: WortWidget
+        SKIP_INSTALL: YES
