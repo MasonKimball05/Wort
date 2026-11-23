@@ -10,14 +10,24 @@ struct ReviewView: View {
     @State private var doneToday = 0
     @State private var streak: Streak.Summary?
     @State private var showStreak = false
+    @State private var hinted = false
+    /// Watches how the session is going; at level 1 new words are held back.
+    @State private var tuner = Tuner(level: 2)
+    @State private var holdingBack = false
 
     var body: some View {
         NavigationStack {
             Group {
                 if let card = queue.first, let word = card.word {
-                    CardView(card: card, word: word, revealed: $revealed, picked: $picked,
-                             onAnswer: { answer(card, $0) })
-                        .id(card.persistentModelID)
+                    VStack(spacing: 0) {
+                        if holdingBack {
+                            Label("Lots of misses: no new words for the rest of this session.", systemImage: "tortoise")
+                                .font(.footnote).foregroundStyle(.secondary).padding(.top, 8)
+                        }
+                        CardView(card: card, word: word, revealed: $revealed, picked: $picked, hinted: $hinted,
+                                 onAnswer: { answer(card, $0) })
+                            .id(card.persistentModelID)
+                    }
                 } else {
                     ContentUnavailableView {
                         Label(doneToday > 0 ? "Fertig für heute!" : "Nothing to review",
@@ -53,21 +63,27 @@ struct ReviewView: View {
         .onAppear { reload(); refreshStreak() }
     }
 
-    /// From every review and grammar answer.
+    /// From every review, grammar and listening answer.
     func refreshStreak() {
-        let reviews = (try? context.fetch(FetchDescriptor<Review>())) ?? []
-        let attempts = (try? context.fetch(FetchDescriptor<GrammarAttempt>())) ?? []
-        streak = Streak.summary(reviews.map(\.at) + attempts.map(\.at))
+        streak = Streak.summary(Activity.dates(context: context))
     }
 
     func reload() {
-        queue = Queue.next(context: context)
+        queue = Queue.next(context: context).filter { !holdingBack || !$0.isNew }
         revealed = false
         picked = nil
+        hinted = false
     }
 
     func answer(_ card: Card, _ rating: Rating) {
-        Queue.answer(card, rating, context: context)
+        Queue.answer(card, rating, hinted: hinted, context: context)
+        // Going badly (mostly Again): stop bringing in new words this session.
+        // Due cards stay; SM-2 already spaces each card by how you do on it.
+        if tuner.record(id: "\(card.persistentModelID.hashValue)", correct: rating != .again, hinted: hinted) == .easier,
+           tuner.level == 1, !holdingBack {
+            holdingBack = true
+            queue = [queue[0]] + queue.dropFirst().filter { !$0.isNew }
+        }
         doneToday += 1
         if streak?.practicedToday != true { refreshStreak() }
         queue.removeFirst()
@@ -75,6 +91,7 @@ struct ReviewView: View {
         if card.due.timeIntervalSinceNow < 20 * 60 { queue.append(card) }
         revealed = false
         picked = nil
+        hinted = false
     }
 }
 
@@ -83,7 +100,24 @@ struct CardView: View {
     let word: Word
     @Binding var revealed: Bool
     @Binding var picked: Gender?
+    @Binding var hinted: Bool
     let onAnswer: (Rating) -> Void
+
+    /// Part of the way to the answer, for this kind of card; nil if there's
+    /// nothing useful to give.
+    var hint: String? {
+        switch card.kind {
+        case .meaning:
+            if let ex = word.exampleGerman { return ex }
+            let first = word.english.split(separator: ",").first.map(String.init) ?? word.english
+            return first.isEmpty ? nil : Hints.letters(first)
+        case .recall: return Hints.letters(word.display)
+        case .gender: return Hints.genderRule(word.lemma)
+        case .plural: return word.plural.map { "Plural: " + Hints.pluralPattern(lemma: word.lemma, plural: $0) }
+        case .government: return word.government.map(Hints.preposition)
+        case .forms: return word.forms.flatMap(Hints.auxiliary)
+        }
+    }
 
     var body: some View {
         VStack(spacing: 24) {
@@ -91,6 +125,18 @@ struct CardView: View {
                 .font(.caption.weight(.semibold)).tracking(1.2).foregroundStyle(.secondary)
             Spacer(minLength: 0)
             front
+            if !revealed, let hint {
+                if hinted {
+                    Label(hint, systemImage: "lightbulb.fill")
+                        .font(.callout).foregroundStyle(.orange)
+                        .multilineTextAlignment(.center)
+                        .transition(.opacity)
+                } else {
+                    Button("Hint", systemImage: "lightbulb") { hinted = true }
+                        .buttonStyle(.bordered).tint(.orange)
+                        .keyboardShortcut("h", modifiers: [])
+                }
+            }
             if revealed { back.transition(.opacity) }
             Spacer(minLength: 0)
             controls
@@ -99,6 +145,7 @@ struct CardView: View {
         .frame(maxWidth: 560)
         .frame(maxWidth: .infinity)
         .animation(.easeOut(duration: 0.15), value: revealed)
+        .animation(.easeOut(duration: 0.15), value: hinted)
     }
 
     @ViewBuilder var front: some View {
@@ -173,7 +220,11 @@ struct CardView: View {
                 .buttonStyle(.borderedProminent).controlSize(.large)
                 .keyboardShortcut(.space, modifiers: [])
         } else {
-            let preview = Queue.preview(card)
+            let preview = Queue.preview(card, hinted: hinted)
+            if hinted {
+                Text("With a hint, Good counts as Hard once a card is in review.")
+                    .font(.caption2).foregroundStyle(.secondary)
+            }
             HStack(spacing: 8) {
                 ForEach(Rating.allCases, id: \.self) { r in
                     Button { onAnswer(r) } label: {

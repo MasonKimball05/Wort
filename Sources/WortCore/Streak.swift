@@ -79,6 +79,18 @@ public enum Dictation {
         return out
     }
 
+    /// How hard something is to catch by ear, 1 to 3. Sentences by word count
+    /// (up to 7, up to 11, longer); single words by letters (up to 6, up to 10,
+    /// longer: compounds).
+    public static func level(of text: String, sentence: Bool) -> Int {
+        if sentence {
+            let n = text.split(whereSeparator: \.isWhitespace).count
+            return n <= 7 ? 1 : n <= 11 ? 2 : 3
+        }
+        let word = text.split(separator: " ").last.map(String.init) ?? text   // without the article
+        return word.count <= 6 ? 1 : word.count <= 10 ? 2 : 3
+    }
+
     /// Every word right and nothing extra.
     public static func isCorrect(expected: String, typed: String) -> Bool {
         let typedCount = typed.split(whereSeparator: \.isWhitespace).map(normalize).filter { !$0.isEmpty }.count

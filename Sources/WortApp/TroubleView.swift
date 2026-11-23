@@ -7,7 +7,7 @@ import WortCore
 enum TroubleData {
     static func grammar(_ attempts: [GrammarAttempt]) -> [(item: GrammarItem, summary: Trouble.Summary)] {
         let byItem = Dictionary(grouping: attempts, by: \.itemID)
-            .mapValues { $0.map { Trouble.Result(correct: $0.correct, at: $0.at) } }
+            .mapValues { $0.map { Trouble.Result(correct: $0.correct, at: $0.at, hinted: $0.hinted) } }
         let ranked = Trouble.ranked(byItem)
         let items = GrammarBank.items(ids: ranked.map(\.id))
         return ranked.compactMap { r in items[r.id].map { (item: $0, summary: r.summary) } }
@@ -22,7 +22,8 @@ enum TroubleData {
             guard let card = r.card, card.word != nil else { continue }
             let id = card.persistentModelID
             cards[id] = card
-            results[id, default: []].append(Trouble.Result(correct: r.ratingRaw != Rating.again.rawValue, at: r.at))
+            results[id, default: []].append(Trouble.Result(correct: r.ratingRaw != Rating.again.rawValue, at: r.at,
+                                                           hinted: r.hinted))
         }
         return Trouble.ranked(results).compactMap { r in cards[r.id].map { (card: $0, summary: r.summary) } }
     }
@@ -51,7 +52,7 @@ struct TroubleSpotsView: View {
         List {
             if loaded, grammar.isEmpty, words.isEmpty, rules.isEmpty {
                 ContentUnavailableView("No trouble spots", systemImage: "checkmark.seal",
-                                       description: Text("Words and exercises you keep missing show up here, until you've got them right a few times running."))
+                                       description: Text("Words and exercises you keep missing, or keep needing a hint for, show up here until you've got them right a few times running without one."))
                     .listRowBackground(Color.clear)
             }
 
@@ -134,6 +135,14 @@ struct TroubleSpotsView: View {
     }
 
     func missed(_ s: Trouble.Summary) -> String {
-        "Missed \(s.misses) of the last \(s.recent) · \(s.lastMissed.formatted(.relative(presentation: .named)))"
+        var parts: [String] = []
+        if s.misses > 0 { parts.append("missed \(s.misses)") }
+        if s.hints > 0 { parts.append("\(s.hints) with a hint") }
+        return (parts.joined(separator: ", ") + " of the last \(s.recent)").capitalizedFirst
+            + " · \(s.lastMissed.formatted(.relative(presentation: .named)))"
     }
+}
+
+extension String {
+    var capitalizedFirst: String { prefix(1).uppercased() + dropFirst() }
 }

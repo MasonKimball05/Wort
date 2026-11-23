@@ -113,13 +113,18 @@ final class Card {
 /// One answer. Only ever inserted, so two devices never fight over a card.
 @Model
 final class Review {
+    /// The rating that counts: already lowered if a hint was used, so scheduling
+    /// never depends on `hinted` (older builds on another device replay the same).
     var ratingRaw: Int = Rating.good.rawValue
     var at: Date = Date.now
+    /// A hint was shown before answering. For statistics only.
+    var hinted: Bool = false
     var card: Card?
 
-    init(rating: Rating, at: Date) {
+    init(rating: Rating, at: Date, hinted: Bool = false) {
         ratingRaw = rating.rawValue
         self.at = at
+        self.hinted = hinted
     }
 }
 
@@ -131,11 +136,36 @@ final class GrammarAttempt {
     var topicRaw: String = ""
     var correct: Bool = false
     var at: Date = Date.now
+    /// Answered with a hint: a right answer then keeps the item in its box.
+    var hinted: Bool = false
 
-    init(itemID: String, topic: GrammarTopic, correct: Bool, at: Date = .now) {
+    init(itemID: String, topic: GrammarTopic, correct: Bool, at: Date = .now, hinted: Bool = false) {
         self.itemID = itemID
         self.topicRaw = topic.rawValue
         self.correct = correct
+        self.at = at
+        self.hinted = hinted
+    }
+
+    var event: GrammarAttemptEvent { GrammarAttemptEvent(correct: correct, at: at, hinted: hinted) }
+}
+
+/// One listening answer: which word, right or not, with a hint or not. Logged so
+/// hint use per word can be seen and listening counts toward the streak.
+@Model
+final class ListeningAttempt {
+    var wordKey: String = ""
+    /// "word" or "sentence".
+    var mode: String = "word"
+    var correct: Bool = false
+    var hinted: Bool = false
+    var at: Date = Date.now
+
+    init(wordKey: String, mode: String, correct: Bool, hinted: Bool, at: Date = .now) {
+        self.wordKey = wordKey
+        self.mode = mode
+        self.correct = correct
+        self.hinted = hinted
         self.at = at
     }
 }

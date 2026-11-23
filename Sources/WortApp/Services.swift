@@ -111,8 +111,11 @@ enum Queue {
         return due + Array(newCards) + Array(followUps)
     }
 
-    static func answer(_ card: Card, _ rating: Rating, context: ModelContext, now: Date = .now) {
-        let review = Review(rating: rating, at: now)
+    /// Records an answer. With a hint, the rating is lowered first (see
+    /// `Scheduler.rating(_:hinted:phase:)`) and stored lowered.
+    static func answer(_ card: Card, _ rating: Rating, hinted: Bool = false, context: ModelContext, now: Date = .now) {
+        let counted = Scheduler.rating(rating, hinted: hinted, phase: card.state.phase)
+        let review = Review(rating: counted, at: now, hinted: hinted)
         context.insert(review)
         review.card = card
         card.recompute()
@@ -120,11 +123,12 @@ enum Queue {
     }
 
     /// When the next review would be for each rating, for the button labels.
-    static func preview(_ card: Card, now: Date = .now) -> [Rating: String] {
+    /// After a hint, what each button will really do (Good may count as Hard).
+    static func preview(_ card: Card, hinted: Bool = false, now: Date = .now) -> [Rating: String] {
         let s = card.state
         var out: [Rating: String] = [:]
         for r in Rating.allCases {
-            let next = Scheduler().next(s, r, now: now)
+            let next = Scheduler().next(s, Scheduler.rating(r, hinted: hinted, phase: s.phase), now: now)
             out[r] = humanInterval(next.due.timeIntervalSince(now))
         }
         return out

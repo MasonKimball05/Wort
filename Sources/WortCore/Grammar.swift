@@ -96,9 +96,12 @@ public struct GrammarItem: Equatable, Identifiable, Sendable {
 public struct GrammarAttemptEvent: Equatable, Sendable {
     public var correct: Bool
     public var at: Date
-    public init(correct: Bool, at: Date) {
+    /// Answered right with a hint.
+    public var hinted: Bool
+    public init(correct: Bool, at: Date, hinted: Bool = false) {
         self.correct = correct
         self.at = at
+        self.hinted = hinted
     }
 }
 
@@ -114,9 +117,16 @@ public struct LeitnerState: Equatable, Sendable {
 
     public init(due: Date) { self.due = due }
 
-    public func next(correct: Bool, at: Date) -> LeitnerState {
+    /// A right answer with a hint keeps the item in its box (at least box 1) and
+    /// brings it back tomorrow, instead of moving it up.
+    public func next(correct: Bool, at: Date, hinted: Bool = false) -> LeitnerState {
         var n = self
         n.attempts += 1
+        if correct, hinted {
+            n.box = max(box, 1)
+            n.due = at + 86_400
+            return n
+        }
         if correct {
             n.box = min(box + 1, Self.intervals.count - 1)
         } else {
@@ -130,7 +140,7 @@ public struct LeitnerState: Equatable, Sendable {
     public static func replay(_ events: [GrammarAttemptEvent]) -> LeitnerState? {
         let sorted = events.sorted { $0.at < $1.at }
         guard let first = sorted.first else { return nil }
-        return sorted.reduce(LeitnerState(due: first.at)) { $0.next(correct: $1.correct, at: $1.at) }
+        return sorted.reduce(LeitnerState(due: first.at)) { $0.next(correct: $1.correct, at: $1.at, hinted: $1.hinted) }
     }
 }
 

@@ -24,17 +24,21 @@ enum Exporter {
                 government: w.government, forms: w.forms, source: w.source, addedAt: w.createdAt,
                 reviews: (w.cards ?? []).flatMap { card in
                     (card.reviews ?? []).map {
-                        Backup.ReviewRecord(drill: card.kindRaw, rating: (Rating(rawValue: $0.ratingRaw) ?? .good).label.lowercased(), at: $0.at)
+                        Backup.ReviewRecord(drill: card.kindRaw, rating: (Rating(rawValue: $0.ratingRaw) ?? .good).label.lowercased(),
+                                            at: $0.at, hinted: $0.hinted)
                     }
                 }.sorted { $0.at < $1.at })
         }
         let grammar = ((try? context.fetch(FetchDescriptor<GrammarAttempt>(sortBy: [SortDescriptor(\.at)]))) ?? []).map {
-            Backup.GrammarRecord(item: $0.itemID, topic: $0.topicRaw, correct: $0.correct, at: $0.at)
+            Backup.GrammarRecord(item: $0.itemID, topic: $0.topicRaw, correct: $0.correct, at: $0.at, hinted: $0.hinted)
         }
         let readings = ((try? context.fetch(FetchDescriptor<Reading>(sortBy: [SortDescriptor(\.addedAt)]))) ?? []).map {
             Backup.ReadingRecord(title: $0.title, text: $0.text, addedAt: $0.addedAt)
         }
-        return Backup.File(exportedAt: .now, words: words, grammar: grammar, readings: readings)
+        let listening = ((try? context.fetch(FetchDescriptor<ListeningAttempt>(sortBy: [SortDescriptor(\.at)]))) ?? []).map {
+            Backup.ListeningRecord(word: $0.wordKey, mode: $0.mode, correct: $0.correct, hinted: $0.hinted, at: $0.at)
+        }
+        return Backup.File(exportedAt: .now, words: words, grammar: grammar, readings: readings, listening: listening)
     }
 
     static var dateStamp: String { Date.now.formatted(.iso8601.year().month().day()) }

@@ -9,16 +9,30 @@ import WortCore
 struct ListeningView: View {
     enum Mode: String, CaseIterable { case words = "Words", sentences = "Sentences" }
 
+    struct Item: Equatable {
+        var text: String
+        var english: String
+        var key: String
+    }
+
+    @Environment(\.modelContext) private var context
     @Query private var words: [Word]
     @State private var mode = Mode.words
-    @State private var round: [(text: String, english: String)] = []
+    @State private var round: [Item] = []
+    /// What the round can still draw from; picked one at a time at the level.
+    @State private var pool: [Item] = []
     @State private var index = 0
     @State private var typed = ""
     @State private var result: [Dictation.Word]?
     @State private var right = 0
+    @State private var hinted = false
+    @State private var tuner = Tuner(level: 2)
+    @State private var levelNote: String?
     @FocusState private var focused: Bool
 
-    var current: (text: String, english: String)? { round.indices.contains(index) ? round[index] : nil }
+    static let roundSize = 10
+
+    var current: Item? { round.indices.contains(index) ? round[index] : nil }
 
     var body: some View {
         ScrollView {
@@ -34,8 +48,12 @@ struct ListeningView: View {
                 }
 
                 if let item = current {
-                    Text("\(index + 1) of \(round.count) · \(right) right")
-                        .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                    HStack(spacing: 8) {
+                        Text("\(index + 1) of \(roundLength) · \(right) right")
+                        LevelDots(level: tuner.level)
+                        if let levelNote { Text(levelNote).foregroundStyle(.tint) }
+                    }
+                    .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                     VStack(spacing: 16) {
                         HStack(spacing: 16) {
                             Button { Speaker.shared.say(item.text) } label: {
@@ -59,9 +77,19 @@ struct ListeningView: View {
                             .disabled(result != nil)
                             .onSubmit { result == nil ? check(item) : next() }
                         if result == nil {
-                            Button("Check") { check(item) }
-                                .buttonStyle(.borderedProminent)
-                                .disabled(typed.trimmingCharacters(in: .whitespaces).isEmpty)
+                            if hinted {
+                                Label(Hints.letters(item.text), systemImage: "lightbulb.fill")
+                                    .font(.callout.monospaced()).foregroundStyle(.orange)
+                            }
+                            HStack {
+                                if !hinted {
+                                    Button("Hint", systemImage: "lightbulb") { hinted = true }
+                                        .buttonStyle(.bordered).tint(.orange)
+                                }
+                                Button("Check") { check(item) }
+                                    .buttonStyle(.borderedProminent)
+                                    .disabled(typed.trimmingCharacters(in: .whitespaces).isEmpty)
+                            }
                         }
                     }
                     .padding(20)
@@ -95,7 +123,9 @@ struct ListeningView: View {
         .onChange(of: mode) { start() }
     }
 
-    @ViewBuilder func feedback(_ item: (text: String, english: String), _ words: [Dictation.Word]) -> some View {
+    var roundLength: Int { min(Self.roundSize, round.count + pool.count) }
+
+    @ViewBuilder func feedback(_ item: Item, _ words: [Dictation.Word]) -> some View {
         let ok = Dictation.isCorrect(expected: item.text, typed: typed)
         VStack(alignment: .leading, spacing: 10) {
             Label(ok ? "Richtig" : "Not quite", systemImage: ok ? "checkmark.circle.fill" : "xmark.circle.fill")
@@ -120,38 +150,73 @@ struct ListeningView: View {
         .background(Color.cardBackground, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 
-    /// Ten at random. Words you've already met first (seen in Review), then any.
+    /// Words you've already met first (seen in Review), then any. The round
+    /// starts at the level your last listening answers suggest and picks each
+    /// next item to match the level as it changes.
     func start() {
         let usable = words.filter { !$0.needsLookup }
         let met = usable.filter { ($0.cards ?? []).contains { !$0.isNew } }
-        let pool = met.count >= 10 ? met : usable
+        let source = met.count >= Self.roundSize ? met : usable
         switch mode {
         case .words:
-            round = pool.shuffled().prefix(10).map { (text: $0.display, english: $0.english) }
+            pool = source.map { Item(text: $0.display, english: $0.english, key: $0.key) }
         case .sentences:
-            round = pool.compactMap { w -> (text: String, english: String)? in
+            pool = source.compactMap { w in
                 guard let ex = w.exampleGerman, ex.split(separator: " ").count <= 16 else { return nil }
-                return (text: ex, english: w.exampleEnglish ?? "")
+                return Item(text: ex, english: w.exampleEnglish ?? "", key: w.key)
             }
-            .shuffled().prefix(10).map { $0 }
         }
-        index = 0; right = 0
+        pool.shuffle()
+        round = []; index = 0; right = 0; levelNote = nil
+        tuner = Tuner(level: Tuner.startLevel(recentResults()))
+        addNext()
         reset()
     }
 
-    func check(_ item: (text: String, english: String)) {
+    func recentResults() -> [(correct: Bool, hinted: Bool)] {
+        let m = mode == .words ? "word" : "sentence"
+        var d = FetchDescriptor<ListeningAttempt>(predicate: #Predicate { $0.mode == m },
+                                                  sortBy: [SortDescriptor(\.at, order: .reverse)])
+        d.fetchLimit = 12
+        return ((try? context.fetch(d)) ?? []).reversed().map { (correct: $0.correct, hinted: $0.hinted) }
+    }
+
+    /// The next item: the closest to the current level that's left.
+    func addNext() {
+        guard round.count < Self.roundSize, !pool.isEmpty else { return }
+        let sentence = mode == .sentences
+        let best = pool.indices.min { a, b in
+            abs(Dictation.level(of: pool[a].text, sentence: sentence) - tuner.level)
+                < abs(Dictation.level(of: pool[b].text, sentence: sentence) - tuner.level)
+        }!
+        round.append(pool.remove(at: best))
+    }
+
+    func check(_ item: Item) {
         result = Dictation.compare(expected: item.text, typed: typed)
-        if Dictation.isCorrect(expected: item.text, typed: typed) { right += 1 }
+        let ok = Dictation.isCorrect(expected: item.text, typed: typed)
+        if ok { right += 1 }
+        context.insert(ListeningAttempt(wordKey: item.key, mode: mode == .words ? "word" : "sentence",
+                                        correct: ok, hinted: hinted))
+        try? context.save()
+        levelNote = nil
+        switch tuner.record(id: item.key, correct: ok, hinted: hinted) {
+        case .easier: levelNote = "Easing off a little"
+        case .harder: levelNote = "Stepping it up"
+        case nil: break
+        }
     }
 
     func next() {
         index += 1
+        if index >= round.count { addNext() }
         reset()
     }
 
     func reset() {
-        typed = ""; result = nil
-        focused = true
+        typed = ""; result = nil; hinted = false
+        // A moment later: the field is still disabled in this same update.
+        Task { @MainActor in try? await Task.sleep(for: .milliseconds(60)); focused = true }
         // Play the new one straight away.
         if let item = current {
             Task { try? await Task.sleep(for: .milliseconds(300)); Speaker.shared.say(item.text) }

@@ -44,6 +44,14 @@ import Testing
         #expect(Dictation.compare(expected: "das Buch", typed: "das das Buch").allSatisfy { $0.ok })
     }
 
+    @Test func listeningLevels() {
+        #expect(Dictation.level(of: "das Buch", sentence: false) == 1)
+        #expect(Dictation.level(of: "die Hoffnung", sentence: false) == 2)
+        #expect(Dictation.level(of: "die Weichenstörung", sentence: false) == 3)
+        #expect(Dictation.level(of: "Er kam spät.", sentence: true) == 1)
+        #expect(Dictation.level(of: "Ich habe immer noch die Hoffnung diesen Arbeitsplatz zu bekommen.", sentence: true) == 2)
+    }
+
     @Test func missingArticleIsWrong() {
         #expect(!Dictation.isCorrect(expected: "die Hoffnung", typed: "Hoffnung"))
     }
@@ -91,5 +99,11 @@ import Testing
         #expect(s.streak(at: at(19, 22), calendar: cal).days == 4 && s.streak(at: at(19, 22), calendar: cal).practicedToday)
         #expect(s.streak(at: at(20, 9), calendar: cal).days == 4)
         #expect(s.streak(at: at(21, 9), calendar: cal).days == 0)
+    }
+
+    @Test func backupsFromBeforeHintsStillRead() throws {
+        let old = #"{"app":"Wort","version":1,"exportedAt":"2026-11-19T00:00:00Z","words":[{"german":"das Buch","lemma":"Buch","partOfSpeech":"noun","english":"book","source":"manual","addedAt":"2026-11-19T00:00:00Z","reviews":[{"drill":"meaning","rating":"good","at":"2026-11-19T00:00:00Z"}]}],"grammar":[{"item":"cases:c01","topic":"cases","correct":true,"at":"2026-11-19T00:00:00Z"}],"readings":[]}"#
+        let file = try Backup.decode(Data(old.utf8))
+        #expect(file.words[0].reviews[0].hinted == nil && file.listening == nil)
     }
 }

@@ -32,7 +32,11 @@ public enum Backup {
         public var drill: String
         public var rating: String
         public var at: Date
-        public init(drill: String, rating: String, at: Date) { self.drill = drill; self.rating = rating; self.at = at }
+        /// Optional, so backups from before hints still read.
+        public var hinted: Bool?
+        public init(drill: String, rating: String, at: Date, hinted: Bool? = nil) {
+            self.drill = drill; self.rating = rating; self.at = at; self.hinted = hinted
+        }
     }
 
     public struct GrammarRecord: Codable, Equatable, Sendable {
@@ -40,8 +44,20 @@ public enum Backup {
         public var topic: String
         public var correct: Bool
         public var at: Date
-        public init(item: String, topic: String, correct: Bool, at: Date) {
-            self.item = item; self.topic = topic; self.correct = correct; self.at = at
+        public var hinted: Bool?
+        public init(item: String, topic: String, correct: Bool, at: Date, hinted: Bool? = nil) {
+            self.item = item; self.topic = topic; self.correct = correct; self.at = at; self.hinted = hinted
+        }
+    }
+
+    public struct ListeningRecord: Codable, Equatable, Sendable {
+        public var word: String
+        public var mode: String
+        public var correct: Bool
+        public var hinted: Bool
+        public var at: Date
+        public init(word: String, mode: String, correct: Bool, hinted: Bool, at: Date) {
+            self.word = word; self.mode = mode; self.correct = correct; self.hinted = hinted; self.at = at
         }
     }
 
@@ -59,8 +75,11 @@ public enum Backup {
         public var words: [WordRecord]
         public var grammar: [GrammarRecord]
         public var readings: [ReadingRecord]
-        public init(exportedAt: Date, words: [WordRecord], grammar: [GrammarRecord], readings: [ReadingRecord]) {
+        public var listening: [ListeningRecord]?
+        public init(exportedAt: Date, words: [WordRecord], grammar: [GrammarRecord], readings: [ReadingRecord],
+                    listening: [ListeningRecord]? = nil) {
             self.exportedAt = exportedAt; self.words = words; self.grammar = grammar; self.readings = readings
+            self.listening = listening
         }
     }
 

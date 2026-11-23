@@ -12,13 +12,22 @@ enum WidgetBridge {
         let dueDates = Array(reviewed.map(\.due).sorted().prefix(2000))
         let now = Date.now
         let newToday = Queue.next(context: context, now: now).filter(\.isNew).count
-        let reviews = (try? context.fetch(FetchDescriptor<Review>())) ?? []
-        let attempts = (try? context.fetch(FetchDescriptor<GrammarAttempt>())) ?? []
-        let streak = Streak.summary(reviews.map(\.at) + attempts.map(\.at), today: now)
+        let streak = Streak.summary(Activity.dates(context: context), today: now)
         let snapshot = WidgetSnapshot(dueDates: dueDates, newToday: newToday, streak: streak.current,
                                       practicedToday: streak.practicedToday, updatedAt: now)
         guard let data = snapshot.encoded(), let defaults = UserDefaults(suiteName: AppGroup.id) else { return }
         defaults.set(data, forKey: WidgetSnapshot.key)
         WidgetCenter.shared.reloadAllTimelines()
+    }
+}
+
+/// Every answer's time: vocab reviews, grammar and listening, for the streak.
+@MainActor
+enum Activity {
+    static func dates(context: ModelContext) -> [Date] {
+        let reviews = (try? context.fetch(FetchDescriptor<Review>())) ?? []
+        let attempts = (try? context.fetch(FetchDescriptor<GrammarAttempt>())) ?? []
+        let listening = (try? context.fetch(FetchDescriptor<ListeningAttempt>())) ?? []
+        return reviews.map(\.at) + attempts.map(\.at) + listening.map(\.at)
     }
 }

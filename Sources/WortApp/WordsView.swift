@@ -90,13 +90,25 @@ struct WordDetailView: View {
                 TextField("German sentence", text: optional($word.exampleGerman), axis: .vertical)
                 TextField("English", text: optional($word.exampleEnglish), axis: .vertical)
             }
-            Section("Drills") {
+            Section {
                 ForEach((word.cards ?? []).sorted { $0.kindRaw < $1.kindRaw }) { card in
-                    LabeledContent(card.kind.title) {
-                        Text(card.isNew ? "new" : "due \(card.due.formatted(.relative(presentation: .named)))")
-                            .foregroundStyle(.secondary)
+                    VStack(alignment: .leading, spacing: 2) {
+                        LabeledContent(card.kind.title) {
+                            Text(card.isNew ? "new" : "due \(card.due.formatted(.relative(presentation: .named)))")
+                                .foregroundStyle(.secondary)
+                        }
+                        if let stats = PracticeStats(card.reviews ?? []) {
+                            Text(stats.line).font(.caption).foregroundStyle(stats.hintRate >= 0.5 ? .orange : .secondary)
+                        }
                     }
                 }
+                if let listening = listeningStats {
+                    LabeledContent("Listening") { Text(listening).foregroundStyle(.secondary) }
+                }
+            } header: {
+                Text("Drills")
+            } footer: {
+                Text("A hint lowers how much an answer counts, so a word you often need hints for comes back sooner.")
             }
             Section {
                 Button("Say it", systemImage: "speaker.wave.2") { Speaker.shared.say(word.display) }
@@ -112,8 +124,39 @@ struct WordDetailView: View {
         }
     }
 
+    var listeningStats: String? {
+        let key = word.key
+        let attempts = (try? context.fetch(FetchDescriptor<ListeningAttempt>(predicate: #Predicate { $0.wordKey == key }))) ?? []
+        guard !attempts.isEmpty else { return nil }
+        let right = attempts.filter(\.correct).count, hints = attempts.filter(\.hinted).count
+        return "\(right) of \(attempts.count) right" + (hints > 0 ? ", \(hints) with a hint" : "")
+    }
+
     /// A text field for an optional string: empty means nil.
     func optional(_ b: Binding<String?>) -> Binding<String> {
         Binding(get: { b.wrappedValue ?? "" }, set: { b.wrappedValue = $0.isEmpty ? nil : $0 })
+    }
+}
+
+/// How a drill has gone: answers, misses, hints.
+struct PracticeStats {
+    let answers: Int
+    let misses: Int
+    let hints: Int
+
+    init?(_ reviews: [Review]) {
+        guard !reviews.isEmpty else { return nil }
+        answers = reviews.count
+        misses = reviews.filter { $0.ratingRaw == Rating.again.rawValue }.count
+        hints = reviews.filter(\.hinted).count
+    }
+
+    var hintRate: Double { Double(hints) / Double(answers) }
+
+    var line: String {
+        var parts = ["\(answers) \(answers == 1 ? "answer" : "answers")"]
+        if misses > 0 { parts.append("\(misses) missed") }
+        if hints > 0 { parts.append("hint \(hints)×") }
+        return parts.joined(separator: " · ")
     }
 }

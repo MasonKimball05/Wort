@@ -2,8 +2,8 @@ import SwiftData
 import SwiftUI
 import WortCore
 
-/// Days in a row, and a calendar of the last 16 weeks. Counts vocab reviews and
-/// grammar answers (listening practice isn't logged, so it doesn't count).
+/// Days in a row, and a calendar of the last 16 weeks. Counts vocab reviews,
+/// grammar answers and listening.
 struct StreakView: View {
     @Environment(\.dismiss) private var dismiss
     let summary: Streak.Summary

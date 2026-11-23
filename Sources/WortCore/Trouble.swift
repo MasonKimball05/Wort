@@ -8,17 +8,24 @@ public enum Trouble {
     public struct Result: Equatable, Sendable {
         public var correct: Bool
         public var at: Date
-        public init(correct: Bool, at: Date) {
+        /// Right, but with a hint: not a miss, but not a clean answer either.
+        public var hinted: Bool
+        public init(correct: Bool, at: Date, hinted: Bool = false) {
             self.correct = correct
             self.at = at
+            self.hinted = hinted
         }
+        var clean: Bool { correct && !hinted }
     }
 
     public struct Summary: Equatable, Sendable {
         /// Misses among the recent answers (the last `window`).
         public var misses: Int
+        /// Right answers that needed a hint, among the recent ones.
+        public var hints: Int = 0
         /// How many recent answers that's out of.
         public var recent: Int
+        /// The last miss or hinted answer.
         public var lastMissed: Date
     }
 
@@ -35,18 +42,21 @@ public enum Trouble {
         guard let last = sorted.last else { return nil }
         let recent = sorted.suffix(window)
         let misses = recent.filter { !$0.correct }.count
-        guard misses > 0, let lastMissed = recent.last(where: { !$0.correct })?.at else { return nil }
-        let streak = sorted.reversed().prefix { $0.correct }.count
+        let hints = recent.filter { $0.correct && $0.hinted }.count
+        guard misses + hints > 0, let lastMissed = recent.last(where: { !$0.clean })?.at else { return nil }
+        // Only clean answers clear a trouble spot: leaning on hints keeps it.
+        let streak = sorted.reversed().prefix { $0.clean }.count
         let lastWrong = !last.correct && sorted.count > 1
-        guard lastWrong || (misses >= 2 && streak < 3) else { return nil }
-        return Summary(misses: misses, recent: recent.count, lastMissed: lastMissed)
+        guard lastWrong || (misses + hints >= 2 && streak < 3) else { return nil }
+        return Summary(misses: misses, hints: hints, recent: recent.count, lastMissed: lastMissed)
     }
 
     /// Worst first: more recent misses, then the most recently missed.
     public static func ranked<ID>(_ items: [ID: [Result]]) -> [(id: ID, summary: Summary)] {
         items.compactMap { id, results in summarize(results).map { (id: id, summary: $0) } }
             .sorted { a, b in
-                if a.summary.misses != b.summary.misses { return a.summary.misses > b.summary.misses }
+                let wa = 2 * a.summary.misses + a.summary.hints, wb = 2 * b.summary.misses + b.summary.hints
+                if wa != wb { return wa > wb }
                 return a.summary.lastMissed > b.summary.lastMissed
             }
     }
